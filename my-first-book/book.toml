@@ -1,0 +1,12 @@
+[book]
+authors = ["satake"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Rustの入門コース"
+
+
+[output.html.playground]
+editable = true
+
+
