@@ -1,0 +1,367 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>enum - Rustの入門コース</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../chapter1/chapter_1.html"><strong aria-hidden="true">1.</strong> はじめ</a></li><li class="chapter-item expanded "><a href="../chapter2/chapter_2.html"><strong aria-hidden="true">2.</strong> 基本</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter2/chapter_2_1.html"><strong aria-hidden="true">2.1.</strong> 変数</a></li><li class="chapter-item expanded "><a href="../chapter2/chapter_2_2.html"><strong aria-hidden="true">2.2.</strong> 型</a></li><li class="chapter-item expanded "><a href="../chapter2/chapter_2_3.html"><strong aria-hidden="true">2.3.</strong> 演算</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter3/chapter_3.html"><strong aria-hidden="true">3.</strong> 便利なもの</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter3/chapter_3_1.html"><strong aria-hidden="true">3.1.</strong> 条件式</a></li><li class="chapter-item expanded "><a href="../chapter3/chapter_3_2.html"><strong aria-hidden="true">3.2.</strong> ループ</a></li><li class="chapter-item expanded "><a href="../chapter3/chapter_3_3.html"><strong aria-hidden="true">3.3.</strong> 関数</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter4/chapter_4.html"><strong aria-hidden="true">4.</strong> 所有権</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter4/chapter_4_1.html"><strong aria-hidden="true">4.1.</strong> 所有権</a></li><li class="chapter-item expanded "><a href="../chapter4/chapter_4_2.html"><strong aria-hidden="true">4.2.</strong> スライス</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter5/chapter_5.html"><strong aria-hidden="true">5.</strong> 構造体</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter5/chapter_5_1.html"><strong aria-hidden="true">5.1.</strong> 構造体</a></li><li class="chapter-item expanded "><a href="../chapter5/chapter_5_2.html"><strong aria-hidden="true">5.2.</strong> メソッド</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter6/chapter_6.html"><strong aria-hidden="true">6.</strong> 列挙型</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter6/chapter_6_1.html" class="active"><strong aria-hidden="true">6.1.</strong> enum</a></li><li class="chapter-item expanded "><a href="../chapter6/chapter_6_2.html"><strong aria-hidden="true">6.2.</strong> match式</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter7/chapter_7.html"><strong aria-hidden="true">7.</strong> パッケージ　モジュール　クレート</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter7/chapter_7_1.html"><strong aria-hidden="true">7.1.</strong> パッケージとクレート</a></li><li class="chapter-item expanded "><a href="../chapter7/chapter_7_2.html"><strong aria-hidden="true">7.2.</strong> モジュールとuse</a></li></ol></li><li class="chapter-item expanded "><a href="../chapterA/chapter_A.html"><strong aria-hidden="true">8.</strong> おまけ</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rustの入門コース</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="chapter-61-列挙体"><a class="header" href="#chapter-61-列挙体">chapter 6.1 列挙体</a></h1>
+<blockquote>
+<p>このチャプターのコードは<a href="https://doc.rust-jp.rs/book-ja/ch06-01-defining-an-enum.html">The Rust Programming Language 6.1. Enumを定義する</a>から引用しています</p>
+</blockquote>
+<p>enumは同じものとして扱うべきだが異なる一つの値を取る際に有効です。例えば、IPアドレスが挙げられます。現在のバージョンとしてバージョン4と6がありますが、この値を扱う際には同時に両方の値は使いません。しかしIPアドレス全体に何か処理を行う際には同じ型として扱う必要があります。この扱いができる点が構造体よりも良い点です。</p>
+<p>列挙型を定義してみましょう。定義する際には<code>enum</code>キーワードを使います。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum IpAddr{
+    V4,
+    V6,
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>ここでV4やV6を列挙子と言います。このそれぞれの列挙子の先頭は大文字にし、<code>-</code>などは使えないので注意しましょう。具体的に使えないものはenumを使用していきながら覚えていきましょう。</p>
+<p>enumは構造体同様に独自の型(今回は<code>IpAddr</code>型)になり、関数の引数などにも使うことができます。上のコードの定義の仕方だとどんな種類かがわかるがデータを保持していないので構造体などを使用してenumの列挙子と値を紐づける必要があります。enumのみで値と紐付ける方法を下記に示します。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    enum IpAddr{
+        V4(String),
+        V6(String),  
+    }
+
+    let data1 = IpAddr::V4(String::from(&quot;127.0.0.1&quot;));
+    let data2 = IpAddr::V6(String::from(&quot;11・・11&quot;));//アドレスを省略しています
+
+}
+</code></pre></pre>
+<p><code>IpAddr::V4</code>のようにして列挙子のインスタンスを生成しています。このようにすることでenumの各列挙子と値を紐づけることができます。</p>
+<p>また構造体と違う点としてenumは常に同じ型とデータの量を持つ必要はありません。</p>
+<pre><pre class="playground"><code class="language-rust">struct User{
+        username: String,
+        email: String,
+        age: u32,
+}
+
+enum IpAddr{
+    V4(u8,u8,u8,u8),
+    V6(String),
+}
+fn main(){
+    let user1 = User{
+        username: String::from(&quot;user1&quot;),
+        email: String::from(&quot;user1@example.com&quot;),
+        age: 29,
+    };//インスタンスを生成する際には必ずこの三つのフィールドを使用する
+    
+    let data1 = IpAddr::V4(127,0,0,1);
+    let data2 = IpAddr::V6(String;;from(&quot;11・・11&quot;));
+    //data1とdata2は同じIpAddr型であるがインスタンスを生成する際に違う値を使用している
+}
+</code></pre></pre>
+<p>このコードに注目してください。<code>User</code>型のインスタンスは<code>username email age</code>の値をそれぞれ必ず持つ必要がありますが<code>IpAddr</code>型のインスタンスはV4とV6のどちらを扱うかによって紐づけるデータの型などが異なります。このようにenumでは同じ独自の型の中でも取る値に違いを出すことができます。 </p>
+<p>構造体とenumを組み合わせることで有効的に使うことができます。</p>
+<pre><pre class="playground"><code class="language-rust">struct IpV4Addr{
+    //省略
+}
+
+struct IpV6Addr{
+    //省略
+}
+
+enum IpAddr{
+    V4(IpV4Addr),
+    V6(IpV6Addr),
+}
+
+fn main(){
+    //省略
+}
+</code></pre></pre>
+<p>このようにすることで各列挙子に対して複数の種類のデータを格納することができます。実際にこれは標準のライブラリでこのように定義されています。標準のライブラリを自分のプログラム内で使えるようにすると自分自身で独自に標準ライブラリと同じもの(<code>IpAddr</code>など)を定義できないので注意しましょう。</p>
+<p>enumの利点として複数の種類のデータを取れることで構造体よりも簡潔に書くことができます。複数の構造体を列挙子として一つにすることで独自の型が一つで済みますが構造体にすると列挙子一つに対して一つの構造体を作成する必要があります。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    enum Message {
+        Quit, //何も値を取らない(正確には`()`をとる)
+        Move { x: i32, y: i32 },//構造体
+        Write(String),//String
+        ChangeColor(i32, i32, i32),//タプル構造体
+    } 
+
+    struct QuitMessage; 
+    struct MoveMessage {
+        x: i32,
+        y: i32,
+    }
+    struct WriteMessage(String); 
+    struct ChangeColorMessage(i32, i32, i32);
+
+}
+</code></pre></pre>
+<p>このようにenumと構造体でそれぞれ同じものを作るとこのようになります。<code>Messege</code>型でいずれかの値を扱う関数を作成する際には<code>Messege</code>型を受け取るか構造体一つ一つを受け取るのではコードの簡単さが違います。</p>
+<p>構造体とenumで似たところもあります。構造体のようにメソッドを定義することができます。</p>
+<pre><code class="language-rust noplayground">
+fn main() {
+    enum Message {
+        Quit,
+        Move { x: i32, y: i32 },
+        Write(String),
+        ChangeColor(i32, i32, i32),
+    }
+
+    impl Message {
+        fn call(&amp;self) {
+            // メソッド本体はここに定義される
+        }
+    }
+
+    let m = Message::Write(String::from(&quot;hello&quot;));
+    m.call();
+}
+</code></pre>
+<p>構造体と同様に<code>impl</code>キーワードを用いてメソッドを定義します。また引数も第一引数は<code>self</code>です。このコードでは<code>m</code>がメソッドを呼んでいるのでmの中身がselfが表す値になります。</p>
+<br>
+<br>
+<p>enumに関連して少し便利なものについて紹介します。</p>
+<p>enumの<code>Option</code>型というものについてです。</p>
+<pre><code class="language-rust noplayground">enum Option&lt;T&gt; {
+    Some(T),
+    None,
+}
+</code></pre>
+<p>このように定義されているもので有益すぎて最初から含まれており明示的に導入する必要がありません。また<code>Some</code>や<code>None</code>も明示的に導入する必要がなく、つまり<code>Option::</code>という接頭辞なしで使用することができます。</p>
+<p><code>Option</code>型は他言語でいう<code>null</code>と同じように使われるもので変数が<code>null</code>(値がないという状態)かそれ以外(1など値がある状態)のどちらかであると他言語では決められています。これは現在無効であったり存在しないを表現したいときに使います。しかしこの<code>null</code>の問題として<code>null</code>の値を何か値を持っているかのように使用するとエラーが出ることです。</p>
+<p>先程の<code>Option</code>が<code>null</code>と似たような働きをします。<code>&lt;T&gt;</code>というのはこのコースでは扱わないものですが<code>&lt;T&gt;</code>は<code>Some</code>列挙子があらゆる型のデータを一つ持つことを意味します。</p>
+<pre><code class="language-rust noplayground">let some_num = Some(5);
+let some_str = Some(&quot;hello&quot;);
+
+let no_num: Option&lt;u32&gt; = None;
+</code></pre>
+<p>このように使用することができます。<code>None</code>を使用する時はその変数が<code>Option</code> 型の何になるかを明示する必要があります。これは<code>null</code>と何が違うのでしょうか？</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let x: u32 = 5;
+    let y: Option&lt;u32&gt; = Some(5);
+
+    println!(&quot;x+yの値は{}&quot;,x+y);
+}
+</code></pre></pre>
+<p>これを実行するとわかるのですがxとyの型が異なるので計算をさしてもらえません。他言語のように<code>null</code>の際に計算さしてもらえず、<code>Option&lt;u32&gt;</code>を扱うと値が存在しない可能性があるのでコンパイラが弾くようになっています。なので実際に計算するためには<code>None</code>である場合の処理と<code>Some(T)</code>のT型の値を取り出し計算する処理が必要になります。</p>
+<p>なので列挙子それぞれに対してコードの選択ができる<code>match</code>式が有効になってきます。この<code>match</code>式は普通のenumを扱う上でも重要になります。</p>
+<p>enumは構造体と同じように<code>.</code>を使って列挙子に紐づけられた値を扱うことができません。<code>{:?}</code>のようにして<code>Debug</code>の出力の形にすればenumのインスタンスの中身を見ることはできます。enumのインスタンスに紐づけられた値を処理に使いたい時にも<code>match</code>式を扱うことでうまく扱うことができます。</p>
+<p>構造体とenumの類似点</p>
+<ul>
+<li>メソッドの定義ができる</li>
+<li>作成した独自の型になる</li>
+<li>mutをつけることで値は変更可能</li>
+</ul>
+<p>構造体とenumの異なる点</p>
+<ul>
+<li>enumは列挙子ごとに値を設定する　構造体は全てのフィールドの値を設定する必要がある</li>
+<li>構造体はドット記法で値を扱うことができる</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapter6/chapter_6.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../chapter6/chapter_6_2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapter6/chapter_6.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../chapter6/chapter_6_2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
