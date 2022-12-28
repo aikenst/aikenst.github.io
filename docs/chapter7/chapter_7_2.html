@@ -1,0 +1,524 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>モジュールとuse - Rustの入門コース</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../chapter1/chapter_1.html"><strong aria-hidden="true">1.</strong> はじめ</a></li><li class="chapter-item expanded "><a href="../chapter2/chapter_2.html"><strong aria-hidden="true">2.</strong> 基本</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter2/chapter_2_1.html"><strong aria-hidden="true">2.1.</strong> 変数</a></li><li class="chapter-item expanded "><a href="../chapter2/chapter_2_2.html"><strong aria-hidden="true">2.2.</strong> 型</a></li><li class="chapter-item expanded "><a href="../chapter2/chapter_2_3.html"><strong aria-hidden="true">2.3.</strong> 演算</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter3/chapter_3.html"><strong aria-hidden="true">3.</strong> 便利なもの</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter3/chapter_3_1.html"><strong aria-hidden="true">3.1.</strong> 条件式</a></li><li class="chapter-item expanded "><a href="../chapter3/chapter_3_2.html"><strong aria-hidden="true">3.2.</strong> ループ</a></li><li class="chapter-item expanded "><a href="../chapter3/chapter_3_3.html"><strong aria-hidden="true">3.3.</strong> 関数</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter4/chapter_4.html"><strong aria-hidden="true">4.</strong> 所有権</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter4/chapter_4_1.html"><strong aria-hidden="true">4.1.</strong> 所有権</a></li><li class="chapter-item expanded "><a href="../chapter4/chapter_4_2.html"><strong aria-hidden="true">4.2.</strong> スライス</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter5/chapter_5.html"><strong aria-hidden="true">5.</strong> 構造体</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter5/chapter_5_1.html"><strong aria-hidden="true">5.1.</strong> 構造体</a></li><li class="chapter-item expanded "><a href="../chapter5/chapter_5_2.html"><strong aria-hidden="true">5.2.</strong> メソッド</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter6/chapter_6.html"><strong aria-hidden="true">6.</strong> 列挙型</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter6/chapter_6_1.html"><strong aria-hidden="true">6.1.</strong> enum</a></li><li class="chapter-item expanded "><a href="../chapter6/chapter_6_2.html"><strong aria-hidden="true">6.2.</strong> match式</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter7/chapter_7.html"><strong aria-hidden="true">7.</strong> パッケージ　モジュール　クレート</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter7/chapter_7_1.html"><strong aria-hidden="true">7.1.</strong> パッケージとクレート</a></li><li class="chapter-item expanded "><a href="../chapter7/chapter_7_2.html" class="active"><strong aria-hidden="true">7.2.</strong> モジュールとuse</a></li></ol></li><li class="chapter-item expanded "><a href="../chapterA/chapter_A.html"><strong aria-hidden="true">8.</strong> おまけ</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rustの入門コース</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="chapter-72-モジュールとuse"><a class="header" href="#chapter-72-モジュールとuse">chapter 7.2 モジュールとuse</a></h1>
+<p>モジュールは関数、構造体や他のモジュールなどの要素の集合です。モジュールはクレート内のコードをグループ化し可読性と再利用性を上げるのに役立ちます。</p>
+<p>モジュールは要素の<strong>プライバシー</strong>を制御することできます。プライバシーとは要素がコードの外側で使える<strong>公開(public)</strong> か内部の実装の詳細であり外部で使えない<strong>非公開(private)</strong> の二種類の状態のことです。Rustでは標準であらゆる要素(モジュールやその中の関数　構造体　モジュールなどの要素)は非公開の状態です。これはパスを説明する際に出てきます。</p>
+<p>バレーボールの試合を例にして考えてみましょう。選手(<code>player</code>)と審判(<code>referee</code>)がいます。選手は攻撃と守備に別れ、それぞれレシーブやアタックなどをします。審判は得点の加算やアウトの判定などを行います。これをモジュールで表してみましょう。モジュールの定義は<code>mod 名前</code>で定義されます。</p>
+<pre><code class="language-rust noplayground">mod player {
+    mod attacker {
+        fn receive() {
+            //省略
+        }
+
+        fn toss (){
+            //省略
+        }
+
+        fn attack (){
+            //省略
+        }
+    }
+
+    mod blocker {
+        fn block() {
+            //省略
+        }
+        
+        fn through() {
+            //省略
+        }
+
+        fn receive() {
+            //省略
+        }
+
+    }
+}
+
+mod referee {
+    //省略
+
+}
+</code></pre>
+<p>モジュールの中に<code>attacker</code>や<code>blocker</code>のように他のモジュールを定義することができます。他にも関数や構造体などの要素を置くことができます。</p>
+<p><code>src/main.rs</code>や<code>src/lib.rs</code>はクレートルートと呼ばれると言いました。この名前は<strong>モジュールツリー</strong>と呼ばれるクレートのモジュール構造の根っこ(ルート)にこれら2つのファイルの中身が<code>crate</code>というモジュールを形成するためです。モジュールツリーを下に示します。</p>
+<p><img src="../img/%E3%83%84%E3%83%AA%E3%83%BC.png" alt="モジュールツリー" /></p>
+<p>このツリーを見るとどのモジュールが親子の関係なのかや兄弟の関係であるのかがすぐにわかります。例えば<code>crate</code>は全ての親であるし、<code>attacker</code>は<code>player</code>の子であることがわかります。また<code>referee</code>を省略していますが<code>player</code>と<code>referee</code>や<code>attacker</code>と<code>blocker</code>が兄弟の関係になります。この関係を理解することでこの後に紹介するパスについて理解しやすくなります。</p>
+<p>Rustにモジュールツリー内の要素を見つけるためにどこを探せばいいのかというのを教えるために<strong>パス</strong>を使います。パスには二つの形があります。</p>
+<ul>
+<li><strong>絶対パス</strong>：クレートの名前か<code>crate</code>という文字列を使用し、クレートルートからたどっていく</li>
+<li><strong>相対パス</strong>：<code>self</code>や<code>super</code>または今のモジュールの識別子を使い、現在のモジュールからたどっていく</li>
+</ul>
+<p>パスはそれぞれの識別子を<code>::</code>で区切って書きます。上のコードで新しい関数を作成しそこで<code>attack</code>関数を呼び出す例を見てみましょう。必要な部分をのみで他の部分は省略しています。ただ下のコードではパスの使い方はあっているのですがエラーになる理由は後ほど説明します。</p>
+<pre><pre class="playground"><code class="language-rust">mod player {
+    mod attacker {
+        fn attack(){
+            println!(&quot;アタック！！&quot;);
+        }
+    }
+}
+
+mod referee {
+    fn judge(){
+        //絶対パス
+        crate::player::attacker::attack();
+        println!(&quot;イン！！&quot;);
+
+        //相対パス
+        super::player::attacker::attack();//superは後ほど説明
+        println!(&quot;アウト！！&quot;);
+    }
+}
+fn main() {
+    referee::judge();//相対パス
+}
+</code></pre></pre>
+<p>このように絶対パスでは<code>crate</code>かクレート名で初め、そこから目的のものまでモジュールを<code>::</code>で分けて書いていきます。一方で相対パスでは呼び出している場所からスタートします。ここで<code>judge</code>関数は<code>referee</code>モジュール内なので一度<code>referee</code>モジュールと同じ階層に行く必要があります。そのために<code>super</code>を使用しています。そこから<code>player</code>モジュールの下を順番にパスで繋いで行きます。</p>
+<p>では先程のコードのエラーの原因を見てみましょう。これはモジュールの説明の際に出てきたプライバシーに関するエラーです。エラーを読むと<code>attacker</code>が<code>private</code>(非公開)の状態なのでエラーになっています。これを公開にするためには<code>pub</code>キーワードを使用することで公開することができます。</p>
+<pre><pre class="playground"><code class="language-rust">mod player {
+    pub mod attacker {
+        fn attack(){
+            println!(&quot;アタック！！&quot;);
+        }
+    }
+}
+
+mod referee {
+    fn judge(){
+        //絶対パス
+        crate::player::attacker::attack();
+        println!(&quot;イン！！&quot;);
+
+        //相対パス
+        super::player::attacker::attack();
+        println!(&quot;アウト！！&quot;);
+    }
+}
+
+fn main() {
+    referee::judge();
+}
+</code></pre></pre>
+<p>エラーの内容通り<code>pub</code>を<code>attacker</code>につけ公開しました。しかしこれもエラーになってしまいます。このコードは<code>player</code>モジュールの中身の<code>attacker</code>と<code>blocker</code>の内、<code>attacker</code>モジュールが公開されただけなのです。つまりまだ<code>attacker</code>モジュールの中身を公開していないのです。エラーの内容も<code>attack</code>が<code>private</code>というエラーです。同様に<code>judge</code>にも<code>pub</code>をつける必要があります。</p>
+<pre><pre class="playground"><code class="language-rust">mod player {
+    pub mod attacker {
+        pub fn attack(){
+            println!(&quot;アタック！！&quot;);
+        }
+    }
+}
+
+mod referee {
+    pub fn judge(){
+        //絶対パス
+        crate::player::attacker::attack();
+        println!(&quot;イン！！&quot;);
+
+        //相対パス
+        super::player::attacker::attack();
+        println!(&quot;アウト！！&quot;);
+    }
+}
+
+fn main() {
+    referee::judge();
+}
+</code></pre></pre>
+<p>相対パスにおいて<code>player</code>モジュールを公開していないのに<code>referee</code>モジュールから参照できるのは何故なんでしょうか？これは同じクレート内で<code>player</code>モジュールと<code>referee</code>モジュールが兄弟の関係なので<code>referee</code>から<code>player</code>を参照することができます(<code>player</code>を公開する必要がない)。それ以降は今まで説明してきたものになります。</p>
+<h3 id="相対パスをsuperで始める"><a class="header" href="#相対パスをsuperで始める">相対パスをsuperで始める</a></h3>
+<p>相対パスにおいて親モジュールからスタートしたい際に<code>super</code>というキーワードを使います。</p>
+<pre><code class="language-rust noplayground">mod player {
+    pub mod attacker {
+        pub fn attack(){
+            println!(&quot;アタック！！&quot;);
+        }
+    }
+}
+
+mod referee {
+    pub fn judge(){
+        //絶対パス
+        crate::player::attacker::attack();
+        println!(&quot;イン！！&quot;);
+
+        //相対パス
+        super::player::attacker::attack();
+        println!(&quot;アウト！！&quot;);
+    }
+}
+
+</code></pre>
+<p>このコードでは<code>judge</code>関数で<code>attack</code>関数を呼び出そうとしています。相対パスで呼び出そうとするためには<code>judge</code>関数の親モジュール<code>referee</code>モジュールから兄弟の関係の<code>player</code>モジュールに行き<code>attacker</code>モジュール <code>attack</code>関数へ行く必要があります。この<code>judge</code>関数の親モジュール<code>referee</code>モジュールを指定する際に<code>super</code>を使います。</p>
+<h3 id="構造体とenum"><a class="header" href="#構造体とenum">構造体とenum</a></h3>
+<p>構造体やenumも<code>pub</code>を使うことで公開されますがそれぞれ少し異なる動きをします。構造体を公開するとモジュールと同様に中身のフィールドは公開されません。なので公開したいフィールドはそれぞれ設定する必要があります。一方でenumは公開すると中の列挙子も全て公開されます。</p>
+<pre><pre class="playground"><code class="language-rust">mod menu {
+    pub struct Seasoncakeset {
+        pub drink: String,
+        season_cake: String,
+    }
+
+    impl Seasoncakeset {
+        pub fn winter(drink: &amp;str) -&gt; Seasoncakeset {
+            Seasoncakeset{
+                drink: String::from(drink),
+                season_cake: String::from(&quot;orangecake&quot;),
+            }
+        }
+    }
+}
+
+fn main(){
+    let mut order = menu::Seasoncakeset::winter(&quot;coffee&quot;);
+    
+    order.drink = String::from(&quot;tea&quot;);
+    //order.season_cake = String::from(&quot;strawberrycake&quot;);コメントを外すとエラーになる
+    //order.season_cakeを表示することもprivateなのでできない
+    println!(&quot;orderのドリンクは{}&quot;,order.drink);
+
+}
+</code></pre></pre>
+<h3 id="useキーワード"><a class="header" href="#useキーワード">useキーワード</a></h3>
+<p>これまでのパスは長く繰り返し書くには面倒なものでした。それを簡単にするのが<code>use</code>というキーワードです。<code>use</code>キーワードを使い、パスを一度スコープに持ち込むことでパス内の要素がローカルにあるかのように呼び出すことができます。このパスは絶対パスでも相対パスでも構いません。</p>
+<pre><pre class="playground"><code class="language-rust">mod player {
+    pub mod attacker {
+        pub fn attack(){
+            println!(&quot;アタック！！&quot;);
+        }
+    }
+}
+
+mod referee {
+    pub fn judge(){
+        //絶対パス
+        crate::player::attacker::attack();
+        println!(&quot;イン！！&quot;);
+
+        //相対パス
+        super::player::attacker::attack();
+        println!(&quot;アウト！！&quot;);
+    }
+}
+
+fn main() {
+    referee::judge();
+}
+</code></pre></pre>
+<p><code>use</code>を使いこれを簡単にしましょう。</p>
+<pre><pre class="playground"><code class="language-rust">mod player {
+    pub mod attacker {
+        pub fn attack() {
+            println!(&quot;アタック！！&quot;);
+        }
+    }
+}
+
+use crate::player::attacker;
+
+mod referee {
+    pub fn judge(){
+    
+        super::attacker::attack();
+        println!(&quot;イン！！&quot;);
+    }
+}
+
+fn main() {
+    referee::judge();
+}
+</code></pre></pre>
+<p><code>judge</code>関数内で<code>attack</code>関数を呼び出す際の違いを見てください。書く量が減っていると思います。これは<code>crate::player::attacker</code>モジュールをスコープに持ち込むことで<code>use</code>が書かれた階層と同じ階層に<code>attacker</code>モジュールがあるかのように扱うことができます。なので<code>super::attacker::attack</code>と指定することで<code>attack</code>関数を呼び出すことができます。スコープに<code>use</code>で持ち込まれたパスの要素も他のパスと同様にプライバシーがチェックされるので注意してください。</p>
+<p>また<code>use crate::player::attacker::attack</code>のようにすると呼び出す際には<code>attack()</code>だけで呼び出すことができますが自分がローカルで定義した関数かどうかがわからなくなるので基本的に親のモジュールまで<code>use</code>で持ち込みます。構造体やenumその他の要素は全て書いて持ち込みます。</p>
+<h3 id="二つの同じ名前の要素の持ち込み方"><a class="header" href="#二つの同じ名前の要素の持ち込み方">二つの同じ名前の要素の持ち込み方</a></h3>
+<p>同じ名前の二つの要素を<code>use</code>でスコープに持ち込むのはRustでは許されません。そこでそれを解消する方法が二つあります。一つ目は親モジュールを使う方法です。</p>
+<pre><pre class="playground"><code class="language-rust editable">use std::fmt;
+use std::io;
+
+fn function1() -&gt; fmt::Result{
+    //省略
+    Ok(())//Result型の戻り値です
+}
+
+fn function2() -&gt; io::Result&lt;()&gt; {
+    //省略
+    Ok(())
+}
+
+fn main(){
+
+}
+</code></pre></pre>
+<p>同じ<code>Result</code>型を持ち込んできた場合区別するために親モジュール(<code>fmt</code>や<code>io</code>)を使い区別します。これを消すとエラーになるので消して確認してみてください。</p>
+<p>二つ目の方法は<code>as</code>キーワードを使うことです。この<code>as</code>キーワードは新しいローカルの名前をつけることができます。</p>
+<pre><pre class="playground"><code class="language-rust">use std::fmt::Result;
+use std::io::Result as IoResult;
+
+fn function1() -&gt; Result{
+    //省略
+    Ok(())//Result型の戻り値です
+}
+
+fn function2() -&gt; IoResult&lt;()&gt; {
+    //省略
+    Ok(())
+}
+
+fn main(){
+
+}
+</code></pre></pre>
+<p>今回は<code>std::io::Result</code>に<code>IoResult</code>という新しい名前をつけています。このようにすることで名前が衝突することを防ぎます。</p>
+<h3 id="外部のパッケージを使う"><a class="header" href="#外部のパッケージを使う">外部のパッケージを使う</a></h3>
+<p>プログラムを書く上で乱数の生成するパッケージなど便利なものがすでに用意されています。このパッケージはモジュールなどを持ち込むように<code>use</code>キーワードを使い自分のスコープに持ち込めば使用することができます。自分のPC上にRustを構築し動かす場合は<code>Cargo.toml</code>というファイルに使いたいパッケージの情報を書き込み<code>use</code>で持ち込むことで使うことができます。このコース上で外部のパッケージを使いたい場合は<code>extern crate 名前</code>という行を追加する必要があります。これはこのコースの実行環境の問題で使っていますが実際にはほぼ使うことがなくなった記法です。このようにすることで外部クレートをスコープに持ってくることができます。</p>
+<pre><pre class="playground"><code class="language-rust">extern crate rand;
+use rand::Rng;
+
+fn main() {
+    let secret = rand::thread_rng().gen_range(1..101);
+    println!(&quot;{}&quot;,secret);
+}
+</code></pre></pre>
+<p>このコードを複数回実行してみてください。実行結果が毎回異なると思います。<code>rand</code>クレートの具体的な実装内容は必要があれば調べてみてください。</p>
+<p>今まで問題を解いていく際に自分で変数の値をコードに直接書き込んでいましたがライブラリを持ち込むことでユーザの入力をそのまま変数の値にすることができます。しかしこれはこのドキュメント上では扱えないので自分のPC上で行う際に行ってみてください。</p>
+<pre><code class="language-rust noplayground">use std::io;
+fn main(){
+    let mut inport = String::new();
+
+    io::stdin().read_line(&amp;mut inport).expect(&quot;failed&quot;);
+
+    println!(&quot;入力は{}&quot;,inport);
+}
+</code></pre>
+<p><code>std</code>ライブラリは標準ライブラリに含まれており、その中の<code>io</code>(入出力)ライブラリをスコープに持ち込むことでユーザの入出力を受け取ることができます。実際に<code>read_line</code>メソッドを使用し、変数(今回は<code>inport</code>)に格納しています。この<code>read_line</code>メソッドは文字列を追加する動きをするので可変な参照を渡す必要があります。<code>expect</code>メソッドは<code>read_line</code>メソッドが成功したかどうかを判断するために使用します。失敗した場合に中の文字列を表示させプログラムをそこで終了させます。</p>
+<h3 id="useする際の便利な記法"><a class="header" href="#useする際の便利な記法">useする際の便利な記法</a></h3>
+<p><code>use</code>をする際に同じモジュールから複数の要素を持ち込むときに一行一行書いていくのが面倒だと思います。これの代わりにネストしたパスを使うことで一行で複数の要素を持ち込むことができます。</p>
+<pre><code class="language-rust noplayground">/*
+今までの記法
+use std::cmp::Ordering;
+use std::io;
+use std::fmt;
+*/
+use std::{cmp::Ordering, io, fmt};
+
+</code></pre>
+<p>このようにすることで<code>use</code>文の数を減らすことができます。</p>
+<p>また公開されている要素全てをスコープに持ち込みたいときに<code>glob</code>演算子(<code>*</code>)を使うことで全て持ち込めます。しかしプログラムで使われている名前がどこで定義されたのかわかりづらくなるので注意してください。</p>
+<pre><pre class="playground"><code class="language-rust">mod player {
+    pub mod attacker {
+        pub fn attack(){
+            println!(&quot;アタック！！&quot;);
+        }
+    }
+
+    pub mod blocker {
+        pub fn block() {
+            println!(&quot;ブロック！！&quot;);
+        }
+    }
+}
+
+use crate::player::*;
+
+fn main(){
+    attacker::attack();
+    blocker::block();
+}
+</code></pre></pre>
+<p>このように<code>player</code>モジュールの下の公開されている要素全て扱うことができるようになります。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapter7/chapter_7_1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../chapterA/chapter_A.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapter7/chapter_7_1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../chapterA/chapter_A.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

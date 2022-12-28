@@ -1,0 +1,2850 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Rustの入門コース</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter1/chapter_1.html"><strong aria-hidden="true">1.</strong> はじめ</a></li><li class="chapter-item expanded "><a href="chapter2/chapter_2.html"><strong aria-hidden="true">2.</strong> 基本</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter2/chapter_2_1.html"><strong aria-hidden="true">2.1.</strong> 変数</a></li><li class="chapter-item expanded "><a href="chapter2/chapter_2_2.html"><strong aria-hidden="true">2.2.</strong> 型</a></li><li class="chapter-item expanded "><a href="chapter2/chapter_2_3.html"><strong aria-hidden="true">2.3.</strong> 演算</a></li></ol></li><li class="chapter-item expanded "><a href="chapter3/chapter_3.html"><strong aria-hidden="true">3.</strong> 便利なもの</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter3/chapter_3_1.html"><strong aria-hidden="true">3.1.</strong> 条件式</a></li><li class="chapter-item expanded "><a href="chapter3/chapter_3_2.html"><strong aria-hidden="true">3.2.</strong> ループ</a></li><li class="chapter-item expanded "><a href="chapter3/chapter_3_3.html"><strong aria-hidden="true">3.3.</strong> 関数</a></li></ol></li><li class="chapter-item expanded "><a href="chapter4/chapter_4.html"><strong aria-hidden="true">4.</strong> 所有権</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter4/chapter_4_1.html"><strong aria-hidden="true">4.1.</strong> 所有権</a></li><li class="chapter-item expanded "><a href="chapter4/chapter_4_2.html"><strong aria-hidden="true">4.2.</strong> スライス</a></li></ol></li><li class="chapter-item expanded "><a href="chapter5/chapter_5.html"><strong aria-hidden="true">5.</strong> 構造体</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter5/chapter_5_1.html"><strong aria-hidden="true">5.1.</strong> 構造体</a></li><li class="chapter-item expanded "><a href="chapter5/chapter_5_2.html"><strong aria-hidden="true">5.2.</strong> メソッド</a></li></ol></li><li class="chapter-item expanded "><a href="chapter6/chapter_6.html"><strong aria-hidden="true">6.</strong> 列挙型</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter6/chapter_6_1.html"><strong aria-hidden="true">6.1.</strong> enum</a></li><li class="chapter-item expanded "><a href="chapter6/chapter_6_2.html"><strong aria-hidden="true">6.2.</strong> match式</a></li></ol></li><li class="chapter-item expanded "><a href="chapter7/chapter_7.html"><strong aria-hidden="true">7.</strong> パッケージ　モジュール　クレート</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter7/chapter_7_1.html"><strong aria-hidden="true">7.1.</strong> パッケージとクレート</a></li><li class="chapter-item expanded "><a href="chapter7/chapter_7_2.html"><strong aria-hidden="true">7.2.</strong> モジュールとuse</a></li></ol></li><li class="chapter-item expanded "><a href="chapterA/chapter_A.html"><strong aria-hidden="true">8.</strong> おまけ</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rustの入門コース</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="chapter-1-はじめに"><a class="header" href="#chapter-1-はじめに">Chapter 1 はじめに</a></h1>
+<p>Rustはかなり広く活躍している言語になります。例えば組み込みのソフトウェア、検索エンジンのFirefoxやオンラインストレージサービスのDropboxなどで利用されています。なのでRustを習得することで幅広い場所で活躍できるでしょう。</p>
+<p>このドキュメントはプログラミングの経験がなくてもRustの基礎的なことを習得できるように目指しています。プログラムを書く上で最低限必要な内容としてパッケージ　モジュール　クレートまでの範囲にしています。公式のドキュメント<a href="https://doc.rust-jp.rs/book-ja/title-page.html">The Rust Programming Language</a>ではもっとステップアップした内容があるのでさらに学習したい際には活用してみてください。</p>
+<p>このドキュメントの進め方は読みながら問題を解いていくという形になっています。ですがRustの環境を自分のPC上に構築する必要はなく、このドキュメントに直接コードを書いて動かすという形で行えます。なので自分のPC上でRustを動かす時のコマンドなどは省略しています。そして一部のRustの機能はこのドキュメント上で動かすことができないのでその機能を扱いたい時には自分のPC上にRustの環境を構築する必要があります。使えない機能は説明はしますが一部(問題など)これが原因で少し違和感があるコードや問題になっていますがご了承ください。</p>
+<p>このドキュメントを使う上で出てくるアイコンなどについて説明します。</p>
+<pre><pre class="playground"><code class="language-rust editable">
+
+
+
+</code></pre></pre>
+<p>このような空白かコードが描かれたブロックが出てきます。説明する用のコードであったり、問題を解く際のコードを書く場所になっています。上のブロックにはコードが書けるようになっています。このブロックにカーソルを当ててもらうと右上にアイコンがいくつか出てくることがあります。</p>
+<p><img src="chapter1/../img/%E3%82%B3%E3%83%94%E3%83%BC.png" alt="コピー" /></p>
+<p>これはブロック内のコードがコピーされます。</p>
+<p><img src="chapter1/../img/%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88.png" alt="スタート" /></p>
+<p>これはブロック内のコードを実行してくれます。実行結果やエラーがある場合はコードのブロックの下に表示されます。</p>
+<p><img src="chapter1/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />
+<img src="chapter1/../img/%E9%9D%9E%E8%A1%A8%E7%A4%BA.png" alt="非表示" /></p>
+<p>これらは問題の解のために隠してあるコードなどを表示(非表示)します。</p>
+<h3 id="プログラムに触れてみよう"><a class="header" href="#プログラムに触れてみよう">プログラムに触れてみよう</a></h3>
+<p>まずどの言語においても最初に行うであろう<code>Hello world!</code>という文字列を出力していきましょう。</p>
+<pre><code class="language-rust noplayground">fn main() {
+
+}
+</code></pre>
+<p>まず最初に必要なものは<code>main</code>関数になります。この<code>main</code>関数は実行可能なRustのプログラム内で最初に走るコードになります。<code>main</code>の後についている<code>()</code>は引数を受け取る際に必要になり<code>{}</code>の中に実行したいコードを書きます。この<code>{}</code>を<strong>ブロック</strong>といいその中の範囲を<strong>スコープ</strong>と言います。とりあえず<code>()</code>は使わないのでおまじないのように書いておいてください。</p>
+<p>次に必要なものとしてこの<code>Hello world!</code>を出力する方法です。そのために必要なものとして<code>println!</code>というものがあります。<code>println!(&quot;&quot;);</code>のようにかき<code>&quot;&quot;</code>の中に出力したいものを書くこと実行した際に出力してくれます。では実際に書いて実行してみましょう。下の空白のブロックに<code>main</code>関数と<code>println!</code>を書き<code>Hello world!</code>を出力してみましょう。</p>
+<pre><pre class="playground"><code class="language-rust editable">
+
+</code></pre></pre>
+<p>何か書き忘れていたりするとエラーの内容が結果として表示されるようになります。よくある忘れるものとして<code>!</code>があります。注意しましょう。また今はエラーになりませんが<code>println!</code>の終わりに<code>;</code>をつけるのを忘れないようにしましょう。エラーが出た際には下の空白のブロックに答えがあるので<img src="chapter1/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押して確認して直してみましょう。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main(){
+</span><span class="boring">   println!(&quot;Hello world!&quot;);
+</span><span class="boring">}
+</span>
+
+</code></pre></pre>
+<p>おめでとうございます！これで文字列を出力できるようになりました。しかしこれではまだ行える範囲が限られているのでその範囲を広げるために必要な基礎的な知識をつけていきましょう。</p>
+<p>ようこそRustの世界へ!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-2"><a class="header" href="#chapter-2">Chapter 2</a></h1>
+<p>この章ではプログラミングを行う際に用いる変数や基本的な型、演算について学んでいきましょう。この章と次の章はプログラムを書く上で必ず使うものなので重点的に学びましょう。</p>
+<blockquote>
+<p>注意
+Rustや他の言語では関数名や変数の名前などに使うことができない言葉があります。使うことができない言葉は変数の宣言時に使うなど特別な時に使用するものです。これは<a href="chapter2/../chapterA/chapter_A.html">8.おまけ</a>にまとめておきます。</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-21-変数"><a class="header" href="#chapter-21-変数">Chapter 2.1 変数</a></h1>
+<p>変数はコードを書く際にコードを簡潔にしさらに見やすくしてくれるものです。例えば足し算を行い時に<code>374694</code>みたいな大きな数を毎回プログラムに書いて足し算を行うのはかなりめんどくさくなってしまいますしコードが見づらくなってしまいます。</p>
+<p>ここでその問題を解決してくれるのが<strong>変数</strong>です。</p>
+<pre><code class="language-rust noplayground">let x = 374694; //let 変数名 = 値;
+</code></pre>
+<p>変数の定義の仕方は上記のように定義し&quot;//&quot;以降が変数を定義するときの基本的な形になります。このとき名前が値に<strong>束縛</strong>されたと言います(変数<code>x</code>が374694に束縛された)。</p>
+<blockquote>
+<p><code>//</code>は<strong>コメント</strong>といい<code>//</code>以降の部分をコードの実行において無視してくれるようになります。なので<code>//</code>を使用することでコードにメモを残すことができます。また<code>/* */</code>のようにすることで複数行のコメントを残すことができます。</p>
+</blockquote>
+<p>また、文の最後のセミコロン(<code>;</code>)を忘れないようにしましょう。これを忘れるとプログラムを実行するときにエラーになってしまいます。このように変数を定義すると足し算をする際に<code>x</code>という値を使うだけで<code>374694</code>この値で計算することができます。もう一つ何か大きな値を定義して足し算を比較してみましょう。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let x = 374694;
+    let y = 457979;
+
+    let s = x+y;
+    let t = 374694 + 457979;    
+    println!(&quot;sの値は{} tの値は{}&quot;,s,t);
+}
+</code></pre></pre>
+<p><code>s</code>と<code>t</code>の値を見比べた際にどちらが見やすいかは明らかだと思います。またこの計算を複数回行うならより変数の便利さや見やすさに気づくと思います。</p>
+<blockquote>
+<p>変数やこの後に紹介する定数はブロック内(<code>{}</code>内）を出ると使えなくなるので中止してください</p>
+</blockquote>
+<p>ただこの変数は値を変えることができません。どういうことか見てみましょう。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let x = 1;
+    println!(&quot;xの値は{}&quot;,x);//xの値をプログラムの結果として表示しようとしている
+    //(&quot;&quot;)内の{}は後ろのxの値が入る場所です 
+    x = 2;
+    println!(&quot;xの値は{}&quot;,x);
+
+}
+</code></pre></pre>
+<p>このコードでは<code>x</code>の値を1で定義してその後2という値に変えようとし、そして<code>x</code>の値を表示しようとしています。では実際に動きを見てましょう。このコードにカーソルを合わせると右上に<img src="chapter2/../img/%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88.png" alt="再生ボタン" />が表示されるはずなので押して見ましょう。下のようなエラーが出てくると思います。</p>
+<pre><code>   Compiling playground v0.0.1 (/playground)
+error[E0384]: cannot assign twice to immutable variable `x`
+ --&gt; src/main.rs:4:5
+  |
+2 |     let x = 1;
+  |         -
+  |         |
+  |         first assignment to `x`
+  |         help: consider making this binding mutable: `mut x`
+3 |     println!(&quot;xの値は{}&quot;,x);//xの値をプログラムの結果として表示しようとしている
+4 |     x = 2;
+  |     ^^^^^ cannot assign twice to immutable variable
+
+For more information about this error, try `rustc --explain E0384`.
+error: could not compile `playground` due to previous error
+</code></pre>
+<p>このように正しいプログラムでないとコンパイラがエラーを見つけわかりやすくエラーの場所を表示してくれます。error[E0384]: cannot assign twice to immutable variable x (不変変数<code>x</code>に二回代入できません)この文がエラーの内容になります。</p>
+<p>Rustでは変数を宣言したら値が変わらないことをコンパイラが保証します。しかし何か条件に満たすものを数えたい時など変数の値を変えたい瞬間が出てきます。その時に使うのが<code>mut</code>というキーワードです。これを<code>let</code>と変数名の間につけることで変数の値を可変にしてくれます。先程のコードの変数<code>x</code>を可変なものにし、出力してみましょう。(//の部分は書かなくて大丈夫です)</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+
+}
+</code></pre></pre>
+<p>出力結果が下記のようになれば成功です。</p>
+<pre><code>xの値は1
+xの値は2
+</code></pre>
+<p>また変数の定義だけを行なって、後から値を入れたい時には<code>mut</code>が必要ありません。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let x;
+    x=1;//mutなしで値を決めれる　エラーも出ない
+    println!(&quot;hello world&quot;);
+}
+</code></pre></pre>
+<blockquote>
+<p>自分のPC上でRustを動かす際に変数を定義して使わないと実行時に警告(warning)が出てしまうので注意してください。<a href="https://play.rust-lang.org/?version=stable&amp;mode=debug&amp;edition=2021">Rust Playground</a>に上のコードを貼り付けて実行すると実行結果は出てきますが警告も出てきます(このドキュメント内で実行すると警告が表示されません)。このような変数を定義したけど使わない時にはアンダースコア(_)を変数名の先頭につけるとこの警告が出なくなります。警告は出てきてもプログラムは実行できますが安全性に欠けるので無くしましょう。</p>
+</blockquote>
+<p>ここまで変数の不変性、可変性について説明してきました。不変な変数に似ているものとして<strong>定数</strong>があります。定数は不変変数のように名前に束縛され、変更することができません。しかしいくつかの違いがあります。</p>
+<ul>
+<li>定数には<code>mut</code>が使えない(常に不変である)</li>
+<li>定数を宣言する際には<code>let</code>ではなく<code>const</code>を用いる。値の型は<strong>必ず</strong>注釈しなけれななりません。型や型の注釈については<a href="chapter2/./chapter_2_2.html">2.2. 型</a>で説明します。</li>
+<li>定数はどんな場所でも定義できる。<code>fn main( ){ }</code>の外でも定義できる。</li>
+<li>定数は決められた値でしか定義できない。実行時に評価される値は使えない(足し算の結果などを定数にすることができない)。</li>
+</ul>
+<p>定数の定義の例を見ましょう</p>
+<pre><pre class="playground"><code class="language-rust">const MAX_SPEED: u32 = 100;//変数名 : 型　この形が型注釈
+
+fn main(){
+    let x = 100;
+    let y = x + MAX_SPEED;
+
+    println!(&quot;yの値は{}&quot;,y);
+}
+</code></pre></pre>
+<p>Rustでは定数の名前を全て大文字でアンダースコア(<code>_</code>)で単語区切りすることを習慣としています。よく定数はゲームの中で色々な場所に使う値(敵を倒した時のスコアなど)を定義するときによく使われます。</p>
+<h3 id="シャドーイング"><a class="header" href="#シャドーイング">シャドーイング</a></h3>
+<p>Rustでは一度定義した変数と同じ名前の変数を定義することができます。これを<strong>シャドーイング</strong>と言います。シャドーイングされた場合は後の方の変数の値が処理に使われます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let x = 10;
+    println!(&quot;xの値は{}&quot;,x);
+
+    let x = x + 1;//シャドーイング
+    {
+        let x = 1;
+        println!(&quot;xの値は{}&quot;,x);
+    }
+    println!(&quot;xの値は{}&quot;,x);
+}
+</code></pre></pre>
+<p>このコードを実行してみましょう。このコードでは最初<code>x</code>を10に束縛していますが<code>let x = x + 1;</code>ここでシャドーイングをしています。ここでは<code>x</code>という同じ変数名で元の値に<code>+1</code>した値に束縛しています。二つ目の<code>{}</code>内でまたシャドーイングしていますがこの<code>{}</code>内を抜けると中で定義されたものは無効になるので<code>let x = x + 1;</code>の値になります。</p>
+<p>このシャドーイングは変数に<code>mut</code>をつけるのとは異なります。元は不変な変数なので<code>let</code>を使わずに値を変えようとするとエラーになります。また、<code>mut</code>をつける方法では宣言した変数の型を変えることはできません。下記のようなものはエラーになってしまいます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let mut a = 5;//数値型
+    a=&quot;hello world&quot;;//文字列型
+    println!(&quot;aの値は{}&quot;,a);
+}
+</code></pre></pre>
+<p>逆にシャドーイングを利用すれば型の変更を行うことができます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let a = 5;
+    let a=&quot;hello world&quot;;
+    println!(&quot;aの値は{}&quot;,a);
+}
+</code></pre></pre>
+<p>これで変数の定義方法等を見ていったので今度は変数の型について見ていきます。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-22-型"><a class="header" href="#chapter-22-型">chapter 2.2 型</a></h1>
+<p>Rustにおいて値は全て何かしらのデータ型になります。前の章などで<code>i32</code>や<code>u32</code>などいくつか見たことがあると思います。これらが型を表したものになります。この型がわかることでコンパイラがどんなデータかわかり取り扱い方を決めれます。データ型にはスカラー型と複合型があります。また同じ型でないと計算などが行えないので注意してください(<code>u32</code>と<code>u8</code>なども計算できない)。</p>
+<h2 id="スカラー型"><a class="header" href="#スカラー型">スカラー型</a></h2>
+<p>スカラー型は単一の値のことを表しています。Rustには整数、浮動小数点数、論理値や文字列の4つのスカラー型があります。</p>
+<h4 id="整数型"><a class="header" href="#整数型">整数型</a></h4>
+<p>整数型は少数部分がない数値のことです。今まで出てきたu32やi32がこれに当たります。下記の表がそれぞれ表せれる数字の範囲になります。プログラムを書く際に必要になる値が入っている値を型を使いましょう。特に気にする必要がない場合はRustの基準型を使うといいでしょう。整数型の基準は<code>i32</code>です。この基準型が一番実行する上で速いです。</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">大きさ</th><th style="text-align: center">符号付き</th><th style="text-align: center">表せれる数字</th><th style="text-align: center">符号なし</th><th style="text-align: center">表せれる数字</th></tr></thead><tbody>
+<tr><td style="text-align: center">8bit</td><td style="text-align: center">i8</td><td style="text-align: center">-128~127</td><td style="text-align: center">u8</td><td style="text-align: center">0~255</td></tr>
+<tr><td style="text-align: center">16bit</td><td style="text-align: center">i16</td><td style="text-align: center">-32768~32767</td><td style="text-align: center">u16</td><td style="text-align: center">0~65535</td></tr>
+<tr><td style="text-align: center">32bit</td><td style="text-align: center">i32</td><td style="text-align: center">-2147483648~2147483647</td><td style="text-align: center">u32</td><td style="text-align: center">0~4294967295</td></tr>
+<tr><td style="text-align: center">64bit</td><td style="text-align: center">i64</td><td style="text-align: center">-9223372036854775808~9223372036854775807</td><td style="text-align: center">u64</td><td style="text-align: center">0~18446744073709551615</td></tr>
+<tr><td style="text-align: center">arch</td><td style="text-align: center">isize</td><td style="text-align: center"></td><td style="text-align: center">usize</td><td style="text-align: center"></td></tr>
+</tbody></table>
+</div>
+<p><code>isize</code>や<code>usize</code>はコンピュータの種類による値になります。64ビットアーキテクチャなら64ビットに32ビットアーキテクチャなら32ビットになります。</p>
+<p>また数字を他の方法で表すこともできます。</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">数値リテラル</th><th style="text-align: center">例</th></tr></thead><tbody>
+<tr><td style="text-align: center">10進数</td><td style="text-align: center">32_112</td></tr>
+<tr><td style="text-align: center">16進数</td><td style="text-align: center">0xf3</td></tr>
+<tr><td style="text-align: center">8進数</td><td style="text-align: center">0o71</td></tr>
+<tr><td style="text-align: center">2進数</td><td style="text-align: center">0b1111_0000</td></tr>
+<tr><td style="text-align: center">バイト(u8のみ)</td><td style="text-align: center">b'A'</td></tr>
+</tbody></table>
+</div>
+<p>リテラルは見たままの値という意味です。アンダースコア(_)は見た目の区切り文字として使用できます。(10,000の<code>,</code>と同じ役割)</p>
+<h3 id="浮動小数点数"><a class="header" href="#浮動小数点数">浮動小数点数</a></h3>
+<p>浮動小数点型には<code>f32</code>と<code>f64</code>があります。整数型と同じくこれは32ビットと64ビットです。浮動小数点数はIEEE-754規格に従って表現されます（興味があれば調べて見てください）。Rustでの基準型は<code>f64</code>の方でこちらの方が精度が高く<code>f32</code>と速度がほぼ変わらないのでこちらが使われます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let x : f64 = 32.2;
+    println!(&quot;xの値は{}&quot;,x);
+}
+</code></pre></pre>
+<h3 id="論理値型"><a class="header" href="#論理値型">論理値型</a></h3>
+<p>論理値型がとる値は二つしかありません。<code>true</code>と<code>false</code>の二種類だけです。論理値を使うのは条件式で主に使われます。条件式は3章に出てきます。論理値型を明示したい時は<code>bool</code>を使います。</p>
+<pre><code class="language-rust noplayground">fn main() {
+    let t = true;
+
+    let f: bool = false; 
+}
+</code></pre>
+<h3 id="文字型"><a class="header" href="#文字型">文字型</a></h3>
+<p>Rustで文字を扱いたい時にはこの型(<code>char</code>型)が使われます。文字列を扱うものは少し複雑なのでこのドキュメントの後の方で触れていきます。</p>
+<p><code>char</code>型は一文字を扱う時に使用します。<code>char</code>型はユニコードのスカラー値というものを表しています。これによりアルファベットだけでなく日本語や絵文字なども表すことができます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a = 'a';
+    let b = 'あ';
+    let heart_eyed = '😻';   
+    println!(&quot;aの値{}　bの値{}　絵文字の出力{}&quot;,a,b,heart_eyed);
+}
+
+</code></pre></pre>
+<h2 id="複合型"><a class="header" href="#複合型">複合型</a></h2>
+<p>複合型とは複数の値を一つの型にまとめるものです。タプルと配列という二種類があります。</p>
+<h3 id="タプル型"><a class="header" href="#タプル型">タプル型</a></h3>
+<p>タプルは複数の型の値を一つにまとめれるものです。要素の数は定義後は変えれません。要素の値は<code>mut</code>をつけ可変にすることで値を変えれます。</p>
+<p>タプルは<code>()</code>の中にカンマ(<code>,</code>)で区切り、値を書くことで生成できます。</p>
+<pre><code class="language-rust noplayground">fn main(){
+    let tup = (100,&quot;hello&quot;,true);
+}
+</code></pre>
+<p>変数<code>tup</code>はタプル全体に束縛されています。このタプルから個々の要素を取り出したい時にはパターンマッチングというのを使用して取り出すことができます(後の章で説明します)。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let tup = (100,&quot;hello&quot;,true);
+    let (a, b, c) = tup;
+    println!(&quot;aの値{}　bの値は{}　cの値{}&quot;,a,b,c);
+}
+</code></pre></pre>
+<p>二行目でパターンマッチングを使用してタプルの値をそれぞれ<code>a,b,c</code>の三つの変数に分配しています。</p>
+<p>この分配する方法以外にもアクセスしたい番号をピリオド(<code>.</code>)に続けて書くことでタプルの要素に直接アクセスすることができます。この番号のスタートは0からなのに注意してください。タプルの一つ目の要素にアクセスしたい場合は使う番号は0になります。また要素数を超えてアクセスしようとするとコンパイル時にエラーになります。それでは、例に倣って5つ目の要素にアクセスする変数を定義し、変数aと自分が定義した変数を表示するように下のプログラムを追加してみましょう。</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+    let tup = (100,&quot;hello&quot;,true,400,&quot;world&quot;);
+    let a = tup.0;//一つ目の要素にアクセス
+
+
+}
+</code></pre></pre>
+<h3 id="配列型"><a class="header" href="#配列型">配列型</a></h3>
+<p>配列もタプルと同様に複数の値を一つにまとめてくれるものです。またタプルと同様に要素数は定義後は固定です。タプルと異なる点はまとめる値が全て同じ型でなければなりません。</p>
+<p>配列は<code>[]</code>の中にカンマ(,)区切りの値を書くことで生成できます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let x = [1,2,3,4,5];
+    let [a,b,c,d,e] = x;
+    println!(&quot;aの値は{}&quot;,a);
+}
+</code></pre></pre>
+<p>配列もタプルと同様にパターンマッチングを使うことでそれぞれの要素を取り出すこともできます。</p>
+<p>他にもアクセスしたい場所を選択する方法として<code>配列名.[]</code>とかき<code>[]</code>の中にアクセスしたい場所の数字を書くことで配列の要素に直接アクセスすることができます。この番号もスタートは0からなのに注意してください。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let a = [1,2,3,4,5];
+    println!(&quot;三つの目の値は{}&quot;,a[2])//3の部分にアクセスしようとしているので番号は2
+}
+</code></pre></pre>
+<p>配列は常に固定長であるものに使うのに有効です。</p>
+<p>配列の定義の仕方として違う方法もあります。<code>[]</code>の中に初期値とセミコロン(<code>;</code>)、配列の長さを与えることでも定義できます。</p>
+<pre><code class="language-rust noplayground">fn main(){
+    let a = [1;5];//[1,1,1,1,1]と同じこと
+}
+</code></pre>
+<p>配列の要素数を超えてアクセスしようとするとコンパイルは通りますが実行時にエラーになります。これを<strong>パニック</strong>したと言います。プログラムがエラーで終了したことを表しています。</p>
+<p>これまで型について説明してきました。これはRustが安全性などを保障するために必要なものなのです。Rustは<strong>静的型付き言語</strong>です。これはコンパイル時にすべての変数の型がわかっている必要があるということです。基本的には明示的に型を書かなくても値や使い方から推論して変数の型を決めてくれます。しかし、複数の型が推論される時や基準でない型を使いたい時( i32が基準だがi8を使いたいなど)に型を明示的に書く(<strong>型注釈</strong>という)必要があります。</p>
+<p>下記のコードは型注釈をつけたものになります。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let x = 8;//基準であるi32
+    let y : u8 = 8;//u8の型になっている
+    let tup : (i32,bool,char) = (54,true,'F');
+    let a : [i8; 3] = [1,2,3];
+    //下記のは.parse()というメソッドを使ってString型(文字が並んだ型)を数値型に変換している
+    //42という文字を数字に変えている
+    //.expect()はparse()が数字に変えれなかった時のエラーへの対応用
+    let guess: u32 = &quot;42&quot;.parse().expect(&quot;Not a number!&quot;);
+    //u32を書かないとコンパイル時にエラーになる
+}
+</code></pre></pre>
+<p>ここまで型について説明していきました。次の章では様々な演算についてみていきましょう。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-23-演算"><a class="header" href="#chapter-23-演算">chapter 2.3 演算</a></h1>
+<p>ここではプログラムを書く際によく用いる演算子について説明していきます。</p>
+<p>Rustでは基本的な数学演算が用意されています。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    // 足し算
+    let sum = 1 + 1;
+
+    // 引き算
+    let difference = 32.5 - 4.3;
+
+    // 掛け算
+    let product = 2 * 120;
+
+    // 割り算
+    let quotient = 12.7 / 3.2;//小数点以降も表示される
+    let floored = 2 / 3; //結果は0 小数点以降は表示されない
+    //計算している値の型によってそれぞれの変数の型が決まるので小数点が表示されなかったりする
+
+    // 余り
+    let remainder = 46 % 6;
+    println!(&quot;sumの値{}　differenceの値{}　productの値{}　quotientの値{}　flooredの値{}　remainderの値{}&quot;,sum,difference,product,quotient,floored,remainder);
+}
+</code></pre></pre>
+<p>このような演算のおかげでカウントなどができるようになります。カウントを使う時はループのところで出てきます。またある変数の値を変更したいときに使える方法もあります(mutをつけるのを忘れないようにしましょう)。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    // 足し算
+    let mut sum = 5 + 10;
+    sum += 11;//sum = sum + 11;
+    println!(&quot;sumの値{}&quot;,sum);
+}
+</code></pre></pre>
+<p>この<code>+=</code>は元の変数と与えられた値を計算し、元の値に入れ直すというものです。これは引き算などでも行うことができます。</p>
+<p>数字の大小比較を行うこともできます。演算子は<code>==,!=,&lt;,&gt;,&lt;=,&gt;=</code>になります。これらの結果は論理値で返されます。条件を満たすと<code>true</code>そうでなければ<code>false</code>の値が返されます。イコールがついているものは以上や以下の判定をします。<code>==</code>は値が同じかを判断し<code>!=</code>は<code>==</code>と逆の動きをします。<code>!</code>は否定の記号として使われます。論理値が入った変数に使うと逆の値になります。</p>
+<blockquote>
+<p>よく見る<code>println!()</code>にある <code>!</code> は否定ではなくマクロと呼ばれるものになります。表示をする作業を簡単にしてくれるなどコードを書くうえで便利にしているものになります。</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let equal = 1 == 1;//trueが値となる
+    let big = 3 &gt; 2;
+    let ebig = 3 &gt;= 3;
+
+    let small = 3 &lt; 2;//falseが値となる
+    let esmall = 5 &lt;= 2;
+    
+    let t = true;
+    println!(&quot;equalの値{}　bigの値{}　ebigの値{}　smallの値{}　esmallの値{}　tの否定の値{}&quot;,equal,big,ebig,small,esmall,!t);
+    // !tでtの値を否定したものを表示している
+}
+</code></pre></pre>
+<br>  
+<p>ほかにも演算には論理演算というものがあります。これは条件式を使うときによく使う演算子で<code>&amp; | ^</code>の三種類があります。</p>
+<p>これらの演算子は二つの論理値の引数をとり結果を論理値で返します。この実際に返す値を下の表に表します。</p>
+<div class="table-wrapper"><table><thead><tr><th>A</th><th>B</th><th>A  &amp; B</th><th>A | B</th><th>A ^ B</th></tr></thead><tbody>
+<tr><td>true</td><td>true</td><td>true</td><td>true</td><td>false</td></tr>
+<tr><td>true</td><td>false</td><td>false</td><td>true</td><td>true</td></tr>
+<tr><td>false</td><td>true</td><td>false</td><td>true</td><td>true</td></tr>
+<tr><td>false</td><td>false</td><td>false</td><td>false</td><td>false</td></tr>
+</tbody></table>
+</div>
+<p>このような動きをします。ただなかなかこのままの形で使うことはありません。これから出てくるif式などで使う場合に<code>&amp;&amp; ||</code>の二つを使い、条件式(&gt;など)と組み合わせて使うことが多いです。<code>&amp;&amp;</code>や<code>||</code>になっても一つの時と同じようにそれぞれの条件式の結果によって値が変わります。</p>
+<p><code>&amp;</code>と<code>&amp;&amp;</code>の違いは<code>&amp;</code>は二つの引数のを比較するときにその値をビットに直します。そのビットに対して<code>&amp;</code>の演算を行います。つまり論理値だけでなく数字同士の<code>&amp;</code>をとることもできます。<code>&amp;&amp;</code>は引数に論理値しか取ることができません。<code>|</code>と<code>||</code>も同様です。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let a = true;
+    let b = false;
+    let c = 3 &amp; 5;
+    //let d = 3 &amp;&amp; 5;　エラーになる
+    let e = (1&gt;0) &amp; (1&gt;0);//こちらでも大丈夫
+    let f = (1&gt;0) &amp;&amp; (1&gt;0);
+    println!(&quot;cの値{}&quot;,c);
+}
+</code></pre></pre>
+<p>ビットの<code>&amp;</code>をとるときの動きはまず3と5を二進数(二進数はある値を0と1で表現するものです)のビットに直します。この時3は<code>0011</code>5は<code>0101</code>となります。先程の表を使いtrueを1、falseを0としてそれぞれ同じ場所を比較します。実際に計算すると<code>0001</code>になると思います。なので上記のコードのcの値が1になります。</p>
+<h3 id="問題"><a class="header" href="#問題">問題</a></h3>
+<p>下のコードを計算できるように書き換えましょう。</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+    let x: u8 = 120;
+    let y: u32 = 120;
+
+    let z = x + y;
+    
+    println!(&quot;zの値は{}&quot;,z);
+}
+</code></pre></pre>
+<p>下記のブロックに答えがあります。<img src="chapter2/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押して確認しましょう。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+<span class="boring">   let x: u32 = 120;
+</span><span class="boring">   let y: u32 = 120; //こちらをu8にしても良い
+</span>
+<span class="boring">   let z = x + y;
+</span>    
+<span class="boring">   println!(&quot;zの値は{}&quot;,z);
+</span>}
+</code></pre></pre>
+<p>二つの数字の値の平均を計算し表示するプログラムを作成しましょう。二つの変数の値は自分で決めて実行しましょう。(小数点以下も表示されるように)</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+
+}
+</code></pre></pre>
+<p>下記のブロックに答えがあります。<img src="chapter2/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押して確認しましょう。</p>
+<pre><pre class="playground"><code class="language-rust ">fn main(){
+
+<span class="boring">   let a = 5.0;
+</span><span class="boring">   let b = 6.0;
+</span>
+<span class="boring">   println!(&quot;二つの変数の値の平均は{}&quot;,(a+b)/2.0);
+</span>
+}
+</code></pre></pre>
+<p>この章までで基礎的な内容が身についたと思います。次の章ではプログラムを書くうえで手助けしてくれるものについて説明していきます。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-3"><a class="header" href="#chapter-3">Chapter 3</a></h1>
+<p>この章ではプログラミングを行う際に用いる条件式やループ、関数について学んでいきましょう。この章までで最低限プログラムを書く上で必要なものを学ぶことができます。一緒に頑張りましょう。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-31-条件式"><a class="header" href="#chapter-31-条件式">Chapter 3.1 条件式</a></h1>
+<p>条件式とは条件が真(true)か偽(false)によって実行するコードを決めるものです。</p>
+<h3 id="if式"><a class="header" href="#if式">if式</a></h3>
+<p>if式を使うことによって条件に応じて実行するコードを変えることができます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let num = 3;
+
+    if num &gt; 7 {
+        println!(&quot;numの値{}は7より大きい&quot;,num);
+    } else {
+        println!(&quot;numの値{}は7より小さい&quot;,num);
+    }
+}
+</code></pre></pre>
+<p>このコードを実行してみましょう。基本的な使い方は<code>if 条件式 {} else {}</code>という形になります。<code>else</code>の方には条件を満たさない時に実行されるコードを書きます。{}の部分の中身は書かなくても大丈夫です。つまり、この条件を満たさない時には何もしないということもできます。その時は<code>else</code>以降を省略することもできます。条件式はちゃんと論理値が返されるものにしましょう。数字などを書くとエラーになってしまいます。</p>
+<p>変数を定義する時にもif式を使うことができます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let x = 3;
+    let y = 5;
+    let i;
+
+    if x &lt; y {
+        i = true;
+    }else{
+        i = false;
+    }
+
+    let num = if i {1} else {2};
+
+    println!(&quot;numの値は{}&quot;,num);
+}
+</code></pre></pre>
+<p>この<code>if</code>式を使用した変数定義の時はtrueの時の値とfalseの時の値の型は同じでなければなりません。</p>
+<p>またこの<code>if</code>と<code>else</code>を組み合わせることで複数の条件を判断させることができます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let num = 10;
+
+    if (num / 3) == 0 {
+        println!(&quot;numの値{}は3の倍数&quot;,num);
+    } else if (num / 5) = 0 {
+        println!(&quot;numの値{}は5の倍数&quot;,num);
+    }else{
+        println!(&quot;numの値{}は15の倍数でない&quot;,num);
+    }
+}
+</code></pre></pre>
+<p>一つ目の条件を満たさないため二つ目の条件が判断され条件を満たすため<code>println!(&quot;numの値{}は5の倍数&quot;,num);</code>が実行されます。そしてどこかで条件を満たしたらそれ以降のコードは条件を満たしていても実行しません。</p>
+<p>上記のコードのようにif式が続くと見づらくなってしまいます。このような時には<code>match</code>式が有効です。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let num = 3;
+
+    match num{
+        1 =&gt; println!(&quot;numの値は1&quot;), //最後がカンマ(,)なのに注意
+        2 =&gt; println!(&quot;numの値は2&quot;),
+        3 =&gt; println!(&quot;numの値は3&quot;),
+        4 =&gt; println!(&quot;numの値は4&quot;),
+        _ =&gt; println!(&quot;numの値は1-4ではありません&quot;),
+    }
+}
+</code></pre></pre>
+<p><code>match</code>式は<code>if</code>式と似たような動きをします。<code>match 変数名</code>と書き、変数と下の条件を比較します。そして条件に一致するものの文を実行します。今回の場合は<code>num</code>の値が3なので<code>3 =&gt; println!(&quot;numの値は3&quot;),</code>に一致します。また一番最後に使われているアンダースコア(_)は<strong>ワイルドカード</strong>といいどんな値にも一致するものです。これを使う理由としてmatch式は<strong>必ずどれかに当てはまる</strong>必要があります。どれにも当てはまらない場合はエラーになってしまいます。なのでエラー回避のためにもワイルドカードを使用しています。</p>
+<br>
+<p>また<code>match</code>式の条件式の部分を上記のものと変えてみようと思います。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let num = 15;
+
+    match num % 7 {
+        1 | 2 =&gt; println!(&quot;numを7で割ったあまりは1か2&quot;),
+        5 =&gt; pri(),
+        _ =&gt; {},
+
+    }
+}
+
+fn pri(){
+    println!(&quot;numを7で割ったあまりは5&quot;)
+}
+</code></pre></pre>
+<p>判断するものの値を<code>num % 7</code>のように計算した値に対してパターンマッチを使うことができます。</p>
+<p>パターンのところに<code>|</code>を使いどちらかに当てはまる場合のような指定方法もあります。</p>
+<p>実行するものところには関数の呼び出し( <code>pri()</code>のこと)や値の変更、<code>{};</code>のように書くことで何も実行しないというようなこともできます。</p>
+<p>なのでmatch式は余りの計算など一個の条件に対して複数の通りが考えられるものに対して有効です。</p>
+<h3 id="問題-1"><a class="header" href="#問題-1">問題　</a></h3>
+<p>三つの値を比較して最大値を表示してください。(変数の値は自分で設定してください)</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+
+}
+</code></pre></pre>
+<p>答えは下記のようになります。<img src="chapter3/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押して確認しましょう。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main(){
+</span><span class="boring">  let a = 50;
+</span><span class="boring">  let b = 40;
+</span><span class="boring">  let c = 100;
+</span><span class="boring">  let mut max = a;  
+</span><span class="boring">  
+</span><span class="boring">  if b &gt;= max {
+</span><span class="boring">      max = b;    
+</span><span class="boring">  }
+</span><span class="boring">
+</span><span class="boring">  if c &gt;= max {
+</span><span class="boring">      max = c;
+</span><span class="boring">  }
+</span><span class="boring">  println!(&quot;最大の値は{}&quot;,max);
+</span><span class="boring">}
+</span>
+
+
+</code></pre></pre>
+<p>三つの整数値を比較し「すべて同じ値」「二つが同じ値」「すべて違う値」を判断するプログラムを作成しましょう。</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+
+}
+</code></pre></pre>
+<p>答えは下記のようになります。<img src="chapter3/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押して確認しましょう。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+<span class="boring">   let a = 131;
+</span><span class="boring">   let b = 142;
+</span><span class="boring">   let c = 131;
+</span>
+<span class="boring">   if (a == b &amp;&amp; b == c ){
+</span><span class="boring">       println!(&quot;すべて同じ値&quot;);
+</span><span class="boring">   }else if (a == b || a == c || b == c){
+</span><span class="boring">       println!(&quot;二つが同じ値&quot;);
+</span><span class="boring">   }else{
+</span><span class="boring">       println!(&quot;すべて違う値&quot;);
+</span><span class="boring">   }
+</span>
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-32-ループ文"><a class="header" href="#chapter-32-ループ文">Chapter 3.2 ループ文</a></h1>
+<p>ここでは<strong>ループ</strong>について説明していきたいと思います。ループはコードを書くうえで今まで複数回書いていたもの(同じ条件式を使う場合など)を省略できるようにしてくれます。</p>
+<p>Rustには3種類のループが存在します。<code>loop</code> <code>while</code> <code>for</code>の三種類です。</p>
+<h3 id="loop"><a class="header" href="#loop">loop</a></h3>
+<p>loopは中のコードを自分で明示的に終了するまで永遠に繰り返します。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    loop{
+        println!(&quot;ヤッホー&quot;);
+    }
+}
+</code></pre></pre>
+<p>この例を実行するとヤッホーがずっと表示されることになります。このドキュメント上で行おうとするとタイムアウト(実行が終わらない)エラーになります。自分のPC上でこのコードを動かす際には<code>ctrl + c</code>を押して終了させましょう。ループを終わらせるためには<code>break</code>というキーワードを使います。</p>
+<p><code>loop</code>は<code>break</code>と条件式を一緒に使うことでうまく扱うことができます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let mut x = 1;
+
+    loop{
+        if x == 15 {
+            break;
+        }else if (x % 6)==0 {
+            println!(&quot;{}は6の倍数です&quot;,x);
+        }else if (x % 3)==0 {
+            println!(&quot;{}は3の倍数です&quot;,x);
+        }else if (x % 2)==0 {
+            println!(&quot;{}は2の倍数です&quot;,x);
+        }
+        x += 1;
+    }
+}
+</code></pre></pre>
+<p>このようにすることで1~15までの値の中で6の倍数 3の倍数 2の倍数のものを表示することができます。</p>
+<p>ループを扱う際にもう一つ便利なキーワードがあります。それが<code>continue</code>です。これは<code>continue</code>以降の処理をスキップしすぐに次のループに移ります。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let mut x = 1;
+
+    loop{
+        if x == 3 {
+            x += 1;
+            continue;
+        }
+        println!(&quot;x={}の時です&quot;,x);//xの値が3の時のみスキップされる
+        
+        if x == 5{
+            break;//xの値が5になったらループ終了
+        }
+        x += 1;
+    }
+}
+</code></pre></pre>
+<p>x == 3の時に<code>continue</code>というキーワードを用いることで<code>continue</code>以降の処理を行わずに進みます。カウントをする際にはカウントの数を増やす処理を<code>continue</code>の前に行うのを忘れないようにしましょう。ループが終わらずエラーになってしまいます。</p>
+<p>ループ(<code>loop</code> <code>while</code> <code>for</code>)を扱う際にループにラベル(名前)をつけることができます。これはループ内にループが存在する場合に有効的です。通常では<code>break</code>や<code>continue</code>は一番内側の<strong>ループ</strong>に適用されます。ここでループラベルを用いることで<code>break</code>は<code>continue</code>を適用するループを指定することができます。ループラベルは<code>'name: </code>というような形でつけることができます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let mut count=0;
+
+    'counting_up: loop{
+        let x = 3;
+
+        loop{
+            if count &lt; 3 { //countが3未満の時はスキップ
+                count += 1;
+                continue;
+            }
+
+            if  count == 7 {//countの値が7の時にcounting_upというラベルのついたループを抜ける
+                break 'counting_up;
+            }
+            println!(&quot;{}/{}の値は{}&quot;,count,x,count/x);
+            count += 1;
+        }
+
+    }
+}
+</code></pre></pre>
+<p>このコードでは1~7までの値を3で割った商を求めています。今回は整数型なので小数点以降は表示されません。また3より小さい場合は<code>continue</code>を使うことで処理をスキップしています。そして<code>count</code>が7になった際に<code>counting_up</code> という一番外側のラベルのついたループを抜けています。</p>
+<h3 id="while"><a class="header" href="#while">while</a></h3>
+<p><code>while</code>はループ内で条件式を評価します。つまり条件が真の時にループが始まり、条件が偽になった時に自動的に<code>break</code>を呼び出し、ループを終了します。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let a = [1,2,3,4,5];
+    let mut count = 0;
+
+    while count &lt; 5{
+        println!(&quot;aの値の{}番目の値は{}&quot;,count,a[count]);
+        count += 1;
+    }
+}
+</code></pre></pre>
+<p>このコードではcountが5になった際に条件が偽になるのでそこでループが終了します。配列を使っているので添字に注意しましょう。配列の長さよりの長い場所にアクセスしようとするとパニックしてしまいます。このように<code>while</code>を使うことで先程の<code>loop</code>や<code>if</code>などを組み合わせる必要がなく、よりコードが見やすくなります。</p>
+<h3 id="for"><a class="header" href="#for">for</a></h3>
+<p><code>for</code>は<code>while</code>よりも高速で安全にループを実行することができます。特に配列にアクセスする際に有効的です。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let a = [1,2,3,4,5];
+    let mut count = 0;
+
+    for element in a { //elementは一時的に用意したものなので名前はelementでなくても大丈夫
+        println!(&quot;配列aの{}番目の値は{}&quot;,count,element);
+        count += 1;
+    }
+}
+</code></pre></pre>
+<p><code>in</code>の後に書かれた要素を一つずつ値を取り出し、<code>element</code>に束縛され値がなくなるまでループを続けます。なので配列の要素数を超えることなくアクセスしてくれます。タプルで行うことはできないので注意してください。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    for element in (1..6) {
+        println!(&quot;値は{}&quot;,element);
+    }
+}
+</code></pre></pre>
+<p>1から5までの値を扱うなど配列などを使わずループを扱いたい時には上記のように書くことができます。<code>(1..5)</code>は<strong>レンジ</strong>と言います。これは1から5未満の数字を表しています。<code>(1..=5)</code>のようにすると1から５以下までが対象となります。</p>
+<p>このように<code>for</code>文を使うことで配列の要素数が変わったときなどにも取り出せる要素がなくなったらループを終了するので<code>for</code>文のコードを変える必要がありません。</p>
+<h3 id="問題-2"><a class="header" href="#問題-2">問題</a></h3>
+<p>loopを使用して0からの自分が決めた整数までの合計値を求めましょう。</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+    let tar =    //合計値を計算する範囲の設定
+}
+</code></pre></pre>
+<p>答えは下記のようになります。<img src="chapter3/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+<span class="boring">   let tar = -5;
+</span><span class="boring">   let mut sum = 0;
+</span><span class="boring">   let mut count = 0;
+</span><span class="boring">   
+</span><span class="boring">   loop {
+</span><span class="boring">      if tar &lt; 0 {
+</span><span class="boring">           break;
+</span><span class="boring">       }
+</span>
+<span class="boring">       if count &lt;= tar {
+</span><span class="boring">           sum += count;
+</span><span class="boring">           count += 1;
+</span><span class="boring">       }else{
+</span><span class="boring">           break;
+</span><span class="boring">       }
+</span><span class="boring">   }
+</span><span class="boring">
+</span><span class="boring">   loop {
+</span><span class="boring">       if count &gt;= tar {
+</span><span class="boring">           sum += count;
+</span><span class="boring">           count -= 1;
+</span><span class="boring">       }else{
+</span><span class="boring">           break;
+</span><span class="boring">       }
+</span><span class="boring">   }
+</span><span class="boring">   println!(&quot;{}までの値の合計値は{}&quot;,tar,sum);
+</span>}
+</code></pre></pre>
+<p>whileを使って配列の要素の合計と平均(小数点は切り捨て)を求めましょう</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+    let list = [10,5,7,63,3];
+
+}
+</code></pre></pre>
+<p>答えは下記のようになります。<img src="chapter3/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+<span class="boring">   let list = [10,5,7,63,3];
+</span><span class="boring">   let mut count = 0;
+</span><span class="boring">   let mut sum = 0;
+</span><span class="boring">   print!(&quot;list:&quot;);
+</span><span class="boring">   while count &lt; 5 {
+</span><span class="boring">       sum += list[count];
+</span><span class="boring">       print!(&quot;{} &quot;,list[count]);
+</span><span class="boring">       count += 1;
+</span><span class="boring">   }
+</span><span class="boring">   print!(&quot;の合計は{} 平均は{}&quot;,sum,sum/5);
+</span>
+}
+</code></pre></pre>
+<p>forを使って上の問題を書いてみましょう</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+    let list = [10,5,7,63,3];
+
+}
+</code></pre></pre>
+<p>答えは下記のようになります。<img src="chapter3/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+<span class="boring">   let list = [10,5,7,63,3];
+</span><span class="boring">   let mut sum = 0;
+</span><span class="boring">   print!(&quot;list:&quot;);
+</span><span class="boring">   for element in list {
+</span><span class="boring">       sum += element;
+</span><span class="boring">       print!(&quot;{} &quot;,element);
+</span><span class="boring">   }
+</span><span class="boring">   print!(&quot;の合計は{} 平均は{}&quot;,sum,sum/5);
+</span>
+}
+</code></pre></pre>
+<p>九九の表を表示しましょう(二重ループを使いましょう)</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+
+}
+</code></pre></pre>
+<p>答えは下記のようになります。<img src="chapter3/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+<span class="boring">   for i in (1..=9){
+</span><span class="boring">       for j in (1..=9){
+</span><span class="boring">           print!(&quot;{} &quot;, i*j);
+</span><span class="boring">       }
+</span><span class="boring">       println!(&quot;&quot;);
+</span><span class="boring">   }
+</span>
+}
+</code></pre></pre>
+<p>九九で25より大きい値が出た時はそれ以降をスキップして25が出た時に九九の表示を終了するようにしましょう</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+
+}
+</code></pre></pre>
+<p>答えは下記のようになります。<img src="chapter3/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+<span class="boring">   'out: for i in (1..=9){
+</span><span class="boring">       for j in (1..=9){
+</span><span class="boring">           if i * j &gt; 25{
+</span><span class="boring">               break;
+</span><span class="boring">           }else if i * j == 25{
+</span><span class="boring">               break 'out;
+</span><span class="boring">           }
+</span><span class="boring">           print!(&quot;{} &quot;, i*j);
+</span><span class="boring">       }
+</span><span class="boring">       println!(&quot;&quot;);
+</span><span class="boring">   }
+</span>
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-33-関数"><a class="header" href="#chapter-33-関数">Chapter 3.3 関数</a></h1>
+<p>ここではよりコードを見やすくするために<strong>関数</strong>について説明していきます。</p>
+<p>関数は今まで<code>main</code>関数のみを扱ってきて、この<code>main</code>関数内に全ての処理を書いてきました。しかし規模が大きく複雑なコードを書いていく際には<code>main</code>関数が長くなっていきコードが読みづらくなってしまいます。</p>
+<p>そこで役割ごとに新しく関数を作成することでコードを読みやすくすることができます。Rustの関数と変数の命名の慣習として全ての文字を小文字にして単語ごとにアンダースコア(_)で区切ります。関数の定義されている場所は特に重要ではなく<code>main</code>関数の前でも後でも大丈夫です。</p>
+<pre><pre class="playground"><code class="language-rust">fn main (){
+    println!(&quot;main関数で呼び出された&quot;);
+
+    another_function(); //関数呼び出し
+
+    println!(&quot;main関数で呼び出された2回目&quot;);
+}
+
+fn another_function(){ //新しく関数作成
+    println!(&quot;別の関数で呼び出された&quot;);
+}
+</code></pre></pre>
+<p>関数の定義する際には<code>fn</code>キーワードを使います。<code>fn 名前 () {}</code>のように定義します。呼び出す際には<code>関数名 ()</code>のように呼び出してその関数内の処理を行うことができます。呼び出した関数の処理が終わると基本的に元の関数の残りの処理を行っていきます。</p>
+<p><code>main</code>関数の途中で<code>another_function</code>関数が呼び出されて実行されています。<code>another_function</code>関数の処理が終わると<code>main</code>関数に戻り処理を続けます。</p>
+<p>関数にはその中の処理に使うための引数を渡すこともできます。そのためには引数を取るように関数を定義する必要があります。引数を取るようにするには関数定義の際に<code>()</code>内に変数と型(<code>x: i32</code>のように)を描く必要があります。この変数の前にmutをつけることで可変にすることもできます。これは後ほど出てきます。定義した関数に値を渡す際には呼び出す際の<code>()</code>内に値を書いて渡すことができます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main (){
+    println!(&quot;二つの値を足します&quot;);
+    sum(3,5);
+}
+
+fn sum (x:i32, y:i32){ //xが3 yが5の値になる
+    println!(&quot;{}+{}={}&quot;,x,y,x + y);
+}
+</code></pre></pre>
+<p>上の例では<code>sum</code>関数に3と5の二つの値を与えて合計を計算させています。<code>sum</code>関数内では引数に設定したxとyの値に渡された3と5が入りこの変数を使い計算することができます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    time_print(12,'h');
+}
+
+fn time_print(x: i32, time: char){
+    println!(&quot;時間は{}{}&quot;,x,time);
+}
+</code></pre></pre>
+<p>上の例のように引数は同じ型である必要もありません。</p>
+<h3 id="文と式"><a class="header" href="#文と式">文と式</a></h3>
+<p>今まであまり気にしてきませんでしたがRustのコードには<strong>文</strong>と<strong>式</strong>という違いがあります。文は基本的に(<code>;</code>)で終了しており、何か動作をするが値を返さないもので、式は値として評価されるものです。具体的に見ていきましょう。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let x = 1; //let x = 式
+    let y = 3+5; //let y = 式
+    //let z = (let a = 1;); //let z = 文
+    
+}
+</code></pre></pre>
+<p>このコードのコメントの部分を普通に書いて実行しようとするとエラーになります。<code>let a = 1;</code>というのは文で値がないので<code>let z =</code>の束縛がうまくいきません。逆に今までよく使ってきた<code>x</code>や<code>y</code>の定義に使用している<code>1</code>や<code>3+5</code>は式なので値が評価され<code>x</code>や<code>y</code>への束縛がうまくいきます(<code>let x = 1;</code>というのは一行で見ると文です)。他にも式になるものは関数呼び出し、マクロ呼び出し(println!()など)、<code>{}</code>で囲まれたものなどがあります。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let x = {
+        let y = 1;
+        y + 1
+    };
+
+    let z = println!(&quot;マクロ呼び出し&quot;);//zの値は空のタプル&quot;()&quot;になる。
+
+    let a = sum(3,5);
+
+    let b = difference(7,2);
+
+    println!(&quot;xの値{}　aの値は{} bの値は{}&quot;,x,a,b);
+}
+
+fn sum (x: i32,y: i32 ) -&gt; i32 {
+    x+y
+}
+
+fn difference (x: i32,y: i32) -&gt; i32 {
+    return x - y;
+    println!(&quot;Hello world&quot;);//return以降は実行されない 警告が出るので注意
+}
+</code></pre></pre>
+<p>xの定義では<code>{}</code>で囲まれたコードの結果が定義に使われています。<code>y + 1</code>の後ろに<code>;</code>がついていないことに注意してください。式になるものは<code>;</code>がついていません。なのでyを定義した後、<code>y + 1</code>をした結果が式の値となりxの定義に使用されます。</p>
+<p>マクロ呼び出しは<code>println!()</code>など<code>!</code>がついたものになります。この本では詳しくは扱いませんが値を表示させるなど複雑なコードを書く必要がなく、コードを見やすくしてくれる便利なものという感じでいいと思います。このマクロの結果は<code>()</code>空のタプルとなります。これは普通には表示させることはできないので注意してください(今はそこまで重要でないのでスキップします)。</p>
+<p><code>sum</code>関数の呼び出しも式となります。なので関数を呼び出した結果をaの定義に使用しています。</p>
+<p>関数の呼び出した結果がどのように帰ってくるか見ましょう。関数を呼び出した結果を扱いたい時には関数の定義の際に注意する必要があります。呼び出したところへ返す値(<strong>戻り値</strong>)の設定をします。この戻り値が関数呼び出しの結果となります。この戻り値の設定は<code>sum (x: i32,y: i32 ) -&gt; i32</code>の<code>-&gt; i32</code>の部分になります。ここで戻り値の型を決めています。関数の結果の返し方は2通りあります。</p>
+<ul>
+<li><code>return</code> <br>
+<code>return</code>を扱うとその場で関数から値を返すことができます。それ以降のコードは実行されません。<code>return</code>は(<code>;</code>)を忘れないようにしましょう。</li>
+<li>式 <br>
+Rustでは関数の最後の式の値が戻り値と勝手になるので計算などの式にすることで明示的に<code>ruturn</code>を書かなくても値を返してくれます。(xの定義で利用した<code>{}</code>内でも同じ)</li>
+</ul>
+<br>
+<p>また戻り値はタプルで複数の値を返すこともできます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let tar = 5;
+
+    let (x, count) = cal(tar);
+
+    println!(&quot;{}までの値の合計は{}そして計算回数は{}回&quot;,tar,x,count);
+}
+
+fn cal(mut target: i32) -&gt; (i32, i32){
+    let mut count = 0;
+    let mut sum = 0;
+    while 0 &lt; target{
+        sum += target;
+        count += 1;
+        target -= 1;
+    }
+    (sum, count)
+}
+</code></pre></pre>
+<p>関数を役割ごとに分けて書きそれを呼び出すだけにすることでコードがかなり見やすくなります。
+これまでの内容で複雑なコードを書くことができるようになりました。これからの章ではRustで重要な所有権についてまたさらに複雑なコードを書くために必要な構造体などについて学んでいきましょう。</p>
+<h3 id="問題-3"><a class="header" href="#問題-3">問題</a></h3>
+<p>ある値の2乗を計算する関数と二つの値の差を計算する関数の二つを作成し2つの2乗の差を計算しましょう</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+
+}
+</code></pre></pre>
+<p>答えは下記のようになります。<img src="chapter3/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+<span class="boring">   let x = 5;
+</span><span class="boring">   let y = 8;
+</span>
+<span class="boring">   println!(&quot;xの値{}とyの値{}の2乗の差は{}&quot;,x,y,diff(x,y)); 
+</span>}
+
+<span class="boring">fn sqr(a: i32) -&gt; i32{
+</span><span class="boring">   a * a
+</span><span class="boring">}
+</span>
+<span class="boring">fn diff (a: i32,b: i32) -&gt; i32{
+</span><span class="boring">   if a &gt;= b {
+</span><span class="boring">       sqr(a) - sqr(b)
+</span><span class="boring">   }else{
+</span><span class="boring">       sqr(b) - sqr(a)
+</span><span class="boring">   }
+</span><span class="boring">}
+</span></code></pre></pre>
+<p>配列の中の3の倍数の数を数える関数を作成しましょう。</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+    let index = [1,3,5,4,6,8,4,3,18,32,11,12];
+
+}
+</code></pre></pre>
+<p>答えは下記のようになります。<img src="chapter3/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let index = [1,3,5,4,6,8,4,3,18,32,11,12];
+<span class="boring">   let mut count = 0;
+</span>
+<span class="boring">   for element in index {
+</span><span class="boring">       count += judge(element);
+</span><span class="boring">   }
+</span>
+<span class="boring">   println!(&quot;indexの中の3の倍数の数は{}&quot;,count);
+</span>}
+
+<span class="boring">fn judge(element: u32) -&gt; u32 {
+</span><span class="boring">   if element % 3 == 0 {
+</span><span class="boring">       1
+</span><span class="boring">   }else{
+</span><span class="boring">       0
+</span><span class="boring">   }
+</span><span class="boring">}
+</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-4-所有権"><a class="header" href="#chapter-4-所有権">Chapter 4 所有権</a></h1>
+<p>この章ではRustの一番の特徴である所有権について説明していきます。この所有権を理解することでコンパイル時のエラーを減らすことができます。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-41-所有権"><a class="header" href="#chapter-41-所有権">Chapter 4.1 所有権</a></h1>
+<p>全てのプログラムは実行中にコンピュータのメモリを使用し動作しています。このメモリの使用方法についてRustでは所有権という概念とメモリについてコンパイル時にチェックする規則によって管理されています。この所有権について理解することでより安全かつ効率的なコードを書くことができます。</p>
+<h3 id="所有権のルール"><a class="header" href="#所有権のルール">所有権のルール</a></h3>
+<ul>
+<li>Rustでは各値は所有者と呼ばれる変数と対応している</li>
+<li>所有者は一つである</li>
+<li>所有者がスコープから外れた時に値が棄てられる</li>
+</ul>
+<p>このルールについては今までになんとなく見ています。</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+    let x = {
+        let y = 1;
+        y + 1
+    };
+
+    let z = println!(&quot;マクロ呼び出し&quot;);//zの値は空のタプル&quot;()&quot;になる。
+
+    let a = sum(3,5);
+
+    let b = difference(7,2);
+
+    println!(&quot;xの値{}　aの値は{} bの値は{}&quot;,x,a,b);
+}
+
+fn sum (x: i32,y: i32 ) -&gt; i32 {
+    x+y
+}
+
+fn difference (x: i32,y: i32) -&gt; i32 {
+    return x - y;
+    println!(&quot;Hello world&quot;);//return以降は実行されない 警告が出るので注意
+}
+</code></pre></pre>
+<p>これは<a href="chapter4/../chapter3/chapter_3_3.html">3.3. 関数</a>で出てきたものです。xは<code>{}</code>のブロック内でyの定義を行いその値を用いて定義しています。このyの値は<code>{}</code>外で利用しようとするとエラーになります。上のコードでxの定義の後にyの値を表示するコードを追加し実行してみましょう。エラーが表示されるはずです。これはyの値が<code>{}</code>のスコープから外れ、yの値が持っている1という値がメモリから破棄されるためです。</p>
+<p>定義したxやaなどはそれぞれ値を持った所有者となります。このコードを見てください。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let x = 2;
+    let y = x;
+    println!(&quot;xの値は{}yの値は{}&quot;,x,y);
+}
+</code></pre></pre>
+<p>このコードではyの定義にxを利用しています。これはxが束縛されている2という値に対してyも同じように束縛しようとしているように見えます。これではルールにおける所有者が一つというのに反しているのでは無いでしょうか？</p>
+<p>これは実際にはルールに反していません。その理由は、整数のようなコンパイル時にメモリに対して既知のサイズを持つ型はコピーが容易かつ高速なので代入というよりコピーされます。</p>
+<p>Rustには<code>Copy</code>トレイトと呼ばれる特別な注釈があり、整数などの決まったサイズのものに対して配置することができるものがあります。(<code>Copy</code>トレイトなどはこの入門コースでは扱いません)型が<code>Copy</code>トレイトに適合している時、代入後も前の変数も使うことができます。<code>Copy</code>かどうかの判断としては単純なスカラー値(単純な値やそれを格納する型)であれば<code>Copy</code>でありメモリの確保が必要であったり何かのリソースが必要である場合(これから説明する<code>String</code>型など)は<code>Copy</code>ではありません。<code>Copy</code>の一部を下記に示します。</p>
+<ul>
+<li>整数型(<code>u32 i32</code>など)</li>
+<li>浮動小数点型(<code>f64 f32</code>など)</li>
+<li>論理値型(<code>true false</code>)</li>
+<li>文字型(<code>char</code> 一つの文字)</li>
+<li>タプル(<code>(i32,char)</code>など<code>Copy</code>だけで形成されているもののみ)</li>
+</ul>
+<p>ここまでは所有権について特別気にしてきませんでした。ここから所有権について詳しく見ていきましょう。</p>
+<h3 id="string型"><a class="header" href="#string型">String型</a></h3>
+<p><code>String</code>型は文字列の型です。今まで<code>char</code>型で一文字だけ扱いましたが<code>String</code>型はサイズが可変な文字列を扱えるようになります。</p>
+<p>可変な文字列の前に不変な文字列である文字列リテラルについて説明します。文字列リテラルでは文字列の値をプログラムにハードコード(そのまま値を書き込むこと)します。プログラミングを始めた時に<code>println!(&quot;Hello world!&quot;)</code>を見たと思いますがこの<code>Hello world!</code>がハードコードのことです。この文字列リテラルはこれからも変わらないもの(円周率など)に対しては適しています。しかし、ユーザの入力を受けてそれを保持し、扱いたい時には適していません。このために<code>String</code>型を使います。</p>
+<p>文字列リテラルを文字列型にするためには次のようなコードになります。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let mut x = String::from(&quot;Hello&quot;); //Helloを文字列型に変換
+    x.push_str(&quot; world&quot;);//push_str()関数は文字列リテラルをString型の後ろにつける
+    println!(&quot;xの中身{}&quot;,x);
+}
+</code></pre></pre>
+<p><code>String::from</code>は文字列リテラルを文字列に変換するものです。詳しくいうとString型の下にあるfrom関数を利用して文字列を生成しています。</p>
+<blockquote>
+<p>このコードは所有権に関連して重要な動きをしています。<code>String::from</code>関数でOSにメモリを要求しています。<code>String</code>型のような可変な文字列などコンパイル時にサイズが不明なものの実際のデータは<strong>ヒープ</strong>というメモリの一部に保存されます。この必要なメモリは実行時(<code>String::from</code>関数など)にOSに要求され、使用し終わったらOSにメモリを返還する必要があります。メモリの返還する方法としては所有権のルールの三つ目にあるスコープから抜ける時に値が棄てられるというルールに基づいてスコープから抜けた際に自動的にメモリも返還されます(実際には<code>drop</code>関数というものが呼ばれているがこのコースでは扱わない)。<br> <br>もう一つ所有権に対して重要なことがあります。ヒープの動きについてです。ヒープにデータを置く際には十分な大きさの空領域を確保し、そこの場所へのアドレスである<strong>ポインタ</strong>を返します。また複数の確保した領域は規則正しく並んでいないためヒープへのデータアクセスはポインタを追っていく必要があるためアクセスの速度が低速です。<br> <br>ヒープとよく一緒に紹介されるものとして<strong>スタック</strong>があります。スタックはヒープと異なりコンパイル時にサイズがわかるものを扱います(整数型など)。またデータを保存する際にはスタック領域に積んでいきます。積んでいくという表現の通り、お皿の山をイメージするといいでしょう。お皿を追加する時にはそのお皿を山の上に追加し、必要になれば山の上からとっていくというように構成されています。この追加する動作は<strong>push</strong>取り出す動作を<strong>pop</strong>と言います。またデータアクセスする際にはポインタを追う必要がなく、スタックからデータを取り出すだけなのでアクセス速度が高速です。</p>
+</blockquote>
+<h4 id="まとめ"><a class="header" href="#まとめ">まとめ</a></h4>
+<h4 id="ヒープ"><a class="header" href="#ヒープ">ヒープ</a></h4>
+<ul>
+<li>コンパイル時にサイズがわからないものに使う</li>
+<li>動作が低速</li>
+</ul>
+<h4 id="スタック"><a class="header" href="#スタック">スタック</a></h4>
+<ul>
+<li>コンパイル時にサイズがわかるものに対して使う</li>
+<li>動作が高速</li>
+</ul>
+<p>スタックとヒープについてはメモリの確保の仕方や速度について理解していればこのコースでは十分だと思います。</p>
+<br>
+<p>ここで先ほど説明したコードを見ましょう。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let x = 2;
+    let y = x;
+    println!(&quot;xの値は{}yの値は{}&quot;,x,y);
+}
+</code></pre></pre>
+<p>これは所有権について問題ないと説明したと思います。実際にはこれらはスタックに積まれるので値をコピーする処理が高速であるため所有権が移動せずコピーすることができます。</p>
+<blockquote>
+<p>文字列リテラルは実行時にサイズがわかっているのでスタックに保存されます。なので値もコピーすることができます。</p>
+</blockquote>
+<p>ではヒープを扱うようなString型ではどうなるでしょうか？</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let s1 = String::from(&quot;Hello world&quot;);
+    let s2 = s1;
+    println!(&quot;s1の値は{}s2の値は{}&quot;,s1,s2);
+}
+</code></pre></pre>
+<p>実行してみてみましょう。エラーが出ると思います。<code>error[E0382]: borrow of moved value: s1</code>というムーブされた値s1についての借用またはborrowの部分が使用というuseになったエラーが出ます。これはs1が持っていた所有権がs2に移動した後にs1を使用したためエラーが起こるのです。やはりヒープを使う<code>String</code>型ではコピーする処理は時間がかかってしまうためコピーできません。</p>
+<p>実際にどのような動きをしているのかみてみましょう。</p>
+<p><img src="chapter4/../img/%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%A8%E3%83%92%E3%83%BC%E3%83%97.png" alt="スタックとヒープ" /></p>
+<br>
+<p><code>String</code>型のスタック上のデータ</p>
+<ul>
+<li>
+<p>ptr<br>
+ヒープ上のデータを指すポインタ</p>
+</li>
+<li>
+<p>len<br>
+現在使用している文字列のメモリ量をバイトで表したもの(文字列の長さ)</p>
+</li>
+<li>
+<p>capacity<br>
+OSから受け取った全メモリ量をバイトで表したもの</p>
+</li>
+</ul>
+<br>
+<p><code>String</code>型はヒープに実際のデータが保存されます。そして先ほどのコードのようにs2にs1を代入すると<code>String</code>型のスタック上のデータが図の左のようにコピーされヒープ上の同じデータを指すことになります。このような状態ままスコープを出るとs2とs1のポインタが指している部分を開放しようとします。これは<strong>二重開放エラー</strong>というメモリの安全性においてのバグになってしまいセキュリティの脆弱性を生む可能性があります。なのでRustでは確保されたメモリをコピーしようとする代わりにs1を無効化し、スコープから出た際にもメモリの解放する必要性を無くしています。このようにs1を無効化する働きをRustでは<strong>ムーブ</strong>と言います。今回ではs1はs2にムーブされたと言います。</p>
+<p>ではヒープ上のデータもコピーしたい場合には<code>clone</code>メソッド(メソッドは関数と同じようなものという理解で今は大丈夫だと思います)を使います。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let s1 = String::from(&quot;Hello world&quot;);
+    let s2 = s1.clone();
+    println!(&quot;s1の値は{} s2の値は{}&quot;,s1,s2);
+}
+</code></pre></pre>
+<p><code>clone</code>メソッドを使うことでs1がムーブされることなく利用できます。ただヒープの特性上、実行速度が遅くなるなど欠点もあります。</p>
+<h3 id="関数"><a class="header" href="#関数">関数</a></h3>
+<p>関数に変数を引数として渡したり、関数から値を返すことでもムーブやコピーが行われます。</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+    let s1 = String::from(&quot;Hello world&quot;);
+    let mut s2 = String::from(&quot;Hello world&quot;);
+
+    take(s1);
+
+    s2 = take_give(s2);
+  
+    let x = 1;
+    
+    copy(x);
+
+}//s1はムーブしたのでここではs1に対しては何も起こらない
+
+fn take(st: String){//s1がsrにムーブされる
+
+    println!(&quot;s1の値は{}&quot;,st);
+
+}//ここでstのメモリが解放される
+
+fn take_give(some_st: String)-&gt; String {
+
+    println!(&quot;s2の値は{}&quot;,some_st);
+    some_st//呼び出し元へムーブする
+
+}
+
+fn copy(integer: i32){//xの値がintegerにコピーされる
+
+    println!(&quot;xの値は{}&quot;,integer);
+
+}//ここでintegerのメモリが解放される
+</code></pre></pre>
+<p>上記のコードで<code>take</code>関数や<code>copy</code>関数の後に<code>println!()</code>などを追加してs1,s2やxの値が利用できるかみてみましょう。ここでs2は値が返ってくるので可変にしています。</p>
+<p>関数で値を扱う際に所有権を移動させずに元の値を使用できるようにする<strong>参照</strong>というものもあります。</p>
+<h2 id="参照"><a class="header" href="#参照">参照</a></h2>
+<p>所有権を移動させずにデータへアクセスしたい時に参照をします。参照する際には参照元の前に<code>&amp;</code>をつけます。また引数として受け取る際の型や戻り値の型にも<code>&amp;</code>をつけます。次のコードを見てください。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let s1 = String::from(&quot;Hello world&quot;);
+    let s2 = &amp;s1;
+
+    let len = cal_len(&amp;s1);
+
+
+    println!(&quot;s1の値は{}でs1の長さは{} s1を参照したs2の値は{}&quot;,s1,len,s2);
+}
+
+fn cal_len(st: &amp;String)-&gt; usize{ //借用
+    st.len()//len()はStringのスタック上のデータであるlenの値を返す
+}
+</code></pre></pre>
+<p>ここで<code>&amp;s1</code>は<code>s1</code>への参照を生成しています。そして参照なのでスコープを抜けても指している値が棄てられることもありません。具体的には<code>cal_len</code>関数において<code>st</code>は参照をもらっているだけなので<code>st</code>がスコープを抜けても<code>s1</code>の値が棄てられません。この<code>(st: &amp;String)</code>のように関数の引数に参照を取ることを<strong>借用</strong>と言います。</p>
+<p>また参照は変数同様に通常で不変なので参照元に変更を加えようとするとエラーになります。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let s = String::from(&quot;hello&quot;);
+
+    change(&amp;s);
+
+}
+
+fn change(st: &amp;String) {
+    st.push_str(&quot; world&quot;);
+}
+</code></pre></pre>
+<p>不変な参照なので変更できませんというようなエラーが出てくると思います。参照も変数同様に可変にすることができます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut s = String::from(&quot;hello&quot;);
+
+    change(&amp;mut s);
+
+    println!(&quot;sの値は{}&quot;,s);
+}
+
+fn change(st: &amp;mut String) {
+    st.push_str(&quot; world&quot;);
+}
+</code></pre></pre>
+<p>まずは変数の値を変更するのでsの値を<code>mut</code>をつけます。そして参照する際にも<code>&amp;mut s</code>のように<code>mut</code>をつけます。このようにすることで可変な参照をすることができます。</p>
+<p>参照のルールとして一つのデータに対して不変な参照は複数回参照を行うことができますが可変な参照は一つしかできません。このようにすることで同時にデータの変更などを許さず、安全性を保つことができます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let mut s = String::from(&quot;hello&quot;);
+    {
+        let t1 = &amp;mut s;
+        t1.push_str(&quot; world&quot;);
+    }//ここでt1の値は棄てられるのでこれ以降で新しい可変な参照を使うことができる
+
+    let t2 = &amp;mut s;
+    t2.push_str(&quot; good morning&quot;);
+
+    println!(&quot;sの値は{}&quot;,s);
+
+}
+</code></pre></pre>
+<p>このコードのように同時に可変な参照をしなければ複数の可変な参照をすることができます。また不変な参照と可変な参照も同時に行うことができません。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let mut s = String::from(&quot;hello&quot;);
+
+    let t1 = &amp;mut s;
+    let t2 = &amp;s;
+    println!(&quot;t1の値{}t2の値{}&quot;,t1,t2);
+}
+</code></pre></pre>
+<p>先ほどのようにスコープを使い区切ることで可変な参照と不変な参照を行うことができます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let mut s = String::from(&quot;hello&quot;);
+    {
+    let t1 = &amp;mut s;
+    t1.push_str(&quot;world&quot;);
+    }
+
+    let t2 = &amp;s;
+    println!(&quot;sの値{} t2の値{}&quot;,s,t2);
+}
+</code></pre></pre>
+<p>注意として不変な参照を行なった後に<code>{}</code>などで区切っても可変な参照を行うことはできません。つまりこのt1を定義する前に不変な参照を行うとエラーになります。</p>
+<p>また参照している状態でデータの方を解放してしまうとエラーになります。具体的なコードを見ましょう。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let s1 = give();
+}
+
+fn give() -&gt; &amp;String{
+    let s = String::from(&quot;hello&quot;);
+
+    &amp;s
+}
+</code></pre></pre>
+<p>これの動作を説明すると</p>
+<ol>
+<li>give関数を呼び出す</li>
+<li>sを定義する</li>
+<li>sの参照を返す</li>
+<li>sが解放される</li>
+<li>しかしsの参照をs1が持っている</li>
+</ol>
+<p>4と5の動作が問題になっています。これは他の言語でもポインタが実装されているものであれば起こり得るエラーです。Rustでは参照がスコープを抜けるまでデータがスコープを抜けないようにチェックしてくれます。なのでこのような場合はちゃんとエラーとして表示してくれます。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-42-スライス型"><a class="header" href="#chapter-42-スライス型">Chapter 4.2 スライス型</a></h1>
+<p>参照する際の特殊な方法として<strong>スライス</strong>というものがあります。スライスはコレクション(文字列など)全体だけではなく、その中の一連の要素だけを参照することもできます。</p>
+<p>文字列に対するスライスを文字列スライスと言います。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let s = String::from(&quot;hello world&quot;);
+
+    let t1 = &amp;s[0..5];
+    let t2 = &amp;s[6..11];
+
+    println!(&quot;t1の値{} t2の値{}&quot;,t1,t2);
+}
+</code></pre></pre>
+<p>文字列の一部を参照する際にはこれまで通りの<code>&amp;s</code>とレンジのような書き方をして範囲を指定しています。基本的にレンジの時と同様にある値以上からある値未満までという範囲指定の仕方です。<a href="chapter4/./chapter_4_1.html">4.1. 所有権</a>にある図のヒープ上のデータに対応するindex(添字)を指定しています。空白も一文字扱いです。スライスのデータ構造は開始地点へのポインタとスライスの長さ(ptrとlen)を保持しています。</p>
+<br>
+<p>スライスの範囲の指定する際にコレクションの最初や最後を指定する際には省略した書き方ができます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let s = String::from(&quot;hello world&quot;);
+
+    let t1 = &amp;s[..5];//最初を省略
+    let t2 = &amp;s[6..];//最後を省略
+    let t3 = &amp;s[..];//最初と最後を省略
+    println!(&quot;t1の値{} t2の値{} t3の値{}&quot;,t1,t2,t3);
+}
+</code></pre></pre>
+<p>スライスは引数や戻り値でも使うことができます。その際の型は<code>&amp;str</code>と書きます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let s = String::from(&quot;hello world&quot;);
+    
+    let t1 = len(&amp;s[0..5]); //文字列の一部を参照
+    
+    println!(&quot;t1の長さは{}&quot;,t1);
+
+    let t2 = len(&amp;s[..]); //文字列全体を参照
+
+    println!(&quot;t2の長さは{}&quot;,t2);
+}
+
+fn len(l: &amp;str) -&gt; usize{ //スライスは全体でも一部でも受け取ることができる
+    l.len()
+}
+</code></pre></pre>
+<p>関数の受け取り方に注目してください。このようにすることでスライスを受け取ることができます。さらに<code>&amp;str</code>で受け取ることで<code>&amp;String</code>型も文字列全体のスライスを渡すことで受け取ることができます。</p>
+<p>文字列リテラルもスライスになります。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let s =&quot;hello world&quot;;
+
+    let t1= len(&amp;s);
+
+    
+    println!(&quot;sの長さは{}&quot;,t1);
+}
+
+fn len(l: &amp;str)-&gt;usize{
+    l.len()
+}
+</code></pre></pre>
+<p><code>len</code>関数の引数の型を<code>&amp;String</code>にすると型が一致しないエラーになります。</p>
+<p>文字列スライス以外にも配列のスライスなどが存在します。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let a = [1,2,3,4,5];
+    let s1 = &amp;a[1..3];
+
+    println!(&quot;{}&quot;,s1.len());
+}
+</code></pre></pre>
+<p>このように配列の一部を参照することができます。この時の型は<code>&amp;[i32]</code>という型になります。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-5-構造体"><a class="header" href="#chapter-5-構造体">Chapter 5 構造体</a></h1>
+<p>今まで複数の値を扱う際にはタプルか配列しかありませんでした。これらと同じように構造体はユーザの情報など意味のあるグループを形成する複数の値をまとめ、名前付けできる独自のデータ型です。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-51-構造体"><a class="header" href="#chapter-51-構造体">Chapter 5.1 構造体</a></h1>
+<p>構造体はタプルのように複数の型の値を使用して形成することができます。また、構造体の各データに名前をつけれるのでタプルよりも各データの意味が明確になっています。またこの名前を使用することでアクセスを容易にします。</p>
+<pre><code class="language-rust noplayground"><span class="boring">fn main(){
+</span>    struct User{
+        username: String,
+        email: String,
+        age: i32,
+    }
+<span class="boring">}
+</span></code></pre>
+<p>構造体を定義する時には<code>struct</code>キーワードを使用し、構造体全体に名前をつけます。この名前は構造体の意義を表すものを基本的に使用します。構造体の型としては構造体名が独自の型になります(今回は<code>User</code>型)。構造体の中には<strong>フィールド</strong>と呼ばれる意味を持つデータの名前と型を決め定義することができます。各フィールドは<code>フィールド名:型</code>のようにすることで定義できます。上のコードではユーザの情報を保持する構造体を作成しています。</p>
+<pre><code class="language-rust noplayground">fn main(){
+    struct User{
+        username: String,
+        email: String,
+        age: i32,
+    }
+
+    let user1 = User{
+        username: String::from(&quot;username1&quot;),
+        email: String::from(&quot;username1@example.com&quot;),
+        age: 20,
+    };
+
+}
+</code></pre>
+<p>構造体を使用するために各フィールドに対して具体的な値を指定し、構造体のインスタンス(実際に処理に使うもの <code>user1</code>など)を生成します。またインスタンスを生成する際、各フィールドの値は構造体が宣言した順番で指定する必要はありません。</p>
+<p>構造体のインスタンスから特定の値を得る際には<code>user1.age</code>のようにドット記法を用います。また誕生日を迎え、年齢(<code>user1.age</code>)を変更する必要があるなど特定の値を変更したい際にはインスタンスを生成する際に可変で定義する必要があります。ただ、一部のフィールドのみを可変にすることはできず、全てのフィールドの値が可変になります。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    struct User{
+        username: String,
+        email: String,
+        age: i32,
+    }
+
+    let mut user1 = User{
+        username: String::from(&quot;username1&quot;),
+        email: String::from(&quot;username1@example.com&quot;),
+        age: 20,
+    };
+
+    println!(&quot;user1の名前は{}&quot;,user1.username);
+    
+    user1.username=String::from(&quot;helloworld&quot;);//user1のusernameを変更
+
+    println!(&quot;user1の名前は{}&quot;,user1.username);
+}
+</code></pre></pre>
+<p>また構造体を関数の最後の式として生成することで構造体のインスタンスを返すこともできます。</p>
+<p>構造体を定義する場所を変えることで構造体に関連する操作が行いやすくなります。</p>
+<pre><pre class="playground"><code class="language-rust">struct User{
+    username: String,
+    email: String,
+    age: i32,
+}
+
+fn main(){
+    
+    let user1 = init_user(String::from(&quot;username1&quot;),String::from(&quot;username1@example.com&quot;));
+
+    println!(&quot;user1の名前は{}&quot;,user1.username);
+}   
+
+fn init_user (username: String, email: String) -&gt; User{
+    User{
+        username: username,
+        email: email,
+        age: 20,
+    }
+}
+</code></pre></pre>
+<p>上のコードでは構造体を<code>main</code>関数の外側で定義しているのでどこでも構造体のインスタンスの受け渡しや生成を行うことができます。構造体を<code>main</code>関数内のみで扱い、外の他の関数では扱えないようにしたい際には今までのように構造体の定義を<code>main</code>関数内に入れる方がいいでしょう。</p>
+<p><code>init_user</code>関数において構造体のフィールドの数が多い場合、構造体のフィールド名と関数の仮引数名をフィールドの数分書くのは少し面倒だと思います。そこでRustでは省略して書く方法があります。</p>
+<pre><pre class="playground"><code class="language-rust">struct User{
+    username: String,
+    email: String,
+    age: i32,
+}
+
+fn main(){
+    
+    let user1 = init_user(String::from(&quot;username1&quot;),String::from(&quot;username1@example.com&quot;));
+
+    println!(&quot;user1の名前は{}&quot;,user1.username);
+
+}
+
+fn init_user (username: String, email: String) -&gt; User{
+    User{
+        username,
+        email,
+        age: 20,
+    }    
+}
+</code></pre></pre>
+<p>このようにフィールド名と仮引数名を同じにすることで値の束縛を省略して書くことができ、フィールドの数が多くなるとより便利さがわかると思います。</p>
+<br>
+<p>新しくインスタンスを生成する際にすでにある他のインスタンスの値を使用することができ、変更したい箇所のみを書くことで省略して書くことができます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    struct Set{
+        ramen: String,
+        sub:String,
+        soup: String,
+        value: i32,
+    }
+
+    let user1 = order(String::from(&quot;醤油ラーメン&quot;),String::from(&quot;餃子&quot;));
+
+    let user2 = Set{
+        ramen: String::from(&quot;味噌ラーメン&quot;),
+        sub: String::from(&quot;チャーハン&quot;),
+        soup:String::from(&quot;中華スープ&quot;),
+        ..user1
+    };
+
+    println!(&quot;user1のラーメンは{} サブは{} スープは{} 価格は{}円&quot;,user1.ramen,user1.sub,user1.soup,user1.value);
+    println!(&quot;user2のラーメンは{} サブは{} スープは{} 価格は{}円&quot;,user2.ramen,user2.sub,user2.soup,user2.value);
+
+    fn order (ramen: String, sub: String) -&gt; Set{
+        Set{
+            ramen,
+            sub,
+            soup:String::from(&quot;中華スープ&quot;),
+            value:1000
+        }
+    }
+} 
+</code></pre></pre>
+<p><code>user2</code>を生成する際に<code>..user1</code>を使い自分が更新する<code>ramen</code>と<code>sub</code>以外を<code>user1</code>と同じ値にしています。この時<code>soup</code>も同じなので省略しようとすると所有権が移動してしまい<code>user1</code>の方が使えなくなってしまうので注意しましょう。<code>..user1</code>は実際には<code>soup:user1.soup</code>という動作であり<code>soup</code>は文字列なのでコピーされず所有権が移動してしまいます。</p>
+<br>
+<p>構造体に似たものとして構造体名があり意義を含むがフィールドに名前が付いてなく型だけのタプルを<strong>タプル構造体</strong>と言います。タプル構造体はタプル全体に名前をつけそのタプルを他のタプルと異なる型にしたい場合に有用です。</p>
+<p>タプル構造体を定義する際には構造体のように<code>struct</code>キーワードを使い、構造体名とタプルに含まれる型を書いていきます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    struct Color(i32,i32,i32);
+    struct LightColor(i32,i32,i32);
+
+    let black = Color(0,0,0);
+    let white = LightColor(0,0,0);
+
+}
+</code></pre></pre>
+<p>ここで<code>black</code>と<code>white</code>は違う型なので注意してください。異なるタプル構造体のインスタンスであるため、それぞれ<code>Color</code>型と<code>LightColor</code>型になります。タプル構造体の要素にアクセスする際にはタプルと同様に<code>.</code>を用いてアクセスすることができ、また分配などもできます。</p>
+<h3 id="問題-4"><a class="header" href="#問題-4">問題</a></h3>
+<p>身長と体重のフィールドを持つ構造体を用いてBMI {体重(kg)}/{身長(m)^2} と適正体重{身長(m)^2 * 22}を計算するプログラムを作成しましょう。これをもとに構造体を作り計算するコードを書きましょう。</p>
+<pre><pre class="playground"><code class="language-rust editable">
+
+
+
+</code></pre></pre>
+<p>答えは下記のようになります。目のマークを押してください。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Data {
+</span><span class="boring">   height: f32,  //身長
+</span><span class="boring">   weight: f32,  //体重
+</span><span class="boring">}
+</span><span class="boring">
+</span><span class="boring">fn main(){
+</span>
+<span class="boring">   let man1 = Data {
+</span><span class="boring">       height: 175.2, //最初から身長をmで設定するなら1.752
+</span><span class="boring">       weight: 68.0,
+</span><span class="boring">   };
+</span><span class="boring">   println!(&quot;man1のBMIは{} 適正体重は{}&quot;,bmi_cal(&amp;man1),app_wei(&amp;man1));//この後値を使う可能性があるので&amp;をつけて参照を渡している
+</span><span class="boring">   //&amp;をつけなくても計算することができるが所有権が移動してしまうのでman1が使えなくなる   
+</span>
+<span class="boring">}
+</span><span class="boring">
+</span><span class="boring">fn bmi_cal(data: &amp;Data) -&gt; f32{
+</span>
+
+<span class="boring">   data.weight / (data.height/100.0 * data.height/100.0)
+</span>
+<span class="boring">}
+</span>
+<span class="boring">fn app_wei(data: &amp;Data) -&gt; f32{
+</span>
+<span class="boring">   (data.height/100.0 * data.height/100.0) * 22.0    
+</span>
+<span class="boring">}
+</span></code></pre></pre>
+<br>
+<p>ここでデバッグ(コードのバグを直す)時に使えるものを簡単に紹介します。自分が生成したインスタンスの中身をちゃんと想定通りになっているかコードの途中で確認したい時があると思います。その際に<code>println!()</code>を使うと思いますが全て<code>{}</code>と<code>変数名.フィールド名</code>を組み合わせて書くのは面倒だと思います。これは直接結果を見たいというユーザ向けの出力になっています。そこで<code>{}</code>を<code>{:?}</code>にしましょう。これは<code>Debug</code>と呼ばれる出力の形でこの状態であれば配列なども要素数が多くなければ一度に見ることができます。
+しかし構造体ではまだ使うことができません。実際に見てましょう。ついでに少しエラーを見て直す練習をしてみましょう。エラーの表示の中のhelpの表示付近を見るといいでしょう。</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+    struct Data{
+        height: f32,  //身長
+        weight: f32,  //体重
+    }
+
+    let man1 = Data{
+        height: 175.2, //最初から身長をmで設定するなら1.752
+        weight: 68.0,
+    };
+
+    println!(&quot;man1の中身は{:?}&quot;,man1);
+}
+</code></pre></pre>
+<p>答えは下記になります。<img src="chapter5/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main(){
+</span><span class="boring">//note: add `#[derive(Debug)]` to `Rectangle` or manually `impl Debug for Rectangle`
+</span><span class="boring">//#[derive(Debug)]をRectangleに追加または自分で実装してください
+</span><span class="boring">//help: consider annotating `Rectangle` with `#[derive(Debug)]
+</span><span class="boring">//Rectangleに#[derive(Debug)]という注釈を考えましょう
+</span><span class="boring">//これらの表示がエラー表示の中にあると思います
+</span><span class="boring">//このようにエラーの表示がかなり丁寧に教えてくれます
+</span><span class="boring">   #[derive(Debug)]
+</span><span class="boring">   struct Rectangle{
+</span><span class="boring">       height: f32,  //身長
+</span><span class="boring">       weight: f32,  //体重
+</span><span class="boring">   }
+</span><span class="boring">
+</span><span class="boring">   let man1 = Rectangle{
+</span><span class="boring">       height: 175.2, //最初から身長をmで設定するなら1.752
+</span><span class="boring">       weight: 68.0,
+</span><span class="boring">   };
+</span>
+
+<span class="boring">   println!(&quot;man1の中身は{:?}&quot;,man1);
+</span>
+<span class="boring">}
+</span></code></pre></pre>
+<p>また<code>{:?}</code>を<code>{:#?}</code>とすることでフィールドごとに改行されて表示されます。</p>
+<br>
+<p>3人の学生を身長順に並び替えるコードを作成しましょう。また比較し並び替えるのは新しく関数を作成し行いましょう。(ヒント：可変な参照を行いましょう)</p>
+<pre><pre class="playground"><code class="language-rust editable">struct Student {
+    height: f32,
+    weight: f32,
+}
+
+//三人の身長と体重の値は自分で設定しましょう
+fn main(){
+    let st1 = Student{
+        height: ,
+        weight: ,
+    };
+    let st2 = Student{
+        height: ,
+        weight: ,
+    };
+    let st3 = Student{
+        height: ,
+        weight: ,
+    };
+
+    let mut std = [st1,st2,st3];
+
+    println!(&quot;現在の並びは&quot;);
+    for element in &amp;std{
+        println!(&quot;身長：{} 体重：{}&quot;,element.height,element.weight);
+    }
+    
+
+    println!(&quot;並び替えた順番は&quot;);
+
+    for element in &amp;std{
+        println!(&quot;身長：{} 体重：{}&quot;,element.height,element.weight);
+    }
+
+}
+
+</code></pre></pre>
+<p>答えは下記になります。<img src="chapter5/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
+<pre><pre class="playground"><code class="language-rust">struct Student {
+    height: f32,
+    weight: f32,
+}
+
+fn main(){
+    let st1 = Student{
+        height: 176.3,
+        weight: 69.3,
+    };
+    let st2 = Student{
+        height: 180.5,
+        weight: 74.5,
+    };
+    let st3 = Student{
+        height: 168.2,
+        weight: 66.0,
+    };
+
+    let mut std = [st1,st2,st3];//この型は&amp;[String]
+
+    println!(&quot;現在の並びは&quot;);
+    for element in &amp;std{
+        println!(&quot;身長：{} 体重：{}&quot;,element.height,element.weight);
+    }
+    
+<span class="boring">   sort(&amp;mut std,3);
+</span>
+    println!(&quot;並び替えた順番は&quot;);
+
+    for element in &amp;std{
+        println!(&quot;身長：{} 体重：{}&quot;,element.height,element.weight);
+    }
+}
+
+<span class="boring">fn sort(std :&amp;mut [Student], num: usize){
+</span><span class="boring">   let mut i:usize = 0;
+</span><span class="boring">
+</span><span class="boring">   while i &lt; num {
+</span><span class="boring">       let mut j:usize = num-1;
+</span><span class="boring">       while i &lt; j {
+</span><span class="boring">           if(std[j -1].height &gt; std[j].height){
+</span><span class="boring">               let height_swap = std[j-1].height;
+</span><span class="boring">               std[j-1].height=std[j].height;
+</span><span class="boring">               std[j].height= height_swap;
+</span><span class="boring">
+</span><span class="boring">               let weight_swap = std[j-1].weight;
+</span><span class="boring">               std[j-1].weight=std[j].weight;
+</span><span class="boring">               std[j].weight= weight_swap;
+</span><span class="boring">           }
+</span><span class="boring">           j-=1;
+</span><span class="boring">       }
+</span><span class="boring">       i+=1;
+</span><span class="boring">   }
+</span><span class="boring">   
+</span><span class="boring">}
+</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-52-メソッド記法"><a class="header" href="#chapter-52-メソッド記法">Chapter 5.2 メソッド記法</a></h1>
+<p>メソッドは関数に似たもので<code>fn</code>キーワードと名前で宣言したり引数や戻り値もありますが、構造体(またはenumかトレイトオブジェクト　トレイトオブジェクトはこのコースでは扱いません)上に定義します。</p>
+<p>関数と違うところとして最初の引数は必ず<code>self</code>になります。この<code>self</code>はメソッドが呼び出されている構造体インスタンスを表しています。</p>
+<p>では前のchapterで作成したBMIの面積を計算するbmi_cal関数をbmi_calメソッドとして作り替えましょう。</p>
+<pre><pre class="playground"><code class="language-rust">#[derive(Debug)]
+struct Data{
+        height: f32,  //身長
+        weight: f32,  //体重
+}
+
+impl Data {//メソッド定義
+    fn bmi_cal(&amp;self) -&gt; f32{
+        self.weight / (self.height/100.0 * self.height/100.0)
+    }
+}
+
+fn main() {
+    let man1 = Data{
+        height: 175.2, 
+        weight: 68.0,
+    };
+
+    println!(&quot;man1のBMIは{}&quot;,man1.bmi_cal());
+
+}   
+</code></pre></pre>
+<p><code>Rectangle</code>構造体上に関数を定義するには<code>impl</code>というキーワードから始めます。そして引数を<code>&amp;self</code>に変え、自分自身の値(<code>height</code>や<code>weight</code>)を使い計算し値を返すようにしています。呼び出す際には<code>man1.bmi_cal()</code>のように自分の名前とメソッド名をつけて呼び出すことができます。またメソッドの引数において<code>mut</code>をつけることで可変な借用にすることも可能です。もちろん複数の引数を渡すことも可能です。</p>
+<p>では下のコードに適正体重を計算するメソッドを定義し<a href="chapter5/./chapter_5_1.html">5.1. 構造体</a>の最後に行った問題と同じ答えになるか確認してみましょう。</p>
+<pre><pre class="playground"><code class="language-rust editable">#[derive(Debug)]
+struct Data{
+        height: f32,  //身長
+        weight: f32,  //体重
+}
+
+impl Data {//メソッド定義
+    fn bmi_cal(&amp;self) -&gt; f32{
+        self.weight / (self.height/100.0 * self.height/100.0)
+    }
+
+}
+
+fn main() {
+    let man1 = Data{
+        height: 175.2, 
+        weight: 68.0,
+    };
+
+    println!(&quot;man1のBMIは{}&quot;,man1.bmi_cal());
+
+}   
+</code></pre></pre>
+<p>答えは下記のようになります。<img src="chapter5/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押して確認してみましょう。</p>
+<pre><code class="language-rust noplayground">impl Data {//メソッド定義
+    fn bmi_cal(&amp;self) -&gt; f32{
+        self.weight / (self.height/100.0 * self.height/100.0)
+    }
+
+<span class="boring">  fn app_wei(&amp;self) -&gt; f32 {
+</span><span class="boring">      (self.height/100.0 * self.height/100.0) * 22.0   
+</span><span class="boring">  }
+</span>}
+
+<span class="boring">  
+</span><span class="boring">//impl Data{
+</span><span class="boring">//    fn app_wei(&amp;self) -&gt; f32 {
+</span><span class="boring">//       (self.height/100.0 * self.height/100.0) * 22.0   
+</span><span class="boring">//   }
+</span><span class="boring">//}
+</span><span class="boring">//このようにまたimplキーワードを使い定義するのも可能 
+</span></code></pre>
+<br>
+<p>またメソッドに複数の引数を渡すことも可能です。</p>
+<pre><pre class="playground"><code class="language-rust">#[derive(Debug)]
+struct Data{
+        height: f32,  //身長
+        weight: f32,  //体重
+}
+
+impl Data {//メソッド定義
+    fn bmi_cal(&amp;self,x:f32) -&gt; f32{
+        self.weight / (self.height/x * self.height/x)
+    }
+    fn app_wei(&amp;self, x:f32, y:f32) -&gt; f32 {
+        (self.height/100.0 * self.height/100.0) * 22.0   
+    }
+
+}
+
+fn main() {
+    let man1 = Data{
+        height: 175.2,
+        weight: 68.0,
+    };
+
+    println!(&quot;man1のBMIは{}&quot;,man1.bmi_cal(100.0));
+    println!(&quot;man1の適正体重は{}&quot;,man1.app_wei(100.0 ,22.0));
+
+}  
+</code></pre></pre>
+<p><code>man1.bmi_cal(100.0)</code>とすることで<code>bmi_cal</code>メソッドの第二引数に100.0が入ります。このように複数の引数を取り処理を行うことも可能です。</p>
+<p>メソッド記法のメリットとしては全てのメソッドで自分の型(<code>Data</code>など)を繰り返し書く必要がなくなることとコードを書く際にある構造体が提供している機能を<code>impl</code>ブロックまとめることで、他の人が構造体が提供している機能についてコード全体から探す必要がなくなるというメリットがあります。</p>
+<h3 id="関連関数"><a class="header" href="#関連関数">関連関数</a></h3>
+<p><code>impl</code>のブロック内には<code>self</code>を引数に取らない関数を定義することができます。これは構造体に関連するので<strong>関連関数</strong>と呼ばれます。あくまで関数であり、対象となる構造体のインスタンスが存在しないためメソッドではありません。今まで使ってきた<code>String:from</code>は関連関数です。関連関数の定義の方法は<code>impl</code>ブロック内に今までの関数と同様に定義するだけです。</p>
+<p>関連関数は構造体の新規インスタンスを返すときによく使用されます。</p>
+<pre><pre class="playground"><code class="language-rust">#[derive(Debug)]
+struct Data{
+        height: f32,  //身長
+        weight: f32,  //体重
+}
+
+impl Data {//メソッド定義
+    fn bmi_cal(&amp;self,x:f32) -&gt; f32{
+        self.weight / (self.height/x * self.height/x)
+    }
+    fn app_wei(&amp;self, x:f32, y:f32) -&gt; f32 {
+        (self.height/100.0 * self.height/100.0) * 22.0   
+    }
+    
+    fn data_insert(height: f32, weight: f32) -&gt; Data{ //関連関数の定義
+        Data{
+            height,
+            weight,
+        }
+    }
+}
+
+fn main() {
+    let man1 = Data{
+        height: 175.2, 
+        weight: 68.0,
+    };
+
+    let woman1 = Data::data_insert(160.4, 54.0);
+
+    println!(&quot;woman1のデータは{:?}&quot;,woman1);
+
+    println!(&quot;man1のBMIは{}&quot;,man1.bmi_cal(100.0));
+    println!(&quot;man1の適正体重は{}&quot;,man1.app_wei(100.0 ,22.0));
+    println!(&quot;woman1のBMIは{}&quot;,woman1.bmi_cal(100.0));
+    println!(&quot;woman1の適正体重は{}&quot;,woman1.app_wei(100.0 ,22.0));
+}  
+</code></pre></pre>
+<p>関連関数は今まで使ってきた<code>String::from</code>のように<code>構造体名::関連関数名</code>のように呼び出すことができます。</p>
+<h3 id="問題-5"><a class="header" href="#問題-5">問題</a></h3>
+<p>ある直線上にある点のy座標を求めるコードを作成しましょう。</p>
+<p>コードの条件</p>
+<ul>
+<li>傾きと断片のフィールドを持つ構造体を作成する</li>
+<li>x座標を与えられたときに直線上のy座標を求めるコードをメソッドとして定義する</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+
+}
+</code></pre></pre>
+<p>答えは下記になります。<img src="chapter5/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Line{
+</span><span class="boring">   slope: i32,
+</span><span class="boring">   segment: i32,
+</span><span class="boring">}
+</span>
+<span class="boring">impl Line{
+</span><span class="boring">   fn point(&amp;self, x:i32) -&gt; i32 {
+</span><span class="boring">       self.slope * x + self.segment
+</span><span class="boring">   } 
+</span><span class="boring">}
+</span>
+fn main(){
+<span class="boring">   let str = Line{
+</span><span class="boring">       slope: 2,
+</span><span class="boring">       segment: 7
+</span><span class="boring">   };
+</span>
+<span class="boring">   let x = -5;
+</span>
+<span class="boring">   println!(&quot;y={}x+{}のxが{}の時のyは{}&quot;,str.slope, str.segment, x, str.point(x));
+</span>
+}
+</code></pre></pre>
+<br>
+<p>5人の成績を判断するコードを作成しましょう。(90点以上 S 80点以上 A 70点以上 B 60以上 C 60点以下 D)成績の判断は構造体のメソッドか関連関数で定義しましょう。</p>
+<p>コードの条件</p>
+<ul>
+<li>名前と成績のフィールドを持つ構造体を作成する</li>
+<li>成績の判断をメソッドか関連関数で行う</li>
+<li>一つの配列に5人のインスタンスを格納する。</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+    
+}
+</code></pre></pre>
+<p>答えは下記になります。<img src="chapter5/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
+<p>メソッドバージョン</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Student{
+</span><span class="boring">   name: String,
+</span><span class="boring">   score: u32,
+</span><span class="boring">}
+</span><span class="boring">impl Student {
+</span><span class="boring">   fn score_judge(&amp;self) -&gt; char{
+</span><span class="boring">       if (self.score &gt;= 90) {
+</span><span class="boring">           'S'
+</span><span class="boring">       }else if (self.score &gt;= 80){
+</span><span class="boring">           'A'
+</span><span class="boring">       }else if (self.score &gt;= 70){
+</span><span class="boring">           'B'
+</span><span class="boring">       }else if (self.score &gt;= 60){
+</span><span class="boring">           'C'
+</span><span class="boring">       }else{
+</span><span class="boring">           'D'
+</span><span class="boring">       }
+</span><span class="boring">   }
+</span><span class="boring">}
+</span>
+fn main(){
+<span class="boring">   let st1 = Student{
+</span><span class="boring">       name: String::from(&quot;Taro&quot;),
+</span><span class="boring">       score: 79,
+</span><span class="boring">   };
+</span><span class="boring">   let st2 = Student{
+</span><span class="boring">       name: String::from(&quot;Yusuke&quot;),
+</span><span class="boring">       score: 97,
+</span><span class="boring">   };
+</span><span class="boring">   let st3 = Student{
+</span><span class="boring">       name: String::from(&quot;Hanako&quot;),
+</span><span class="boring">       score: 60,
+</span><span class="boring">   };
+</span><span class="boring">   let st4 = Student{
+</span><span class="boring">       name: String::from(&quot;Hide&quot;),
+</span><span class="boring">       score: 43,
+</span><span class="boring">   };
+</span><span class="boring">   let st5 = Student{
+</span><span class="boring">       name: String::from(&quot;Miyu&quot;),
+</span><span class="boring">       score: 88,
+</span><span class="boring">   };
+</span>    
+<span class="boring">   let std = [&amp;st1, &amp;st2, &amp;st3, &amp;st4, &amp;st5];
+</span><span class="boring">   let std_score = [st1.score_judge(), st2.score_judge(), st3.score_judge(), st4.score_judge(), st5.score_judge()];
+</span>    
+<span class="boring">   let mut count = 0;
+</span>
+<span class="boring">  while count &lt; 5{
+</span><span class="boring">     println!(&quot;st{}の名前は{} 点数は{} 評価は{}&quot;,count+1 ,std[count].name, std[count].score, std_score[count]);
+</span><span class="boring">       count += 1;
+</span><span class="boring">   }
+</span>}
+</code></pre></pre>
+<p>関連関数バージョン</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Student{
+</span><span class="boring">   name: String,
+</span><span class="boring">   score: u32,
+</span><span class="boring">}
+</span><span class="boring">impl Student {
+</span><span class="boring">   fn score_judge(score:u32) -&gt; char{
+</span><span class="boring">       if (score &gt;= 90) {
+</span><span class="boring">           'S'
+</span><span class="boring">       }else if (score &gt;= 80){
+</span><span class="boring">           'A'
+</span><span class="boring">       }else if (score &gt;= 70){
+</span><span class="boring">           'B'
+</span><span class="boring">       }else if (score &gt;= 60){
+</span><span class="boring">           'C'
+</span><span class="boring">       }else{
+</span><span class="boring">           'D'
+</span><span class="boring">       }
+</span><span class="boring">   }
+</span><span class="boring">}
+</span>
+fn main(){
+<span class="boring">   let st1 = Student{
+</span><span class="boring">       name: String::from(&quot;Taro&quot;),
+</span><span class="boring">       score: 79,
+</span><span class="boring">   };
+</span><span class="boring">   let st2 = Student{
+</span><span class="boring">       name: String::from(&quot;Yusuke&quot;),
+</span><span class="boring">       score: 97,
+</span><span class="boring">   };
+</span><span class="boring">   let st3 = Student{
+</span><span class="boring">       name: String::from(&quot;Hanako&quot;),
+</span><span class="boring">       score: 60,
+</span><span class="boring">   };
+</span><span class="boring">   let st4 = Student{
+</span><span class="boring">       name: String::from(&quot;Hide&quot;),
+</span><span class="boring">       score: 43,
+</span><span class="boring">   };
+</span><span class="boring">   let st5 = Student{
+</span><span class="boring">       name: String::from(&quot;Miyu&quot;),
+</span><span class="boring">       score: 88,
+</span><span class="boring">   };
+</span>
+<span class="boring">   let std = [&amp;st1, &amp;st2, &amp;st3, &amp;st4, &amp;st5];
+</span><span class="boring">   let mut count = 0;
+</span>
+<span class="boring">   while count &lt; 5{
+</span><span class="boring">       println!(&quot;st{}の名前は{} 点数は{} 評価は{}&quot;,count+1 ,std[count].name, std[count].score, Student::score_judge(std[count].score));
+</span><span class="boring">       count += 1;
+</span><span class="boring">   }
+</span>}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-6-列挙体とパターンマッチング"><a class="header" href="#chapter-6-列挙体とパターンマッチング">chapter 6 列挙体とパターンマッチング</a></h1>
+<p>列挙型はenumとも呼ばれます。enumはとりえる値を列挙することで型を定義することができます。この章ではenumがどれだけ便利であるかと<code>match</code>式について説明していきます。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-61-列挙体"><a class="header" href="#chapter-61-列挙体">chapter 6.1 列挙体</a></h1>
+<blockquote>
+<p>このチャプターのコードは<a href="https://doc.rust-jp.rs/book-ja/ch06-01-defining-an-enum.html">The Rust Programming Language 6.1. Enumを定義する</a>から引用しています</p>
+</blockquote>
+<p>enumは同じものとして扱うべきだが異なる一つの値を取る際に有効です。例えば、IPアドレスが挙げられます。現在のバージョンとしてバージョン4と6がありますが、この値を扱う際には同時に両方の値は使いません。しかしIPアドレス全体に何か処理を行う際には同じ型として扱う必要があります。この扱いができる点が構造体よりも良い点です。</p>
+<p>列挙型を定義してみましょう。定義する際には<code>enum</code>キーワードを使います。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum IpAddr{
+    V4,
+    V6,
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>ここでV4やV6を列挙子と言います。このそれぞれの列挙子の先頭は大文字にし、<code>-</code>などは使えないので注意しましょう。具体的に使えないものはenumを使用していきながら覚えていきましょう。</p>
+<p>enumは構造体同様に独自の型(今回は<code>IpAddr</code>型)になり、関数の引数などにも使うことができます。上のコードの定義の仕方だとどんな種類かがわかるがデータを保持していないので構造体などを使用してenumの列挙子と値を紐づける必要があります。enumのみで値と紐付ける方法を下記に示します。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    enum IpAddr{
+        V4(String),
+        V6(String),  
+    }
+
+    let data1 = IpAddr::V4(String::from(&quot;127.0.0.1&quot;));
+    let data2 = IpAddr::V6(String::from(&quot;11・・11&quot;));//アドレスを省略しています
+
+}
+</code></pre></pre>
+<p><code>IpAddr::V4</code>のようにして列挙子のインスタンスを生成しています。このようにすることでenumの各列挙子と値を紐づけることができます。</p>
+<p>また構造体と違う点としてenumは常に同じ型とデータの量を持つ必要はありません。</p>
+<pre><pre class="playground"><code class="language-rust">struct User{
+        username: String,
+        email: String,
+        age: u32,
+}
+
+enum IpAddr{
+    V4(u8,u8,u8,u8),
+    V6(String),
+}
+fn main(){
+    let user1 = User{
+        username: String::from(&quot;user1&quot;),
+        email: String::from(&quot;user1@example.com&quot;),
+        age: 29,
+    };//インスタンスを生成する際には必ずこの三つのフィールドを使用する
+    
+    let data1 = IpAddr::V4(127,0,0,1);
+    let data2 = IpAddr::V6(String;;from(&quot;11・・11&quot;));
+    //data1とdata2は同じIpAddr型であるがインスタンスを生成する際に違う値を使用している
+}
+</code></pre></pre>
+<p>このコードに注目してください。<code>User</code>型のインスタンスは<code>username email age</code>の値をそれぞれ必ず持つ必要がありますが<code>IpAddr</code>型のインスタンスはV4とV6のどちらを扱うかによって紐づけるデータの型などが異なります。このようにenumでは同じ独自の型の中でも取る値に違いを出すことができます。 </p>
+<p>構造体とenumを組み合わせることで有効的に使うことができます。</p>
+<pre><pre class="playground"><code class="language-rust">struct IpV4Addr{
+    //省略
+}
+
+struct IpV6Addr{
+    //省略
+}
+
+enum IpAddr{
+    V4(IpV4Addr),
+    V6(IpV6Addr),
+}
+
+fn main(){
+    //省略
+}
+</code></pre></pre>
+<p>このようにすることで各列挙子に対して複数の種類のデータを格納することができます。実際にこれは標準のライブラリでこのように定義されています。標準のライブラリを自分のプログラム内で使えるようにすると自分自身で独自に標準ライブラリと同じもの(<code>IpAddr</code>など)を定義できないので注意しましょう。</p>
+<p>enumの利点として複数の種類のデータを取れることで構造体よりも簡潔に書くことができます。複数の構造体を列挙子として一つにすることで独自の型が一つで済みますが構造体にすると列挙子一つに対して一つの構造体を作成する必要があります。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    enum Message {
+        Quit, //何も値を取らない(正確には`()`をとる)
+        Move { x: i32, y: i32 },//構造体
+        Write(String),//String
+        ChangeColor(i32, i32, i32),//タプル構造体
+    } 
+
+    struct QuitMessage; 
+    struct MoveMessage {
+        x: i32,
+        y: i32,
+    }
+    struct WriteMessage(String); 
+    struct ChangeColorMessage(i32, i32, i32);
+
+}
+</code></pre></pre>
+<p>このようにenumと構造体でそれぞれ同じものを作るとこのようになります。<code>Messege</code>型でいずれかの値を扱う関数を作成する際には<code>Messege</code>型を受け取るか構造体一つ一つを受け取るのではコードの簡単さが違います。</p>
+<p>構造体とenumで似たところもあります。構造体のようにメソッドを定義することができます。</p>
+<pre><code class="language-rust noplayground">
+fn main() {
+    enum Message {
+        Quit,
+        Move { x: i32, y: i32 },
+        Write(String),
+        ChangeColor(i32, i32, i32),
+    }
+
+    impl Message {
+        fn call(&amp;self) {
+            // メソッド本体はここに定義される
+        }
+    }
+
+    let m = Message::Write(String::from(&quot;hello&quot;));
+    m.call();
+}
+</code></pre>
+<p>構造体と同様に<code>impl</code>キーワードを用いてメソッドを定義します。また引数も第一引数は<code>self</code>です。このコードでは<code>m</code>がメソッドを呼んでいるのでmの中身がselfが表す値になります。</p>
+<br>
+<br>
+<p>enumに関連して少し便利なものについて紹介します。</p>
+<p>enumの<code>Option</code>型というものについてです。</p>
+<pre><code class="language-rust noplayground">enum Option&lt;T&gt; {
+    Some(T),
+    None,
+}
+</code></pre>
+<p>このように定義されているもので有益すぎて最初から含まれており明示的に導入する必要がありません。また<code>Some</code>や<code>None</code>も明示的に導入する必要がなく、つまり<code>Option::</code>という接頭辞なしで使用することができます。</p>
+<p><code>Option</code>型は他言語でいう<code>null</code>と同じように使われるもので変数が<code>null</code>(値がないという状態)かそれ以外(1など値がある状態)のどちらかであると他言語では決められています。これは現在無効であったり存在しないを表現したいときに使います。しかしこの<code>null</code>の問題として<code>null</code>の値を何か値を持っているかのように使用するとエラーが出ることです。</p>
+<p>先程の<code>Option</code>が<code>null</code>と似たような働きをします。<code>&lt;T&gt;</code>というのはこのコースでは扱わないものですが<code>&lt;T&gt;</code>は<code>Some</code>列挙子があらゆる型のデータを一つ持つことを意味します。</p>
+<pre><code class="language-rust noplayground">let some_num = Some(5);
+let some_str = Some(&quot;hello&quot;);
+
+let no_num: Option&lt;u32&gt; = None;
+</code></pre>
+<p>このように使用することができます。<code>None</code>を使用する時はその変数が<code>Option</code> 型の何になるかを明示する必要があります。これは<code>null</code>と何が違うのでしょうか？</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let x: u32 = 5;
+    let y: Option&lt;u32&gt; = Some(5);
+
+    println!(&quot;x+yの値は{}&quot;,x+y);
+}
+</code></pre></pre>
+<p>これを実行するとわかるのですがxとyの型が異なるので計算をさしてもらえません。他言語のように<code>null</code>の際に計算さしてもらえず、<code>Option&lt;u32&gt;</code>を扱うと値が存在しない可能性があるのでコンパイラが弾くようになっています。なので実際に計算するためには<code>None</code>である場合の処理と<code>Some(T)</code>のT型の値を取り出し計算する処理が必要になります。</p>
+<p>なので列挙子それぞれに対してコードの選択ができる<code>match</code>式が有効になってきます。この<code>match</code>式は普通のenumを扱う上でも重要になります。</p>
+<p>enumは構造体と同じように<code>.</code>を使って列挙子に紐づけられた値を扱うことができません。<code>{:?}</code>のようにして<code>Debug</code>の出力の形にすればenumのインスタンスの中身を見ることはできます。enumのインスタンスに紐づけられた値を処理に使いたい時にも<code>match</code>式を扱うことでうまく扱うことができます。</p>
+<p>構造体とenumの類似点</p>
+<ul>
+<li>メソッドの定義ができる</li>
+<li>作成した独自の型になる</li>
+<li>mutをつけることで値は変更可能</li>
+</ul>
+<p>構造体とenumの異なる点</p>
+<ul>
+<li>enumは列挙子ごとに値を設定する　構造体は全てのフィールドの値を設定する必要がある</li>
+<li>構造体はドット記法で値を扱うことができる</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter62-match式"><a class="header" href="#chapter62-match式">chapter6.2 match式</a></h1>
+<p><code>match</code>式は一度<a href="chapter6/../chapter3/chapter_3_1.html">3.1 条件式</a>で触れたと思います。基本的には変わりません。ここでは少し詳しく説明し、enumなどと組み合わせて使用する例を見ていきます。</p>
+<p>少し復習をしましょう。下のコードは<a href="chapter6/../chapter3/chapter_3_1.html">3.1 条件式</a>で紹介したものです。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let num = 3;
+
+    match num{
+        1 =&gt; println!(&quot;numの値は1&quot;), //最後がカンマ(,)なのに注意
+        2 =&gt; println!(&quot;numの値は2&quot;),
+        3 =&gt; println!(&quot;numの値は3&quot;),
+        4 =&gt; println!(&quot;numの値は4&quot;),
+        _ =&gt; println!(&quot;numの値は1-4ではありません&quot;),
+    }
+}
+</code></pre></pre>
+<p>numの値に対して左側のパターンと比較していき条件を満たしたものの右の処理を行います。このコードではnumの値が3なので3の部分の右の式が実行されます。</p>
+<pre><pre class="playground"><code class="language-rust">enum Money{
+    One,
+    Five,
+    Ten,
+    Fifty,
+    Hundred,
+    Fivehundred,
+}
+
+fn main(){
+    let coin1 = Money::Five;
+
+    println!(&quot;coin1の値は{}&quot;,coin_value(coin1));
+}
+
+fn coin_value (money: Money) -&gt; u32 {
+    match money {
+        Money::One =&gt; 1,
+        Money::Five =&gt; 5,
+        Money::Ten =&gt; 10,
+        Money::Fifty =&gt; 50,
+        Money::Hundred =&gt; 100,
+        Money::Fivehundred =&gt; 500,
+        _ =&gt; 0,//硬貨ではないので0にしている
+    }
+}
+</code></pre></pre>
+<p>enumと単純に組み合わせたものが上のコードのようになります。こちらも前に紹介したものと基本的に変わりません。<code>=&gt;</code>の右の部分は式でなければなりません。またこの式の部分に<code>{}</code>を使い複数の処理を行うこともできます。</p>
+<pre><code class="language-rust noplayground">fn coin_value (money: Money) -&gt; u32 {
+    match money {
+        Money::One =&gt; 1,
+        Money::Five =&gt; {
+            println!(&quot;この硬貨は穴が空いています&quot;);
+            5
+        },
+        Money::Ten =&gt; 10,
+        Money::Fifty =&gt; {
+            println!(&quot;この硬貨は穴が空いています&quot;);
+            50
+        },
+        Money::Hundred =&gt; 100,
+        Money::Fivehundred =&gt; 500,
+        _ =&gt; {
+            println!(&quot;硬貨ではありません&quot;),
+            0
+        },
+    }
+}
+</code></pre>
+<p>このようにすることで<code>Money::Five</code>や<code>Money::fifty</code>に一致した時には<code>println!</code>とそれぞれの値を返す式にすることができます。</p>
+<br>
+<p>enumと<code>match</code>式を組み合わせて中の値を取り出せることを<a href="chapter6/./chapter_6_1.html">6.1 enum</a>の最後で軽く紹介したと思います。その例を見てみましょう。</p>
+<pre><pre class="playground"><code class="language-rust">#[derive(Debug)]
+enum Name {
+    Kitazato,
+    Noguti,
+    Natsume,
+    Ito,
+}
+enum Money{
+    One,
+    Five,
+    Ten,
+    Fifty,
+    Hundred,
+    Fivehundred,
+    Thousand(Name),
+}
+
+fn main(){
+    let know_money = Money::Thousand(Name::Noguti);
+
+    println!(&quot;このお金の金額は{}&quot;,coin_value(know_money));
+}
+
+fn coin_value (money: Money) -&gt; u32 {
+    match money {
+        Money::One =&gt; 1,
+        Money::Five =&gt; 5,
+        Money::Ten =&gt; 10,
+        Money::Fifty =&gt; 50,
+        Money::Hundred =&gt; 100,
+        Money::Fivehundred =&gt; 500,
+        Money::Thousand(name) =&gt; {
+            println!(&quot;この1000円札の人は{:?}&quot;,name);
+            1000
+        }
+        _ =&gt; {
+            println!(&quot;1000以下のお金ではありません&quot;);
+            0
+        }
+    }
+}
+</code></pre></pre>
+<p><code>match</code>式のパターンで1000円札の人物の名前の部分(今回は<code>Name::Noguti</code>)を<code>name</code>に束縛しています。このようにすることで列挙子から値を取り出すことができます。</p>
+<p>これを使うことで前のchapterの<code>Option&lt;T&gt;</code>での問題を解決できるようになります。<code>Some(T)</code>の値を取り出したかったはずです。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let x: u32 = 5;
+    let y: Option&lt;u32&gt; = Some(5);
+    let z: Option&lt;u32&gt; = None;
+
+    println!(&quot;yの値をxの値分増やしたものは{}&quot;,plus(x,y));
+
+    println!(&quot;zの値をxの値分増やしたものは{}&quot;,plus(x,z));
+}
+
+fn plus(x: u32, y: Option&lt;u32&gt;) -&gt; u32 {
+    match y {
+        None =&gt; 0,
+        Some(t) =&gt; t + x,
+    }
+}
+</code></pre></pre>
+<p>yとzをそれぞれ<code>Some(5)</code>や<code>None</code>に設定していますがこれらももちろんパターンにマッチします。ここで<code>Option&lt;T&gt;</code>に対する<code>match</code>を行う際には<code>None</code>に対する処理がないとエラーになります。そのために<code>None</code>というパターンか<code>_</code>(ワイルドカード)を使用する必要があります。これは<code>match</code>式はどれかのパターンに一致しないといけないためです。</p>
+<p>しかしある値の時のみ処理を行いたい際に<code>match</code>式を使うと<code>None</code>に一致するコードなど無駄なコードを書くことになってしまいます。そこで<code>if let</code>を使うことで短く書くことができます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let some_value = Some(1);
+    if let Some(1) = some_value {
+        println!(&quot;One&quot;);
+    }
+}
+</code></pre></pre>
+<p>このように<code>if let</code>では<code>=</code>で区切り左側がパターン右側が評価する変数や値になります。<code>some_value</code>の値は<code>Some(1)</code>なので左側のパターンと一致するのでブロック内の<code>println!(&quot;One&quot;);</code>が実行されます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let some_value = Some(1);
+    if let Some(mut i) = some_value {
+        println!(&quot;iの値は{}&quot;,i);
+        i= i+1;
+        println!(&quot;iの値は{}&quot;,i);
+    }
+    println!(&quot;some_valueの値は{:?}&quot;,some_value);
+}
+</code></pre></pre>
+<p>また上のコードのように値を束縛することができます。<code>match</code>式のように全てのパターンに対応するかのチェックはないので注意してください。</p>
+<p><code>if let</code>では<code>if</code>式のように<code>else</code>を追加することができます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let some_value = Some(5);
+    if let Some(1) = some_value {
+        println!(&quot;1です&quot;);
+    }else{
+        println!(&quot;1以外の値です&quot;);
+    }
+}
+</code></pre></pre>
+<p><code>if</code>式のように<code>else</code>が使えるので<code>if else</code>で繋げていくこともできます。</p>
+<h3 id="問題-6"><a class="header" href="#問題-6">問題</a></h3>
+<p>お店で服(シャツ　コート　スウェットシャツ　カーディガン)を買う時を想定し合計点数と合計金額を計算するコードを作成しましょう<br></p>
+<p>コードの条件<br></p>
+<ul>
+<li>服の列挙型を作成する</li>
+<li>買う服の種類とサイズを一つの配列で管理する</li>
+<li>match式を使用して服の種類を判断する</li>
+</ul>
+<p>服の種類とサイズによる金額は以下の通り</p>
+<div class="table-wrapper"><table><thead><tr><th></th><th style="text-align: center">S</th><th style="text-align: center">M</th><th style="text-align: center">L</th></tr></thead><tbody>
+<tr><td>シャツ(Shirt)</td><td style="text-align: center">1000</td><td style="text-align: center">2000</td><td style="text-align: center">3000</td></tr>
+<tr><td>コート(Coat)</td><td style="text-align: center">8000</td><td style="text-align: center">9000</td><td style="text-align: center">10000</td></tr>
+<tr><td>スウェットシャツ(Sweatshirts)</td><td style="text-align: center">2500</td><td style="text-align: center">3500</td><td style="text-align: center">4500</td></tr>
+<tr><td>カーディガン(Cardigan)</td><td style="text-align: center">3000</td><td style="text-align: center">4000</td><td style="text-align: center">5000</td></tr>
+</tbody></table>
+</div>
+<pre><pre class="playground"><code class="language-rust editable">fn main() {
+
+}
+</code></pre></pre>
+<p>答えは下記になります。<img src="chapter6/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押して確認しましょう。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">enum Wear{
+</span><span class="boring">   Shirt(char),
+</span><span class="boring">   Coat(char),
+</span><span class="boring">   Sweatshirts(char),
+</span><span class="boring">   Cardigan(char),
+</span><span class="boring">}
+</span>
+<span class="boring">fn main(){
+</span><span class="boring">   let order = [Wear::Shirt('M'), Wear::Coat('L'), Wear::Cardigan('M'), Wear::Shirt('S'), Wear::Sweatshirts('L')];
+</span>
+<span class="boring">   let mut sum = 0;
+</span><span class="boring">   let mut count_order = 0;
+</span>
+<span class="boring">   for element in order { //今回はWear型の何かにはなるので(_)は利用していない
+</span><span class="boring">       match element {
+</span><span class="boring">           Wear::Shirt(s) =&gt; {
+</span><span class="boring">               sum += shirt_money(s);
+</span><span class="boring">               count_order += 1;
+</span><span class="boring">           },
+</span><span class="boring">           Wear::Coat(s) =&gt; {
+</span><span class="boring">               sum += coat_money(s);
+</span><span class="boring">               count_order += 1;
+</span><span class="boring">           },
+</span><span class="boring">           Wear::Sweatshirts(s) =&gt; {
+</span><span class="boring">               sum += sweatshirts_money(s);
+</span><span class="boring">               count_order += 1;
+</span><span class="boring">           },
+</span><span class="boring">           Wear::Cardigan(s) =&gt; {
+</span><span class="boring">               sum += cardigan_money(s);
+</span><span class="boring">               count_order += 1;
+</span><span class="boring">           },
+</span><span class="boring">       }
+</span><span class="boring">   }
+</span><span class="boring">   println!(&quot;合計{}点で金額は{}になります&quot;,count_order,sum);
+</span><span class="boring">}
+</span>
+<span class="boring">fn shirt_money(s: char) -&gt; u32 {
+</span><span class="boring">   match s {
+</span><span class="boring">       'S' =&gt; 1000,
+</span><span class="boring">       'M' =&gt; 2000,
+</span><span class="boring">       'L' =&gt; 3000,
+</span><span class="boring">        _  =&gt; 0,
+</span><span class="boring">   }
+</span><span class="boring">}
+</span>
+<span class="boring">fn coat_money(s: char) -&gt; u32 {
+</span><span class="boring">   match s {
+</span><span class="boring">       'S' =&gt; 8000,
+</span><span class="boring">       'M' =&gt; 9000,
+</span><span class="boring">       'L' =&gt; 10000,
+</span><span class="boring">        _  =&gt; 0,
+</span><span class="boring">   }
+</span><span class="boring">}
+</span>
+<span class="boring">fn sweatshirts_money(s: char) -&gt; u32 {
+</span><span class="boring">   match s {
+</span><span class="boring">       'S' =&gt; 2500,
+</span><span class="boring">       'M' =&gt; 3500,
+</span><span class="boring">       'L' =&gt; 4500,
+</span><span class="boring">        _  =&gt; 0,
+</span><span class="boring">   }
+</span><span class="boring">}
+</span>
+<span class="boring">fn cardigan_money(s: char) -&gt; u32 {
+</span><span class="boring">   match s {
+</span><span class="boring">       'S' =&gt; 3000,
+</span><span class="boring">       'M' =&gt; 4000,
+</span><span class="boring">       'L' =&gt; 5000,
+</span><span class="boring">        _  =&gt; 0,
+</span><span class="boring">   }
+</span><span class="boring">}
+</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-7-パッケージ-クレート-モジュール"><a class="header" href="#chapter-7-パッケージ-クレート-モジュール">chapter 7 パッケージ　クレート　モジュール</a></h1>
+<p>ここでは長く複雑なコードを書く際に見やすく理解しやすいコードにするための機能について紹介していきます。しかしこのドキュメント上では使えないものもあるのでそこは簡単に紹介するだけになります。このドキュメント上で使えないものは自分のPC上にRustの環境を構築し大きなコードを書く際に参考にして頂けたら幸いです。</p>
+<p>自分が書いているプロジェクトが大きくなるにつれて、中身のコードが長くなり理解するのに時間がかかっています。なので関連する機能をまとめて別のファイルにするなどの工夫し、一目見るだけで理解できるようにすることでコードを変更する際などに扱いやすくなります。これに似た説明として関数があったと思います。その関数のようにある機能に関連するもの(関数など)をまとめて別ファイルにすることで見やすくしたり理解しやすくしています。</p>
+<p><img src="chapter7/./%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E4%BD%9C%E6%88%90.png" alt="プロジェクト作成" /></p>
+<p>これは実際にRustを自分のPC上に構築しプロジェクトを作成する際の流れになります。ここでCargoとはRustのプロジェクトを管理する上で重要なものになります。このCargoはコードのビルド(使えるようにする)またコードが使用するライブラリ(後に説明します)のダウンロードなどRustにおいて重要な仕事をしてくれるものになります。なので自分のPC上に環境を構築する際にはCargoをおすすめします。</p>
+<p>ではこの章のタイトルとなっている<strong>パッケージ　クレート　モジュール</strong>とはなんでしょうか？</p>
+<p>簡単に言うとコードのまとまりを保つ機能のことです。「モジュールシステム」と呼ばれることもあります。それぞれの詳しい説明は後で説明していきます。ここでは簡単に下に書いています。</p>
+<ul>
+<li>パッケージ：クレートをビルドし、テストし、共有できるCargoの機能</li>
+<li>クレート：ライブラリか実行可能ファイルを生成する木構造をしたモジュール群</li>
+<li>モジュール：クレート内の要素(関数、構造体、他のモジュールなど)の集合</li>
+<li>パス：要素(構造体やモジュールなど)を他から参照して使えるようにするもの</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-71-パッケージとクレート"><a class="header" href="#chapter-71-パッケージとクレート">chapter 7.1 パッケージとクレート</a></h1>
+<p>クレートとはバイナリクレートとライブラリクレートの二つがあります。バイナリクレートは今まで書いてきたコードのようなそのまま実行できるものという感じでいいと思います。</p>
+<p><img src="chapter7/./%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E4%BD%9C%E6%88%90.png" alt="プロジェクト作成" /></p>
+<p>今まで書いてきたコードは自分のPC上で書くときは最後の行の<code>main.rs</code>というファイルに書きます。なのでこの<code>main.rs</code>が実行可能ファイル(バイナリクレート)になります。これはRustのコンパイラの開始地点になり、これを<strong>クレートルート</strong>と呼ばれます。ライブラリクレートのクレートルートは<code>lib.rs</code>です。</p>
+<p>そしてパッケージはある機能群を提供する1つ以上のクレートです。そしてパッケージはそれらのクレートをどのようにビルドするかを説明するファイル<code>Cargo.toml</code>を持っています。パッケージはバイナリクレートかライブラリクレートを1つ以上持ちます。またライブラリクレートは1つまで、バイナリクレートはいくつでもという数の制限があります。</p>
+<p>また<code>src</code>というディレクトリの下に<code>lib.rs</code>が含まれていたらこれがライブラリクレートになります。ライブラリクレートは汎用性の高い複数のコードまとめたものでこのクレートだけでは実行はできないので実行可能ファイルが必要になります。</p>
+<br>
+<p>複数のバイナリクレートを持つためには<code>src</code>ディレクトリの下に<code>bin</code>ディレクトリを作りそこにファイルを置くことで複数のバイナリクレートを持つことができます。</p>
+<p>クレートは関連した機能を一つのスコープにまとめることでその機能が複数のプロジェクト間で共有しやすいようにします。あるクレートを自分のプロジェクトのスコープに持ち込むことでそのクレート内の機能を使うことができます。またクレートの機能を自分のプロジェクトの中に入れたままにしておくことで名前の衝突を防ぐことができます。例えば、乱数に関連する<code>rand</code>クレートの中に<code>Rng</code>というものがあります。これと同じ名前の構造体<code>Rng</code>を作ったとします。この時、コンパイラはちゃんと自分のクレートの内の構造体は<code>struct Rng</code>であり、<code>rand</code>クレートのものには<code>rand::Rng</code>でアクセスするというように混乱しないようになるのです。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-72-モジュールとuse"><a class="header" href="#chapter-72-モジュールとuse">chapter 7.2 モジュールとuse</a></h1>
+<p>モジュールは関数、構造体や他のモジュールなどの要素の集合です。モジュールはクレート内のコードをグループ化し可読性と再利用性を上げるのに役立ちます。</p>
+<p>モジュールは要素の<strong>プライバシー</strong>を制御することできます。プライバシーとは要素がコードの外側で使える<strong>公開(public)</strong> か内部の実装の詳細であり外部で使えない<strong>非公開(private)</strong> の二種類の状態のことです。Rustでは標準であらゆる要素(モジュールやその中の関数　構造体　モジュールなどの要素)は非公開の状態です。これはパスを説明する際に出てきます。</p>
+<p>バレーボールの試合を例にして考えてみましょう。選手(<code>player</code>)と審判(<code>referee</code>)がいます。選手は攻撃と守備に別れ、それぞれレシーブやアタックなどをします。審判は得点の加算やアウトの判定などを行います。これをモジュールで表してみましょう。モジュールの定義は<code>mod 名前</code>で定義されます。</p>
+<pre><code class="language-rust noplayground">mod player {
+    mod attacker {
+        fn receive() {
+            //省略
+        }
+
+        fn toss (){
+            //省略
+        }
+
+        fn attack (){
+            //省略
+        }
+    }
+
+    mod blocker {
+        fn block() {
+            //省略
+        }
+        
+        fn through() {
+            //省略
+        }
+
+        fn receive() {
+            //省略
+        }
+
+    }
+}
+
+mod referee {
+    //省略
+
+}
+</code></pre>
+<p>モジュールの中に<code>attacker</code>や<code>blocker</code>のように他のモジュールを定義することができます。他にも関数や構造体などの要素を置くことができます。</p>
+<p><code>src/main.rs</code>や<code>src/lib.rs</code>はクレートルートと呼ばれると言いました。この名前は<strong>モジュールツリー</strong>と呼ばれるクレートのモジュール構造の根っこ(ルート)にこれら2つのファイルの中身が<code>crate</code>というモジュールを形成するためです。モジュールツリーを下に示します。</p>
+<p><img src="chapter7/../img/%E3%83%84%E3%83%AA%E3%83%BC.png" alt="モジュールツリー" /></p>
+<p>このツリーを見るとどのモジュールが親子の関係なのかや兄弟の関係であるのかがすぐにわかります。例えば<code>crate</code>は全ての親であるし、<code>attacker</code>は<code>player</code>の子であることがわかります。また<code>referee</code>を省略していますが<code>player</code>と<code>referee</code>や<code>attacker</code>と<code>blocker</code>が兄弟の関係になります。この関係を理解することでこの後に紹介するパスについて理解しやすくなります。</p>
+<p>Rustにモジュールツリー内の要素を見つけるためにどこを探せばいいのかというのを教えるために<strong>パス</strong>を使います。パスには二つの形があります。</p>
+<ul>
+<li><strong>絶対パス</strong>：クレートの名前か<code>crate</code>という文字列を使用し、クレートルートからたどっていく</li>
+<li><strong>相対パス</strong>：<code>self</code>や<code>super</code>または今のモジュールの識別子を使い、現在のモジュールからたどっていく</li>
+</ul>
+<p>パスはそれぞれの識別子を<code>::</code>で区切って書きます。上のコードで新しい関数を作成しそこで<code>attack</code>関数を呼び出す例を見てみましょう。必要な部分をのみで他の部分は省略しています。ただ下のコードではパスの使い方はあっているのですがエラーになる理由は後ほど説明します。</p>
+<pre><pre class="playground"><code class="language-rust">mod player {
+    mod attacker {
+        fn attack(){
+            println!(&quot;アタック！！&quot;);
+        }
+    }
+}
+
+mod referee {
+    fn judge(){
+        //絶対パス
+        crate::player::attacker::attack();
+        println!(&quot;イン！！&quot;);
+
+        //相対パス
+        super::player::attacker::attack();//superは後ほど説明
+        println!(&quot;アウト！！&quot;);
+    }
+}
+fn main() {
+    referee::judge();//相対パス
+}
+</code></pre></pre>
+<p>このように絶対パスでは<code>crate</code>かクレート名で初め、そこから目的のものまでモジュールを<code>::</code>で分けて書いていきます。一方で相対パスでは呼び出している場所からスタートします。ここで<code>judge</code>関数は<code>referee</code>モジュール内なので一度<code>referee</code>モジュールと同じ階層に行く必要があります。そのために<code>super</code>を使用しています。そこから<code>player</code>モジュールの下を順番にパスで繋いで行きます。</p>
+<p>では先程のコードのエラーの原因を見てみましょう。これはモジュールの説明の際に出てきたプライバシーに関するエラーです。エラーを読むと<code>attacker</code>が<code>private</code>(非公開)の状態なのでエラーになっています。これを公開にするためには<code>pub</code>キーワードを使用することで公開することができます。</p>
+<pre><pre class="playground"><code class="language-rust">mod player {
+    pub mod attacker {
+        fn attack(){
+            println!(&quot;アタック！！&quot;);
+        }
+    }
+}
+
+mod referee {
+    fn judge(){
+        //絶対パス
+        crate::player::attacker::attack();
+        println!(&quot;イン！！&quot;);
+
+        //相対パス
+        super::player::attacker::attack();
+        println!(&quot;アウト！！&quot;);
+    }
+}
+
+fn main() {
+    referee::judge();
+}
+</code></pre></pre>
+<p>エラーの内容通り<code>pub</code>を<code>attacker</code>につけ公開しました。しかしこれもエラーになってしまいます。このコードは<code>player</code>モジュールの中身の<code>attacker</code>と<code>blocker</code>の内、<code>attacker</code>モジュールが公開されただけなのです。つまりまだ<code>attacker</code>モジュールの中身を公開していないのです。エラーの内容も<code>attack</code>が<code>private</code>というエラーです。同様に<code>judge</code>にも<code>pub</code>をつける必要があります。</p>
+<pre><pre class="playground"><code class="language-rust">mod player {
+    pub mod attacker {
+        pub fn attack(){
+            println!(&quot;アタック！！&quot;);
+        }
+    }
+}
+
+mod referee {
+    pub fn judge(){
+        //絶対パス
+        crate::player::attacker::attack();
+        println!(&quot;イン！！&quot;);
+
+        //相対パス
+        super::player::attacker::attack();
+        println!(&quot;アウト！！&quot;);
+    }
+}
+
+fn main() {
+    referee::judge();
+}
+</code></pre></pre>
+<p>相対パスにおいて<code>player</code>モジュールを公開していないのに<code>referee</code>モジュールから参照できるのは何故なんでしょうか？これは同じクレート内で<code>player</code>モジュールと<code>referee</code>モジュールが兄弟の関係なので<code>referee</code>から<code>player</code>を参照することができます(<code>player</code>を公開する必要がない)。それ以降は今まで説明してきたものになります。</p>
+<h3 id="相対パスをsuperで始める"><a class="header" href="#相対パスをsuperで始める">相対パスをsuperで始める</a></h3>
+<p>相対パスにおいて親モジュールからスタートしたい際に<code>super</code>というキーワードを使います。</p>
+<pre><code class="language-rust noplayground">mod player {
+    pub mod attacker {
+        pub fn attack(){
+            println!(&quot;アタック！！&quot;);
+        }
+    }
+}
+
+mod referee {
+    pub fn judge(){
+        //絶対パス
+        crate::player::attacker::attack();
+        println!(&quot;イン！！&quot;);
+
+        //相対パス
+        super::player::attacker::attack();
+        println!(&quot;アウト！！&quot;);
+    }
+}
+
+</code></pre>
+<p>このコードでは<code>judge</code>関数で<code>attack</code>関数を呼び出そうとしています。相対パスで呼び出そうとするためには<code>judge</code>関数の親モジュール<code>referee</code>モジュールから兄弟の関係の<code>player</code>モジュールに行き<code>attacker</code>モジュール <code>attack</code>関数へ行く必要があります。この<code>judge</code>関数の親モジュール<code>referee</code>モジュールを指定する際に<code>super</code>を使います。</p>
+<h3 id="構造体とenum"><a class="header" href="#構造体とenum">構造体とenum</a></h3>
+<p>構造体やenumも<code>pub</code>を使うことで公開されますがそれぞれ少し異なる動きをします。構造体を公開するとモジュールと同様に中身のフィールドは公開されません。なので公開したいフィールドはそれぞれ設定する必要があります。一方でenumは公開すると中の列挙子も全て公開されます。</p>
+<pre><pre class="playground"><code class="language-rust">mod menu {
+    pub struct Seasoncakeset {
+        pub drink: String,
+        season_cake: String,
+    }
+
+    impl Seasoncakeset {
+        pub fn winter(drink: &amp;str) -&gt; Seasoncakeset {
+            Seasoncakeset{
+                drink: String::from(drink),
+                season_cake: String::from(&quot;orangecake&quot;),
+            }
+        }
+    }
+}
+
+fn main(){
+    let mut order = menu::Seasoncakeset::winter(&quot;coffee&quot;);
+    
+    order.drink = String::from(&quot;tea&quot;);
+    //order.season_cake = String::from(&quot;strawberrycake&quot;);コメントを外すとエラーになる
+    //order.season_cakeを表示することもprivateなのでできない
+    println!(&quot;orderのドリンクは{}&quot;,order.drink);
+
+}
+</code></pre></pre>
+<h3 id="useキーワード"><a class="header" href="#useキーワード">useキーワード</a></h3>
+<p>これまでのパスは長く繰り返し書くには面倒なものでした。それを簡単にするのが<code>use</code>というキーワードです。<code>use</code>キーワードを使い、パスを一度スコープに持ち込むことでパス内の要素がローカルにあるかのように呼び出すことができます。このパスは絶対パスでも相対パスでも構いません。</p>
+<pre><pre class="playground"><code class="language-rust">mod player {
+    pub mod attacker {
+        pub fn attack(){
+            println!(&quot;アタック！！&quot;);
+        }
+    }
+}
+
+mod referee {
+    pub fn judge(){
+        //絶対パス
+        crate::player::attacker::attack();
+        println!(&quot;イン！！&quot;);
+
+        //相対パス
+        super::player::attacker::attack();
+        println!(&quot;アウト！！&quot;);
+    }
+}
+
+fn main() {
+    referee::judge();
+}
+</code></pre></pre>
+<p><code>use</code>を使いこれを簡単にしましょう。</p>
+<pre><pre class="playground"><code class="language-rust">mod player {
+    pub mod attacker {
+        pub fn attack() {
+            println!(&quot;アタック！！&quot;);
+        }
+    }
+}
+
+use crate::player::attacker;
+
+mod referee {
+    pub fn judge(){
+    
+        super::attacker::attack();
+        println!(&quot;イン！！&quot;);
+    }
+}
+
+fn main() {
+    referee::judge();
+}
+</code></pre></pre>
+<p><code>judge</code>関数内で<code>attack</code>関数を呼び出す際の違いを見てください。書く量が減っていると思います。これは<code>crate::player::attacker</code>モジュールをスコープに持ち込むことで<code>use</code>が書かれた階層と同じ階層に<code>attacker</code>モジュールがあるかのように扱うことができます。なので<code>super::attacker::attack</code>と指定することで<code>attack</code>関数を呼び出すことができます。スコープに<code>use</code>で持ち込まれたパスの要素も他のパスと同様にプライバシーがチェックされるので注意してください。</p>
+<p>また<code>use crate::player::attacker::attack</code>のようにすると呼び出す際には<code>attack()</code>だけで呼び出すことができますが自分がローカルで定義した関数かどうかがわからなくなるので基本的に親のモジュールまで<code>use</code>で持ち込みます。構造体やenumその他の要素は全て書いて持ち込みます。</p>
+<h3 id="二つの同じ名前の要素の持ち込み方"><a class="header" href="#二つの同じ名前の要素の持ち込み方">二つの同じ名前の要素の持ち込み方</a></h3>
+<p>同じ名前の二つの要素を<code>use</code>でスコープに持ち込むのはRustでは許されません。そこでそれを解消する方法が二つあります。一つ目は親モジュールを使う方法です。</p>
+<pre><pre class="playground"><code class="language-rust editable">use std::fmt;
+use std::io;
+
+fn function1() -&gt; fmt::Result{
+    //省略
+    Ok(())//Result型の戻り値です
+}
+
+fn function2() -&gt; io::Result&lt;()&gt; {
+    //省略
+    Ok(())
+}
+
+fn main(){
+
+}
+</code></pre></pre>
+<p>同じ<code>Result</code>型を持ち込んできた場合区別するために親モジュール(<code>fmt</code>や<code>io</code>)を使い区別します。これを消すとエラーになるので消して確認してみてください。</p>
+<p>二つ目の方法は<code>as</code>キーワードを使うことです。この<code>as</code>キーワードは新しいローカルの名前をつけることができます。</p>
+<pre><pre class="playground"><code class="language-rust">use std::fmt::Result;
+use std::io::Result as IoResult;
+
+fn function1() -&gt; Result{
+    //省略
+    Ok(())//Result型の戻り値です
+}
+
+fn function2() -&gt; IoResult&lt;()&gt; {
+    //省略
+    Ok(())
+}
+
+fn main(){
+
+}
+</code></pre></pre>
+<p>今回は<code>std::io::Result</code>に<code>IoResult</code>という新しい名前をつけています。このようにすることで名前が衝突することを防ぎます。</p>
+<h3 id="外部のパッケージを使う"><a class="header" href="#外部のパッケージを使う">外部のパッケージを使う</a></h3>
+<p>プログラムを書く上で乱数の生成するパッケージなど便利なものがすでに用意されています。このパッケージはモジュールなどを持ち込むように<code>use</code>キーワードを使い自分のスコープに持ち込めば使用することができます。自分のPC上にRustを構築し動かす場合は<code>Cargo.toml</code>というファイルに使いたいパッケージの情報を書き込み<code>use</code>で持ち込むことで使うことができます。このコース上で外部のパッケージを使いたい場合は<code>extern crate 名前</code>という行を追加する必要があります。これはこのコースの実行環境の問題で使っていますが実際にはほぼ使うことがなくなった記法です。このようにすることで外部クレートをスコープに持ってくることができます。</p>
+<pre><pre class="playground"><code class="language-rust">extern crate rand;
+use rand::Rng;
+
+fn main() {
+    let secret = rand::thread_rng().gen_range(1..101);
+    println!(&quot;{}&quot;,secret);
+}
+</code></pre></pre>
+<p>このコードを複数回実行してみてください。実行結果が毎回異なると思います。<code>rand</code>クレートの具体的な実装内容は必要があれば調べてみてください。</p>
+<p>今まで問題を解いていく際に自分で変数の値をコードに直接書き込んでいましたがライブラリを持ち込むことでユーザの入力をそのまま変数の値にすることができます。しかしこれはこのドキュメント上では扱えないので自分のPC上で行う際に行ってみてください。</p>
+<pre><code class="language-rust noplayground">use std::io;
+fn main(){
+    let mut inport = String::new();
+
+    io::stdin().read_line(&amp;mut inport).expect(&quot;failed&quot;);
+
+    println!(&quot;入力は{}&quot;,inport);
+}
+</code></pre>
+<p><code>std</code>ライブラリは標準ライブラリに含まれており、その中の<code>io</code>(入出力)ライブラリをスコープに持ち込むことでユーザの入出力を受け取ることができます。実際に<code>read_line</code>メソッドを使用し、変数(今回は<code>inport</code>)に格納しています。この<code>read_line</code>メソッドは文字列を追加する動きをするので可変な参照を渡す必要があります。<code>expect</code>メソッドは<code>read_line</code>メソッドが成功したかどうかを判断するために使用します。失敗した場合に中の文字列を表示させプログラムをそこで終了させます。</p>
+<h3 id="useする際の便利な記法"><a class="header" href="#useする際の便利な記法">useする際の便利な記法</a></h3>
+<p><code>use</code>をする際に同じモジュールから複数の要素を持ち込むときに一行一行書いていくのが面倒だと思います。これの代わりにネストしたパスを使うことで一行で複数の要素を持ち込むことができます。</p>
+<pre><code class="language-rust noplayground">/*
+今までの記法
+use std::cmp::Ordering;
+use std::io;
+use std::fmt;
+*/
+use std::{cmp::Ordering, io, fmt};
+
+</code></pre>
+<p>このようにすることで<code>use</code>文の数を減らすことができます。</p>
+<p>また公開されている要素全てをスコープに持ち込みたいときに<code>glob</code>演算子(<code>*</code>)を使うことで全て持ち込めます。しかしプログラムで使われている名前がどこで定義されたのかわかりづらくなるので注意してください。</p>
+<pre><pre class="playground"><code class="language-rust">mod player {
+    pub mod attacker {
+        pub fn attack(){
+            println!(&quot;アタック！！&quot;);
+        }
+    }
+
+    pub mod blocker {
+        pub fn block() {
+            println!(&quot;ブロック！！&quot;);
+        }
+    }
+}
+
+use crate::player::*;
+
+fn main(){
+    attacker::attack();
+    blocker::block();
+}
+</code></pre></pre>
+<p>このように<code>player</code>モジュールの下の公開されている要素全て扱うことができるようになります。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-a-キーワード"><a class="header" href="#chapter-a-キーワード">chapter A キーワード</a></h1>
+<p>下のリストにあるものは現在Rustで使用されているかまた将来的に使用する可能性があるものでこれらのキーワードは変数名や関数名などに使用することができません。</p>
+<h3 id="現在使用されているもの"><a class="header" href="#現在使用されているもの">現在使用されているもの</a></h3>
+<ul>
+<li><code>as</code> </li>
+<li><code>async</code> </li>
+<li><code>await</code> </li>
+<li><code>break</code> </li>
+<li><code>const</code> </li>
+<li><code>continue</code> </li>
+<li><code>crate</code> </li>
+<li><code>dyn</code></li>
+<li><code>else</code> </li>
+<li><code>enum</code> </li>
+<li><code>extern</code> </li>
+<li><code>false</code> </li>
+<li><code>fn</code> </li>
+<li><code>for</code> </li>
+<li><code>if</code> </li>
+<li><code>impl</code></li>
+<li><code>in</code> </li>
+<li><code>let</code> </li>
+<li><code>loop</code></li>
+<li><code>match</code></li>
+<li><code>mod</code> </li>
+<li><code>move</code></li>
+<li><code>mut</code> </li>
+<li><code>pub</code> </li>
+<li><code>ref</code> </li>
+<li><code>return</code></li>
+<li><code>Self</code></li>
+<li><code>self</code> </li>
+<li><code>static</code> </li>
+<li><code>struct</code> </li>
+<li><code>super</code> </li>
+<li><code>trait</code> </li>
+<li><code>true</code> </li>
+<li><code>type</code> </li>
+<li><code>union</code> </li>
+<li><code>unsafe</code> </li>
+<li><code>use</code> </li>
+<li><code>where</code></li>
+<li><code>while</code> </li>
+</ul>
+<h3 id="将来のために使用できないもの"><a class="header" href="#将来のために使用できないもの">将来のために使用できないもの</a></h3>
+<ul>
+<li><code>abstract</code></li>
+<li><code>become</code></li>
+<li><code>box</code></li>
+<li><code>do</code></li>
+<li><code>final</code></li>
+<li><code>macro</code></li>
+<li><code>override</code></li>
+<li><code>priv</code></li>
+<li><code>try</code></li>
+<li><code>typeof</code></li>
+<li><code>unsized</code></li>
+<li><code>virtual</code></li>
+<li><code>yield</code></li>
+</ul>
+<p>引用元 <a href="https://doc.rust-jp.rs/book-ja/appendix-01-keywords.html">The Rust Programming Language 21.付録 - 21.1付録A : キーワード</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>

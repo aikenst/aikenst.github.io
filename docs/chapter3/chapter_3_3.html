@@ -1,0 +1,357 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>関数 - Rustの入門コース</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../chapter1/chapter_1.html"><strong aria-hidden="true">1.</strong> はじめ</a></li><li class="chapter-item expanded "><a href="../chapter2/chapter_2.html"><strong aria-hidden="true">2.</strong> 基本</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter2/chapter_2_1.html"><strong aria-hidden="true">2.1.</strong> 変数</a></li><li class="chapter-item expanded "><a href="../chapter2/chapter_2_2.html"><strong aria-hidden="true">2.2.</strong> 型</a></li><li class="chapter-item expanded "><a href="../chapter2/chapter_2_3.html"><strong aria-hidden="true">2.3.</strong> 演算</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter3/chapter_3.html"><strong aria-hidden="true">3.</strong> 便利なもの</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter3/chapter_3_1.html"><strong aria-hidden="true">3.1.</strong> 条件式</a></li><li class="chapter-item expanded "><a href="../chapter3/chapter_3_2.html"><strong aria-hidden="true">3.2.</strong> ループ</a></li><li class="chapter-item expanded "><a href="../chapter3/chapter_3_3.html" class="active"><strong aria-hidden="true">3.3.</strong> 関数</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter4/chapter_4.html"><strong aria-hidden="true">4.</strong> 所有権</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter4/chapter_4_1.html"><strong aria-hidden="true">4.1.</strong> 所有権</a></li><li class="chapter-item expanded "><a href="../chapter4/chapter_4_2.html"><strong aria-hidden="true">4.2.</strong> スライス</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter5/chapter_5.html"><strong aria-hidden="true">5.</strong> 構造体</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter5/chapter_5_1.html"><strong aria-hidden="true">5.1.</strong> 構造体</a></li><li class="chapter-item expanded "><a href="../chapter5/chapter_5_2.html"><strong aria-hidden="true">5.2.</strong> メソッド</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter6/chapter_6.html"><strong aria-hidden="true">6.</strong> 列挙型</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter6/chapter_6_1.html"><strong aria-hidden="true">6.1.</strong> enum</a></li><li class="chapter-item expanded "><a href="../chapter6/chapter_6_2.html"><strong aria-hidden="true">6.2.</strong> match式</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter7/chapter_7.html"><strong aria-hidden="true">7.</strong> パッケージ　モジュール　クレート</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter7/chapter_7_1.html"><strong aria-hidden="true">7.1.</strong> パッケージとクレート</a></li><li class="chapter-item expanded "><a href="../chapter7/chapter_7_2.html"><strong aria-hidden="true">7.2.</strong> モジュールとuse</a></li></ol></li><li class="chapter-item expanded "><a href="../chapterA/chapter_A.html"><strong aria-hidden="true">8.</strong> おまけ</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rustの入門コース</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="chapter-33-関数"><a class="header" href="#chapter-33-関数">Chapter 3.3 関数</a></h1>
+<p>ここではよりコードを見やすくするために<strong>関数</strong>について説明していきます。</p>
+<p>関数は今まで<code>main</code>関数のみを扱ってきて、この<code>main</code>関数内に全ての処理を書いてきました。しかし規模が大きく複雑なコードを書いていく際には<code>main</code>関数が長くなっていきコードが読みづらくなってしまいます。</p>
+<p>そこで役割ごとに新しく関数を作成することでコードを読みやすくすることができます。Rustの関数と変数の命名の慣習として全ての文字を小文字にして単語ごとにアンダースコア(_)で区切ります。関数の定義されている場所は特に重要ではなく<code>main</code>関数の前でも後でも大丈夫です。</p>
+<pre><pre class="playground"><code class="language-rust">fn main (){
+    println!(&quot;main関数で呼び出された&quot;);
+
+    another_function(); //関数呼び出し
+
+    println!(&quot;main関数で呼び出された2回目&quot;);
+}
+
+fn another_function(){ //新しく関数作成
+    println!(&quot;別の関数で呼び出された&quot;);
+}
+</code></pre></pre>
+<p>関数の定義する際には<code>fn</code>キーワードを使います。<code>fn 名前 () {}</code>のように定義します。呼び出す際には<code>関数名 ()</code>のように呼び出してその関数内の処理を行うことができます。呼び出した関数の処理が終わると基本的に元の関数の残りの処理を行っていきます。</p>
+<p><code>main</code>関数の途中で<code>another_function</code>関数が呼び出されて実行されています。<code>another_function</code>関数の処理が終わると<code>main</code>関数に戻り処理を続けます。</p>
+<p>関数にはその中の処理に使うための引数を渡すこともできます。そのためには引数を取るように関数を定義する必要があります。引数を取るようにするには関数定義の際に<code>()</code>内に変数と型(<code>x: i32</code>のように)を描く必要があります。この変数の前にmutをつけることで可変にすることもできます。これは後ほど出てきます。定義した関数に値を渡す際には呼び出す際の<code>()</code>内に値を書いて渡すことができます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main (){
+    println!(&quot;二つの値を足します&quot;);
+    sum(3,5);
+}
+
+fn sum (x:i32, y:i32){ //xが3 yが5の値になる
+    println!(&quot;{}+{}={}&quot;,x,y,x + y);
+}
+</code></pre></pre>
+<p>上の例では<code>sum</code>関数に3と5の二つの値を与えて合計を計算させています。<code>sum</code>関数内では引数に設定したxとyの値に渡された3と5が入りこの変数を使い計算することができます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    time_print(12,'h');
+}
+
+fn time_print(x: i32, time: char){
+    println!(&quot;時間は{}{}&quot;,x,time);
+}
+</code></pre></pre>
+<p>上の例のように引数は同じ型である必要もありません。</p>
+<h3 id="文と式"><a class="header" href="#文と式">文と式</a></h3>
+<p>今まであまり気にしてきませんでしたがRustのコードには<strong>文</strong>と<strong>式</strong>という違いがあります。文は基本的に(<code>;</code>)で終了しており、何か動作をするが値を返さないもので、式は値として評価されるものです。具体的に見ていきましょう。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let x = 1; //let x = 式
+    let y = 3+5; //let y = 式
+    //let z = (let a = 1;); //let z = 文
+    
+}
+</code></pre></pre>
+<p>このコードのコメントの部分を普通に書いて実行しようとするとエラーになります。<code>let a = 1;</code>というのは文で値がないので<code>let z =</code>の束縛がうまくいきません。逆に今までよく使ってきた<code>x</code>や<code>y</code>の定義に使用している<code>1</code>や<code>3+5</code>は式なので値が評価され<code>x</code>や<code>y</code>への束縛がうまくいきます(<code>let x = 1;</code>というのは一行で見ると文です)。他にも式になるものは関数呼び出し、マクロ呼び出し(println!()など)、<code>{}</code>で囲まれたものなどがあります。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let x = {
+        let y = 1;
+        y + 1
+    };
+
+    let z = println!(&quot;マクロ呼び出し&quot;);//zの値は空のタプル&quot;()&quot;になる。
+
+    let a = sum(3,5);
+
+    let b = difference(7,2);
+
+    println!(&quot;xの値{}　aの値は{} bの値は{}&quot;,x,a,b);
+}
+
+fn sum (x: i32,y: i32 ) -&gt; i32 {
+    x+y
+}
+
+fn difference (x: i32,y: i32) -&gt; i32 {
+    return x - y;
+    println!(&quot;Hello world&quot;);//return以降は実行されない 警告が出るので注意
+}
+</code></pre></pre>
+<p>xの定義では<code>{}</code>で囲まれたコードの結果が定義に使われています。<code>y + 1</code>の後ろに<code>;</code>がついていないことに注意してください。式になるものは<code>;</code>がついていません。なのでyを定義した後、<code>y + 1</code>をした結果が式の値となりxの定義に使用されます。</p>
+<p>マクロ呼び出しは<code>println!()</code>など<code>!</code>がついたものになります。この本では詳しくは扱いませんが値を表示させるなど複雑なコードを書く必要がなく、コードを見やすくしてくれる便利なものという感じでいいと思います。このマクロの結果は<code>()</code>空のタプルとなります。これは普通には表示させることはできないので注意してください(今はそこまで重要でないのでスキップします)。</p>
+<p><code>sum</code>関数の呼び出しも式となります。なので関数を呼び出した結果をaの定義に使用しています。</p>
+<p>関数の呼び出した結果がどのように帰ってくるか見ましょう。関数を呼び出した結果を扱いたい時には関数の定義の際に注意する必要があります。呼び出したところへ返す値(<strong>戻り値</strong>)の設定をします。この戻り値が関数呼び出しの結果となります。この戻り値の設定は<code>sum (x: i32,y: i32 ) -&gt; i32</code>の<code>-&gt; i32</code>の部分になります。ここで戻り値の型を決めています。関数の結果の返し方は2通りあります。</p>
+<ul>
+<li><code>return</code> <br>
+<code>return</code>を扱うとその場で関数から値を返すことができます。それ以降のコードは実行されません。<code>return</code>は(<code>;</code>)を忘れないようにしましょう。</li>
+<li>式 <br>
+Rustでは関数の最後の式の値が戻り値と勝手になるので計算などの式にすることで明示的に<code>ruturn</code>を書かなくても値を返してくれます。(xの定義で利用した<code>{}</code>内でも同じ)</li>
+</ul>
+<br>
+<p>また戻り値はタプルで複数の値を返すこともできます。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let tar = 5;
+
+    let (x, count) = cal(tar);
+
+    println!(&quot;{}までの値の合計は{}そして計算回数は{}回&quot;,tar,x,count);
+}
+
+fn cal(mut target: i32) -&gt; (i32, i32){
+    let mut count = 0;
+    let mut sum = 0;
+    while 0 &lt; target{
+        sum += target;
+        count += 1;
+        target -= 1;
+    }
+    (sum, count)
+}
+</code></pre></pre>
+<p>関数を役割ごとに分けて書きそれを呼び出すだけにすることでコードがかなり見やすくなります。
+これまでの内容で複雑なコードを書くことができるようになりました。これからの章ではRustで重要な所有権についてまたさらに複雑なコードを書くために必要な構造体などについて学んでいきましょう。</p>
+<h3 id="問題"><a class="header" href="#問題">問題</a></h3>
+<p>ある値の2乗を計算する関数と二つの値の差を計算する関数の二つを作成し2つの2乗の差を計算しましょう</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+
+}
+</code></pre></pre>
+<p>答えは下記のようになります。<img src="../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+<span class="boring">   let x = 5;
+</span><span class="boring">   let y = 8;
+</span>
+<span class="boring">   println!(&quot;xの値{}とyの値{}の2乗の差は{}&quot;,x,y,diff(x,y)); 
+</span>}
+
+<span class="boring">fn sqr(a: i32) -&gt; i32{
+</span><span class="boring">   a * a
+</span><span class="boring">}
+</span>
+<span class="boring">fn diff (a: i32,b: i32) -&gt; i32{
+</span><span class="boring">   if a &gt;= b {
+</span><span class="boring">       sqr(a) - sqr(b)
+</span><span class="boring">   }else{
+</span><span class="boring">       sqr(b) - sqr(a)
+</span><span class="boring">   }
+</span><span class="boring">}
+</span></code></pre></pre>
+<p>配列の中の3の倍数の数を数える関数を作成しましょう。</p>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+    let index = [1,3,5,4,6,8,4,3,18,32,11,12];
+
+}
+</code></pre></pre>
+<p>答えは下記のようになります。<img src="../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
+<pre><pre class="playground"><code class="language-rust">fn main(){
+    let index = [1,3,5,4,6,8,4,3,18,32,11,12];
+<span class="boring">   let mut count = 0;
+</span>
+<span class="boring">   for element in index {
+</span><span class="boring">       count += judge(element);
+</span><span class="boring">   }
+</span>
+<span class="boring">   println!(&quot;indexの中の3の倍数の数は{}&quot;,count);
+</span>}
+
+<span class="boring">fn judge(element: u32) -&gt; u32 {
+</span><span class="boring">   if element % 3 == 0 {
+</span><span class="boring">       1
+</span><span class="boring">   }else{
+</span><span class="boring">       0
+</span><span class="boring">   }
+</span><span class="boring">}
+</span></code></pre></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapter3/chapter_3_2.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../chapter4/chapter_4.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapter3/chapter_3_2.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../chapter4/chapter_4.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
