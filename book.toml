@@ -9,4 +9,5 @@ title = "Rustの入門コース"
 [output.html.playground]
 editable = true
 
-
+[build]
+build-dir = "docs"
