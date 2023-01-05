@@ -2,12 +2,12 @@
 
 - [はじめ](./chapter1/chapter_1.md)
 
-- [入門](./chapter2/chapter_2.md)
+- [基本](./chapter2/chapter_2.md)
     - [変数](./chapter2/chapter_2_1.md)
     - [型](./chapter2/chapter_2_2.md)
     - [演算](./chapter2/chapter_2_3.md)
 
-- [基本](./chapter3/chapter_3.md)
+- [便利なもの](./chapter3/chapter_3.md)
     - [条件式](./chapter3/chapter_3_1.md)
     - [ループ](./chapter3/chapter_3_2.md)
     - [関数](./chapter3/chapter_3_3.md)
