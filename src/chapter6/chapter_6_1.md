@@ -48,7 +48,7 @@ fn main(){
     };//インスタンスを生成する際には必ずこの三つのフィールドを使用する
     
     let data1 = IpAddr::V4(127,0,0,1);
-    let data2 = IpAddr::V6(String;;from("11・・11"));
+    let data2 = IpAddr::V6(String::from("11・・11"));
     //data1とdata2は同じIpAddr型であるがインスタンスを生成する際に違う値を使用している
 }
 ```
