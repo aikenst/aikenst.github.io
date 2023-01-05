@@ -177,6 +177,39 @@ fn main(){
 `if`式のように`else`が使えるので`if else`で繋げていくこともできます。
 
 ### 問題
+春夏秋冬を判断するプログラムを作成しましょう。
+
+コードの条件<br>
+* 季節の列挙型を作成する
+* match式を利用して季節を判断する
+
+```rust,editable
+fn main(){
+
+}
+```
+答えは下記になります。![表示](../img/%E8%A1%A8%E7%A4%BA.png)を押して確認しましょう。
+```rust
+#enum Season {
+#    Spring,
+#    Summer,
+#    Autumn,
+#    Winter,
+#}
+#
+fn main(){
+#    let season = Season::Summer;
+
+#    match season {
+#        Season::Spring => println!("季節は春です"),
+#        Season::Summer => println!("季節は夏です"),
+#        Season::Autumn => println!("季節は秋です"),
+#        Season::Winter => println!("季節は冬です"),
+#}
+
+}
+```
+
 お店で服(シャツ　コート　スウェットシャツ　カーディガン)を買う時を想定し合計点数と合計金額を計算するコードを作成しましょう<br>
 
 コードの条件<br>

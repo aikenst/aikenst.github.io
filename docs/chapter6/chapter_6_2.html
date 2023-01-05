@@ -304,6 +304,36 @@ fn plus(x: u32, y: Option&lt;u32&gt;) -&gt; u32 {
 </code></pre></pre>
 <p><code>if</code>式のように<code>else</code>が使えるので<code>if else</code>で繋げていくこともできます。</p>
 <h3 id="問題"><a class="header" href="#問題">問題</a></h3>
+<p>春夏秋冬を判断するプログラムを作成しましょう。</p>
+<p>コードの条件<br></p>
+<ul>
+<li>季節の列挙型を作成する</li>
+<li>match式を利用して季節を判断する</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+
+}
+</code></pre></pre>
+<p>答えは下記になります。<img src="../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押して確認しましょう。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">enum Season {
+</span><span class="boring">   Spring,
+</span><span class="boring">   Summer,
+</span><span class="boring">   Autumn,
+</span><span class="boring">   Winter,
+</span><span class="boring">}
+</span><span class="boring">
+</span>fn main(){
+<span class="boring">   let season = Season::Summer;
+</span>
+<span class="boring">   match season {
+</span><span class="boring">       Season::Spring =&gt; println!(&quot;季節は春です&quot;),
+</span><span class="boring">       Season::Summer =&gt; println!(&quot;季節は夏です&quot;),
+</span><span class="boring">       Season::Autumn =&gt; println!(&quot;季節は秋です&quot;),
+</span><span class="boring">       Season::Winter =&gt; println!(&quot;季節は冬です&quot;),
+</span><span class="boring">}
+</span>
+}
+</code></pre></pre>
 <p>お店で服(シャツ　コート　スウェットシャツ　カーディガン)を買う時を想定し合計点数と合計金額を計算するコードを作成しましょう<br></p>
 <p>コードの条件<br></p>
 <ul>
