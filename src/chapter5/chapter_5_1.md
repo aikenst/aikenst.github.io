@@ -154,6 +154,7 @@ fn main(){
     let black = Color(0,0,0);
     let white = LightColor(0,0,0);
 
+
 }
 ```
 
@@ -163,19 +164,19 @@ fn main(){
 
 身長と体重のフィールドを持つ構造体を用いてBMI {体重(kg)}/{身長(m)^2} と適正体重{身長(m)^2 * 22}を計算するプログラムを作成しましょう。これをもとに構造体を作り計算するコードを書きましょう。
 ```rust,editable
+fn main(){
 
 
-
-
+}
 ```
-答えは下記のようになります。目のマークを押してください。
+答えは下記のようになります。![表示](../img/%E8%A1%A8%E7%A4%BA.png)を押してください。
 ```rust
 #struct Data {
 #    height: f32,  //身長
 #    weight: f32,  //体重
 #}
 #
-#fn main(){
+fn main(){
 
 #    let man1 = Data {
 #        height: 175.2, //最初から身長をmで設定するなら1.752
@@ -184,7 +185,7 @@ fn main(){
 #    println!("man1のBMIは{} 適正体重は{}",bmi_cal(&man1),app_wei(&man1));//この後値を使う可能性があるので&をつけて参照を渡している
 #    //&をつけなくても計算することができるが所有権が移動してしまうのでman1が使えなくなる   
 
-#}
+}
 #
 #fn bmi_cal(data: &Data) -> f32{
 
@@ -250,79 +251,56 @@ fn main(){
 
 3人の学生を身長順に並び替えるコードを作成しましょう。また比較し並び替えるのは新しく関数を作成し行いましょう。(ヒント：可変な参照を行いましょう)
 
+コードの条件
+* 身長と体重のフィールドをもつ構造体を作成する
+* 一つの配列に三人の学生のインスタンスを格納する
+* 現在の並びと変更後の並びを表示する(身長と体重だけでいい)
+* 並び替える関数を作成する
+
 ```rust,editable
-struct Student {
-    height: f32,
-    weight: f32,
-}
 
 //三人の身長と体重の値は自分で設定しましょう
 fn main(){
-    let st1 = Student{
-        height: ,
-        weight: ,
-    };
-    let st2 = Student{
-        height: ,
-        weight: ,
-    };
-    let st3 = Student{
-        height: ,
-        weight: ,
-    };
 
-    let mut std = [st1,st2,st3];
-
-    println!("現在の並びは");
-    for element in &std{
-        println!("身長：{} 体重：{}",element.height,element.weight);
-    }
-    
-
-    println!("並び替えた順番は");
-
-    for element in &std{
-        println!("身長：{} 体重：{}",element.height,element.weight);
-    }
 
 }
 
 ```
 答えは下記になります。![表示](../img/%E8%A1%A8%E7%A4%BA.png)を押してください。
 ```rust
-struct Student {
-    height: f32,
-    weight: f32,
-}
+#struct Student {
+#    height: f32,
+#    weight: f32,
+#}
 
 fn main(){
-    let st1 = Student{
-        height: 176.3,
-        weight: 69.3,
-    };
-    let st2 = Student{
-        height: 180.5,
-        weight: 74.5,
-    };
-    let st3 = Student{
-        height: 168.2,
-        weight: 66.0,
-    };
+#    let st1 = Student{
+#        height: 176.3,
+#        weight: 69.3,
+#    };
+#    let st2 = Student{
+#        height: 180.5,
+#        weight: 74.5,
+#    };
+#    let st3 = Student{
+#        height: 168.2,
+#        weight: 66.0,
+#    };
 
-    let mut std = [st1,st2,st3];//この型は&[String]
+#    let mut std = [st1,st2,st3];//この型は&[String]
 
-    println!("現在の並びは");
-    for element in &std{
-        println!("身長：{} 体重：{}",element.height,element.weight);
-    }
+#    println!("現在の並びは");
+#    for element in &std{
+#        println!("身長：{} 体重：{}",element.height,element.weight);
+#    }
     
 #    sort(&mut std,3);
 
-    println!("並び替えた順番は");
+#    println!("並び替えた順番は");
 
-    for element in &std{
-        println!("身長：{} 体重：{}",element.height,element.weight);
-    }
+#    for element in &std{
+#        println!("身長：{} 体重：{}",element.height,element.weight);
+#    }
 }
 
 #fn sort(std :&mut [Student], num: usize){

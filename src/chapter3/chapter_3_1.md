@@ -43,9 +43,9 @@ fn main(){
 fn main(){
     let num = 10;
 
-    if (num / 3) == 0 {
+    if (num % 3) == 0 {
         println!("numの値{}は3の倍数",num);
-    } else if (num / 5) == 0 {
+    } else if (num % 5) == 0 {
         println!("numの値{}は5の倍数",num);
     }else{
         println!("numの値{}は15の倍数でない",num);

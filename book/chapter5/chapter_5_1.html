@@ -286,19 +286,19 @@ fn init_user (username: String, email: String) -&gt; User{
 <p>ここで<code>black</code>と<code>white</code>は違う型なので注意してください。異なるタプル構造体のインスタンスであるため、それぞれ<code>Color</code>型と<code>LightColor</code>型になります。タプル構造体の要素にアクセスする際にはタプルと同様に<code>.</code>を用いてアクセスすることができ、また分配などもできます。</p>
 <h3 id="問題"><a class="header" href="#問題">問題</a></h3>
 <p>身長と体重のフィールドを持つ構造体を用いてBMI {体重(kg)}/{身長(m)^2} と適正体重{身長(m)^2 * 22}を計算するプログラムを作成しましょう。これをもとに構造体を作り計算するコードを書きましょう。</p>
-<pre><pre class="playground"><code class="language-rust editable">
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
 
 
-
+}
 </code></pre></pre>
-<p>答えは下記のようになります。目のマークを押してください。</p>
+<p>答えは下記のようになります。<img src="../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">struct Data {
 </span><span class="boring">   height: f32,  //身長
 </span><span class="boring">   weight: f32,  //体重
 </span><span class="boring">}
 </span><span class="boring">
-</span><span class="boring">fn main(){
-</span>
+</span>fn main(){
+
 <span class="boring">   let man1 = Data {
 </span><span class="boring">       height: 175.2, //最初から身長をmで設定するなら1.752
 </span><span class="boring">       weight: 68.0,
@@ -306,8 +306,8 @@ fn init_user (username: String, email: String) -&gt; User{
 </span><span class="boring">   println!(&quot;man1のBMIは{} 適正体重は{}&quot;,bmi_cal(&amp;man1),app_wei(&amp;man1));//この後値を使う可能性があるので&amp;をつけて参照を渡している
 </span><span class="boring">   //&amp;をつけなくても計算することができるが所有権が移動してしまうのでman1が使えなくなる   
 </span>
-<span class="boring">}
-</span><span class="boring">
+}
+<span class="boring">
 </span><span class="boring">fn bmi_cal(data: &amp;Data) -&gt; f32{
 </span>
 
@@ -365,78 +365,56 @@ fn init_user (username: String, email: String) -&gt; User{
 <p>また<code>{:?}</code>を<code>{:#?}</code>とすることでフィールドごとに改行されて表示されます。</p>
 <br>
 <p>3人の学生を身長順に並び替えるコードを作成しましょう。また比較し並び替えるのは新しく関数を作成し行いましょう。(ヒント：可変な参照を行いましょう)</p>
-<pre><pre class="playground"><code class="language-rust editable">struct Student {
-    height: f32,
-    weight: f32,
-}
-
+<p>コードの条件</p>
+<ul>
+<li>身長と体重のフィールドをもつ構造体を作成する</li>
+<li>一つの配列に三人の学生のインスタンスを格納する</li>
+<li>現在の並びと変更後の並びを表示する(身長と体重だけでいい)</li>
+<li>並び替える関数を作成する</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust editable">
 //三人の身長と体重の値は自分で設定しましょう
 fn main(){
-    let st1 = Student{
-        height: ,
-        weight: ,
-    };
-    let st2 = Student{
-        height: ,
-        weight: ,
-    };
-    let st3 = Student{
-        height: ,
-        weight: ,
-    };
 
-    let mut std = [st1,st2,st3];
-
-    println!(&quot;現在の並びは&quot;);
-    for element in &amp;std{
-        println!(&quot;身長：{} 体重：{}&quot;,element.height,element.weight);
-    }
-    
-
-    println!(&quot;並び替えた順番は&quot;);
-
-    for element in &amp;std{
-        println!(&quot;身長：{} 体重：{}&quot;,element.height,element.weight);
-    }
 
 }
 
 </code></pre></pre>
 <p>答えは下記になります。<img src="../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
-<pre><pre class="playground"><code class="language-rust">struct Student {
-    height: f32,
-    weight: f32,
-}
-
+<pre><pre class="playground"><code class="language-rust"><span class="boring">struct Student {
+</span><span class="boring">   height: f32,
+</span><span class="boring">   weight: f32,
+</span><span class="boring">}
+</span>
 fn main(){
-    let st1 = Student{
-        height: 176.3,
-        weight: 69.3,
-    };
-    let st2 = Student{
-        height: 180.5,
-        weight: 74.5,
-    };
-    let st3 = Student{
-        height: 168.2,
-        weight: 66.0,
-    };
-
-    let mut std = [st1,st2,st3];//この型は&amp;[String]
-
-    println!(&quot;現在の並びは&quot;);
-    for element in &amp;std{
-        println!(&quot;身長：{} 体重：{}&quot;,element.height,element.weight);
-    }
-    
+<span class="boring">   let st1 = Student{
+</span><span class="boring">       height: 176.3,
+</span><span class="boring">       weight: 69.3,
+</span><span class="boring">   };
+</span><span class="boring">   let st2 = Student{
+</span><span class="boring">       height: 180.5,
+</span><span class="boring">       weight: 74.5,
+</span><span class="boring">   };
+</span><span class="boring">   let st3 = Student{
+</span><span class="boring">       height: 168.2,
+</span><span class="boring">       weight: 66.0,
+</span><span class="boring">   };
+</span>
+<span class="boring">   let mut std = [st1,st2,st3];//この型は&amp;[String]
+</span>
+<span class="boring">   println!(&quot;現在の並びは&quot;);
+</span><span class="boring">   for element in &amp;std{
+</span><span class="boring">       println!(&quot;身長：{} 体重：{}&quot;,element.height,element.weight);
+</span><span class="boring">   }
+</span>    
 <span class="boring">   sort(&amp;mut std,3);
 </span>
-    println!(&quot;並び替えた順番は&quot;);
-
-    for element in &amp;std{
-        println!(&quot;身長：{} 体重：{}&quot;,element.height,element.weight);
-    }
-}
+<span class="boring">   println!(&quot;並び替えた順番は&quot;);
+</span>
+<span class="boring">   for element in &amp;std{
+</span><span class="boring">       println!(&quot;身長：{} 体重：{}&quot;,element.height,element.weight);
+</span><span class="boring">   }
+</span>}
 
 <span class="boring">fn sort(std :&amp;mut [Student], num: usize){
 </span><span class="boring">   let mut i:usize = 0;
