@@ -419,7 +419,7 @@ fn main() {
     println!(&quot;{}&quot;,secret);
 }
 </code></pre></pre>
-<p>このコードを複数回実行してみてください。実行結果が毎回異なると思います。<code>rand</code>クレートの具体的な実装内容は必要があれば調べてみてください。</p>
+<p>このコードを複数回実行してみてください。実行結果が毎回異なると思います。<code>rand</code>クレートの具体的な実装内容は必要があれば調べてみてください。<code>thread_rng()</code>によって乱数生成器を所得していて、<code>.gen_range()</code>メソッドは<code>()</code>内で決めた範囲で乱数を生成しています。</p>
 <p>今まで問題を解いていく際に自分で変数の値をコードに直接書き込んでいましたがライブラリを持ち込むことでユーザの入力をそのまま変数の値にすることができます。しかしこれはこのドキュメント上では扱えないので自分のPC上で行う際に行ってみてください。</p>
 <pre><code class="language-rust noplayground">use std::io;
 fn main(){
@@ -466,6 +466,37 @@ fn main(){
 }
 </code></pre></pre>
 <p>このように<code>player</code>モジュールの下の公開されている要素全て扱うことができるようになります。</p>
+<h3 id="問題"><a class="header" href="#問題">問題</a></h3>
+<p>自分で決めた数字をコンピュータがランダムで選ぶ数字と一致するまで比較を繰り返すコードを作成しましょう。</p>
+<p>コードの条件<br></p>
+<ul>
+<li>乱数の範囲は1~30</li>
+<li>自分で決めた値と生成された乱数を毎回表示する</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust editable">fn main(){
+
+}
+</code></pre></pre>
+<p>答えは下記になります。<img src="../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押して確認しましょう。</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">extern crate rand;
+</span><span class="boring">use rand::Rng;
+</span>
+fn main(){
+<span class="boring">   let target = 17;
+</span><span class="boring">   loop {
+</span><span class="boring">       let random = rand::thread_rng().gen_range(1..30); 
+</span><span class="boring">       if target == random {
+</span><span class="boring">           println!(&quot;targetの値{}とrandomの値{}が一致しました&quot;,target,random);
+</span><span class="boring">           println!(&quot;終了します&quot;);
+</span><span class="boring">           break;
+</span><span class="boring">       }else {
+</span><span class="boring">           println!(&quot;targetの値{}とrandomの値{}が一致しませんでした&quot;,target,random);
+</span><span class="boring">           println!(&quot;もう一度&quot;);   
+</span><span class="boring">       }
+</span><span class="boring">   }
+</span>
+}
+</code></pre></pre>
 
                     </main>
 
