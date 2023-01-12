@@ -215,7 +215,7 @@
 </code></pre></pre>
 <p>ビットの<code>&amp;</code>をとるときの動きはまず3と5を二進数(二進数はある値を0と1で表現するものです)のビットに直します。この時3は<code>0011</code>5は<code>0101</code>となります。先程の表を使いtrueを1、falseを0としてそれぞれ同じ場所を比較します。実際に計算すると<code>0001</code>になると思います。なので上記のコードのcの値が1になります。</p>
 <h3 id="問題"><a class="header" href="#問題">問題</a></h3>
-<p>下のコードを計算できるように書き換えましょう。</p>
+<p>下のコードではエラーが出ます。zの定義ができるようにコードを書き換えましょう。</p>
 <pre><pre class="playground"><code class="language-rust editable">fn main(){
     let x: u8 = 120;
     let y: u32 = 120;
@@ -229,6 +229,7 @@
 <pre><pre class="playground"><code class="language-rust">fn main(){
 <span class="boring">   let x: u32 = 120;
 </span><span class="boring">   let y: u32 = 120; //こちらをu8にしても良い
+</span><span class="boring">                     //型注釈をなくしても良い
 </span>
 <span class="boring">   let z = x + y;
 </span>    
