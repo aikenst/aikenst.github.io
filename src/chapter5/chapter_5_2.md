@@ -170,6 +170,15 @@ fn main(){
 
 }
 ```
+<br>
+
+入出力例
+
+傾き 2 断片 7の時<br>
+x座標 -5 <br>
+出力 yは-3<br>
+
+
 答えは下記になります。![表示](../img/%E8%A1%A8%E7%A4%BA.png)を押してください。
 ```rust
 #struct Line{
@@ -208,6 +217,25 @@ fn main(){
     
 }
 ```
+<br>
+
+入出力例
+
+変数の値 
+名前　Taro　点数 79<br>
+名前　Yusuke　点数 97<br>
+名前　Hanako　点数 60<br>
+名前　Hide　点数 43<br>
+名前　Miyu　点数 88<br>
+
+出力
+Taro 点数は79 評価はB<br>
+Yusuke 点数は97 評価はS<br>
+Hanako 点数は60 評価はC<br>
+Hide 点数は43 評価はD<br>
+Miyu 点数は88 評価はA<br>
+
+
 答えは下記になります。![表示](../img/%E8%A1%A8%E7%A4%BA.png)を押してください。
 
 メソッドバージョン

@@ -314,6 +314,9 @@ fn plus(x: u32, y: Option&lt;u32&gt;) -&gt; u32 {
 
 }
 </code></pre></pre>
+<p>入出力例</p>
+<p>春の時<br>
+出力　季節は春です<br></p>
 <p>答えは下記になります。<img src="../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押して確認しましょう。</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">enum Season {
 </span><span class="boring">   Spring,
@@ -353,6 +356,9 @@ fn plus(x: u32, y: Option&lt;u32&gt;) -&gt; u32 {
 
 }
 </code></pre></pre>
+<p>入出力例</p>
+<p>シャツ M コート L カーディガン M シャツ S スウェット L<br>
+出力 合計5点で金額が21500円になります<br></p>
 <p>答えは下記になります。<img src="../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押して確認しましょう。</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">enum Wear{
 </span><span class="boring">   Shirt(char),
@@ -361,8 +367,8 @@ fn plus(x: u32, y: Option&lt;u32&gt;) -&gt; u32 {
 </span><span class="boring">   Cardigan(char),
 </span><span class="boring">}
 </span>
-<span class="boring">fn main(){
-</span><span class="boring">   let order = [Wear::Shirt('M'), Wear::Coat('L'), Wear::Cardigan('M'), Wear::Shirt('S'), Wear::Sweatshirts('L')];
+fn main(){
+<span class="boring">   let order = [Wear::Shirt('M'), Wear::Coat('L'), Wear::Cardigan('M'), Wear::Shirt('S'), Wear::Sweatshirts('L')];
 </span>
 <span class="boring">   let mut sum = 0;
 </span><span class="boring">   let mut count_order = 0;
@@ -387,9 +393,9 @@ fn plus(x: u32, y: Option&lt;u32&gt;) -&gt; u32 {
 </span><span class="boring">           },
 </span><span class="boring">       }
 </span><span class="boring">   }
-</span><span class="boring">   println!(&quot;合計{}点で金額は{}になります&quot;,count_order,sum);
-</span><span class="boring">}
-</span>
+</span><span class="boring">   println!(&quot;合計{}点で金額は{}円になります&quot;,count_order,sum);
+</span>}
+
 <span class="boring">fn shirt_money(s: char) -&gt; u32 {
 </span><span class="boring">   match s {
 </span><span class="boring">       'S' =&gt; 1000,

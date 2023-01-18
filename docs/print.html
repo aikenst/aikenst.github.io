@@ -513,11 +513,16 @@ fn main(){
 <span class="boring">   println!(&quot;zの値は{}&quot;,z);
 </span>}
 </code></pre></pre>
+<br>
 <p>二つの数字の値の平均を計算し表示するプログラムを作成しましょう。二つの変数の値は自分で決めて実行しましょう。(小数点以下も表示されるように)</p>
 <pre><pre class="playground"><code class="language-rust editable">fn main(){
 
 }
 </code></pre></pre>
+<br>
+<p>入出力例</p>
+<p>変数の値 5.0 6.0<br> 
+出力 5.5<br></p>
 <p>下記のブロックに答えがあります。<img src="chapter2/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押して確認しましょう。</p>
 <pre><pre class="playground"><code class="language-rust ">fn main(){
 
@@ -619,31 +624,40 @@ fn pri(){
 
 }
 </code></pre></pre>
+<br>
+<p>入出力例</p>
+<p>変数の値 50 40 100<br> 
+出力 100<br></p>
+<p>変数の値 100 100 50<br>
+出力 100<br></p>
 <p>答えは下記のようになります。<img src="chapter3/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押して確認しましょう。</p>
-<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main(){
-</span><span class="boring">  let a = 50;
+<pre><pre class="playground"><code class="language-rust">fn main(){
+<span class="boring">  let a = 50;
 </span><span class="boring">  let b = 40;
 </span><span class="boring">  let c = 100;
 </span><span class="boring">  let mut max = a;  
-</span><span class="boring">  
-</span><span class="boring">  if b &gt;= max {
+</span>  
+<span class="boring">  if b &gt;= max {
 </span><span class="boring">      max = b;    
 </span><span class="boring">  }
-</span><span class="boring">
-</span><span class="boring">  if c &gt;= max {
+</span>
+<span class="boring">  if c &gt;= max {
 </span><span class="boring">      max = c;
 </span><span class="boring">  }
 </span><span class="boring">  println!(&quot;最大の値は{}&quot;,max);
-</span><span class="boring">}
-</span>
-
-
+</span>}
 </code></pre></pre>
 <p>三つの整数値を比較し「すべて同じ値」「二つが同じ値」「すべて違う値」を判断するプログラムを作成しましょう。</p>
 <pre><pre class="playground"><code class="language-rust editable">fn main(){
 
 }
 </code></pre></pre>
+<br>
+<p>入出力例</p>
+<p>変数の値 10 20 10<br> 
+出力 二つが同じ値<br></p>
+<p>変数の値 10 10 10<br>
+出力 すべて同じ値<br></p>
 <p>答えは下記のようになります。<img src="chapter3/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押して確認しましょう。</p>
 <pre><pre class="playground"><code class="language-rust">fn main(){
 <span class="boring">   let a = 131;
@@ -774,6 +788,12 @@ fn pri(){
     let tar =    //合計値を計算する範囲の設定
 }
 </code></pre></pre>
+<br>
+<p>入出力例</p>
+<p>変数の値 10<br> 
+出力 55<br></p>
+<p>変数の値 -5<br>
+出力 -15<br></p>
 <p>答えは下記のようになります。<img src="chapter3/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
 <pre><pre class="playground"><code class="language-rust">fn main(){
 <span class="boring">   let tar = -5;
@@ -804,12 +824,17 @@ fn pri(){
 </span><span class="boring">   println!(&quot;{}までの値の合計値は{}&quot;,tar,sum);
 </span>}
 </code></pre></pre>
+<br>
 <p>whileを使って配列の要素の合計と平均(小数点は切り捨て)を求めましょう</p>
 <pre><pre class="playground"><code class="language-rust editable">fn main(){
     let list = [10,5,7,63,3];
 
 }
 </code></pre></pre>
+<br>
+<p>入出力例</p>
+<p>変数の値 [1,1,1,1,2]<br> 
+出力 合計は6 平均は1<br></p>
 <p>答えは下記のようになります。<img src="chapter3/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
 <pre><pre class="playground"><code class="language-rust">fn main(){
 <span class="boring">   let list = [10,5,7,63,3];
@@ -825,6 +850,7 @@ fn pri(){
 </span>
 }
 </code></pre></pre>
+<br>
 <p>forを使って上の問題を書いてみましょう</p>
 <pre><pre class="playground"><code class="language-rust editable">fn main(){
     let list = [10,5,7,63,3];
@@ -844,6 +870,7 @@ fn pri(){
 </span>
 }
 </code></pre></pre>
+<br>
 <p>九九の表を表示しましょう(二重ループを使いましょう)</p>
 <pre><pre class="playground"><code class="language-rust editable">fn main(){
 
@@ -860,11 +887,19 @@ fn pri(){
 </span>
 }
 </code></pre></pre>
+<br>
 <p>九九で25より大きい値が出た時はそれ以降をスキップして25が出た時に九九の表示を終了するようにしましょう</p>
 <pre><pre class="playground"><code class="language-rust editable">fn main(){
 
 }
 </code></pre></pre>
+<br>
+<p>出力例</p>
+<p>1 2 3 4 5 6 7 8 9 <br>
+2 4 6 8 10 12 14 16 18 <br>
+3 6 9 12 15 18 21 24 <br>
+4 8 12 16 20 24 <br>
+5 10 15 20 <br></p>
 <p>答えは下記のようになります。<img src="chapter3/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
 <pre><pre class="playground"><code class="language-rust">fn main(){
 <span class="boring">   'out: for i in (1..=9){
@@ -992,6 +1027,10 @@ fn cal(mut target: i32) -&gt; (i32, i32){
 
 }
 </code></pre></pre>
+<br>
+<p>入出力例</p>
+<p>変数の値 5 8<br> 
+出力 39 <br></p>
 <p>答えは下記のようになります。<img src="chapter3/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
 <pre><pre class="playground"><code class="language-rust">fn main(){
 <span class="boring">   let x = 5;
@@ -1018,6 +1057,10 @@ fn cal(mut target: i32) -&gt; (i32, i32){
 
 }
 </code></pre></pre>
+<br>
+<p>入出力例</p>
+<p>変数の値 [1,3,5,4,6,8,4,3,18,32,11,12]<br> 
+出力 5<br></p>
 <p>答えは下記のようになります。<img src="chapter3/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
 <pre><pre class="playground"><code class="language-rust">fn main(){
     let index = [1,3,5,4,6,8,4,3,18,32,11,12];
@@ -1516,11 +1559,20 @@ fn init_user (username: String, email: String) -&gt; User{
 <p>ここで<code>black</code>と<code>white</code>は違う型なので注意してください。異なるタプル構造体のインスタンスであるため、それぞれ<code>Color</code>型と<code>LightColor</code>型になります。タプル構造体の要素にアクセスする際にはタプルと同様に<code>.</code>を用いてアクセスすることができ、また分配などもできます。</p>
 <h3 id="問題-4"><a class="header" href="#問題-4">問題</a></h3>
 <p>身長と体重のフィールドを持つ構造体を用いてBMI {体重(kg)}/{身長(m)^2} と適正体重{身長(m)^2 * 22}を計算するプログラムを作成しましょう。これをもとに構造体を作り計算するコードを書きましょう。</p>
+<p>コードの条件</p>
+<ul>
+<li>身長と体重のフィールドを持つ構造体を作成する</li>
+<li>BMIと適正体重を計算する関数を作成する</li>
+</ul>
 <pre><pre class="playground"><code class="language-rust editable">fn main(){
 
 
 }
 </code></pre></pre>
+<br>
+<p>入出力例</p>
+<p>身長 175.2 体重 68.0<br> 
+BMIは22.153418 適正体重は67.52908<br></p>
 <p>答えは下記のようになります。<img src="chapter5/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">struct Data {
 </span><span class="boring">   height: f32,  //身長
@@ -1610,6 +1662,17 @@ fn main(){
 }
 
 </code></pre></pre>
+<br>
+<p>入出力例</p>
+<p>1人目 身長176.3 体重69.3 2人目 身長180.5 体重74.5 3人目 身長168.2 体重66.0<br> 
+出力<br>
+176.3 69.3<br>
+180.5 74.5<br>
+168.2 66.0<br>
+並び替えた順番は<br>
+168.2 66.0<br>
+176.3 69.3<br>
+180.5 74.5<br></p>
 <p>答えは下記になります。<img src="chapter5/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">struct Student {
 </span><span class="boring">   height: f32,
@@ -1822,6 +1885,11 @@ fn main() {
 
 }
 </code></pre></pre>
+<br>
+<p>入出力例</p>
+<p>傾き 2 断片 7の時<br>
+x座標 -5 <br>
+出力 yは-3<br></p>
 <p>答えは下記になります。<img src="chapter5/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">struct Line{
 </span><span class="boring">   slope: i32,
@@ -1858,6 +1926,20 @@ fn main(){
     
 }
 </code></pre></pre>
+<br>
+<p>入出力例</p>
+<p>変数の値 
+名前　Taro　点数 79<br>
+名前　Yusuke　点数 97<br>
+名前　Hanako　点数 60<br>
+名前　Hide　点数 43<br>
+名前　Miyu　点数 88<br></p>
+<p>出力
+Taro 点数は79 評価はB<br>
+Yusuke 点数は97 評価はS<br>
+Hanako 点数は60 評価はC<br>
+Hide 点数は43 評価はD<br>
+Miyu 点数は88 評価はA<br></p>
 <p>答えは下記になります。<img src="chapter5/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
 <p>メソッドバージョン</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">struct Student{
@@ -2290,6 +2372,9 @@ fn plus(x: u32, y: Option&lt;u32&gt;) -&gt; u32 {
 
 }
 </code></pre></pre>
+<p>入出力例</p>
+<p>春の時<br>
+出力　季節は春です<br></p>
 <p>答えは下記になります。<img src="chapter6/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押して確認しましょう。</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">enum Season {
 </span><span class="boring">   Spring,
@@ -2329,6 +2414,9 @@ fn plus(x: u32, y: Option&lt;u32&gt;) -&gt; u32 {
 
 }
 </code></pre></pre>
+<p>入出力例</p>
+<p>シャツ M コート L カーディガン M シャツ S スウェット L<br>
+出力 合計5点で金額が21500円になります<br></p>
 <p>答えは下記になります。<img src="chapter6/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押して確認しましょう。</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">enum Wear{
 </span><span class="boring">   Shirt(char),
@@ -2337,8 +2425,8 @@ fn plus(x: u32, y: Option&lt;u32&gt;) -&gt; u32 {
 </span><span class="boring">   Cardigan(char),
 </span><span class="boring">}
 </span>
-<span class="boring">fn main(){
-</span><span class="boring">   let order = [Wear::Shirt('M'), Wear::Coat('L'), Wear::Cardigan('M'), Wear::Shirt('S'), Wear::Sweatshirts('L')];
+fn main(){
+<span class="boring">   let order = [Wear::Shirt('M'), Wear::Coat('L'), Wear::Cardigan('M'), Wear::Shirt('S'), Wear::Sweatshirts('L')];
 </span>
 <span class="boring">   let mut sum = 0;
 </span><span class="boring">   let mut count_order = 0;
@@ -2363,9 +2451,9 @@ fn plus(x: u32, y: Option&lt;u32&gt;) -&gt; u32 {
 </span><span class="boring">           },
 </span><span class="boring">       }
 </span><span class="boring">   }
-</span><span class="boring">   println!(&quot;合計{}点で金額は{}になります&quot;,count_order,sum);
-</span><span class="boring">}
-</span>
+</span><span class="boring">   println!(&quot;合計{}点で金額は{}円になります&quot;,count_order,sum);
+</span>}
+
 <span class="boring">fn shirt_money(s: char) -&gt; u32 {
 </span><span class="boring">   match s {
 </span><span class="boring">       'S' =&gt; 1000,
@@ -2759,6 +2847,16 @@ fn main(){
 
 }
 </code></pre></pre>
+<br>
+<p>出力例<br>
+targetの値17とrandomの値13が一致しませんでした<br>
+もう一度<br>
+targetの値17とrandomの値24が一致しませんでした<br>
+もう一度<br>
+targetの値17とrandomの値10が一致しませんでした<br>
+もう一度<br>
+targetの値17とrandomの値17が一致しました<br>
+終了します<br></p>
 <p>答えは下記になります。<img src="chapter7/../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押して確認しましょう。</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">extern crate rand;
 </span><span class="boring">use rand::Rng;

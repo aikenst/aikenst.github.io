@@ -230,31 +230,40 @@ fn pri(){
 
 }
 </code></pre></pre>
+<br>
+<p>入出力例</p>
+<p>変数の値 50 40 100<br> 
+出力 100<br></p>
+<p>変数の値 100 100 50<br>
+出力 100<br></p>
 <p>答えは下記のようになります。<img src="../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押して確認しましょう。</p>
-<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main(){
-</span><span class="boring">  let a = 50;
+<pre><pre class="playground"><code class="language-rust">fn main(){
+<span class="boring">  let a = 50;
 </span><span class="boring">  let b = 40;
 </span><span class="boring">  let c = 100;
 </span><span class="boring">  let mut max = a;  
-</span><span class="boring">  
-</span><span class="boring">  if b &gt;= max {
+</span>  
+<span class="boring">  if b &gt;= max {
 </span><span class="boring">      max = b;    
 </span><span class="boring">  }
-</span><span class="boring">
-</span><span class="boring">  if c &gt;= max {
+</span>
+<span class="boring">  if c &gt;= max {
 </span><span class="boring">      max = c;
 </span><span class="boring">  }
 </span><span class="boring">  println!(&quot;最大の値は{}&quot;,max);
-</span><span class="boring">}
-</span>
-
-
+</span>}
 </code></pre></pre>
 <p>三つの整数値を比較し「すべて同じ値」「二つが同じ値」「すべて違う値」を判断するプログラムを作成しましょう。</p>
 <pre><pre class="playground"><code class="language-rust editable">fn main(){
 
 }
 </code></pre></pre>
+<br>
+<p>入出力例</p>
+<p>変数の値 10 20 10<br> 
+出力 二つが同じ値<br></p>
+<p>変数の値 10 10 10<br>
+出力 すべて同じ値<br></p>
 <p>答えは下記のようになります。<img src="../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押して確認しましょう。</p>
 <pre><pre class="playground"><code class="language-rust">fn main(){
 <span class="boring">   let a = 131;

@@ -188,6 +188,12 @@ fn main(){
 
 }
 ```
+
+入出力例
+
+春の時<br>
+出力　季節は春です<br>
+
 答えは下記になります。![表示](../img/%E8%A1%A8%E7%A4%BA.png)を押して確認しましょう。
 ```rust
 #enum Season {
@@ -232,6 +238,11 @@ fn main() {
 }
 ```
 
+入出力例
+
+シャツ M コート L カーディガン M シャツ S スウェット L<br>
+出力 合計5点で金額が21500円になります<br>
+
 答えは下記になります。![表示](../img/%E8%A1%A8%E7%A4%BA.png)を押して確認しましょう。
 
 ```rust
@@ -242,7 +253,7 @@ fn main() {
 #    Cardigan(char),
 #}
 
-#fn main(){
+fn main(){
 #    let order = [Wear::Shirt('M'), Wear::Coat('L'), Wear::Cardigan('M'), Wear::Shirt('S'), Wear::Sweatshirts('L')];
 
 #    let mut sum = 0;
@@ -268,8 +279,8 @@ fn main() {
 #            },
 #        }
 #    }
-#    println!("合計{}点で金額は{}になります",count_order,sum);
-#}
+#    println!("合計{}点で金額は{}円になります",count_order,sum);
+}
 
 #fn shirt_money(s: char) -> u32 {
 #    match s {

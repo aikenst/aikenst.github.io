@@ -256,6 +256,12 @@
     let tar =    //合計値を計算する範囲の設定
 }
 </code></pre></pre>
+<br>
+<p>入出力例</p>
+<p>変数の値 10<br> 
+出力 55<br></p>
+<p>変数の値 -5<br>
+出力 -15<br></p>
 <p>答えは下記のようになります。<img src="../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
 <pre><pre class="playground"><code class="language-rust">fn main(){
 <span class="boring">   let tar = -5;
@@ -286,12 +292,17 @@
 </span><span class="boring">   println!(&quot;{}までの値の合計値は{}&quot;,tar,sum);
 </span>}
 </code></pre></pre>
+<br>
 <p>whileを使って配列の要素の合計と平均(小数点は切り捨て)を求めましょう</p>
 <pre><pre class="playground"><code class="language-rust editable">fn main(){
     let list = [10,5,7,63,3];
 
 }
 </code></pre></pre>
+<br>
+<p>入出力例</p>
+<p>変数の値 [1,1,1,1,2]<br> 
+出力 合計は6 平均は1<br></p>
 <p>答えは下記のようになります。<img src="../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
 <pre><pre class="playground"><code class="language-rust">fn main(){
 <span class="boring">   let list = [10,5,7,63,3];
@@ -307,6 +318,7 @@
 </span>
 }
 </code></pre></pre>
+<br>
 <p>forを使って上の問題を書いてみましょう</p>
 <pre><pre class="playground"><code class="language-rust editable">fn main(){
     let list = [10,5,7,63,3];
@@ -326,6 +338,7 @@
 </span>
 }
 </code></pre></pre>
+<br>
 <p>九九の表を表示しましょう(二重ループを使いましょう)</p>
 <pre><pre class="playground"><code class="language-rust editable">fn main(){
 
@@ -342,11 +355,19 @@
 </span>
 }
 </code></pre></pre>
+<br>
 <p>九九で25より大きい値が出た時はそれ以降をスキップして25が出た時に九九の表示を終了するようにしましょう</p>
 <pre><pre class="playground"><code class="language-rust editable">fn main(){
 
 }
 </code></pre></pre>
+<br>
+<p>出力例</p>
+<p>1 2 3 4 5 6 7 8 9 <br>
+2 4 6 8 10 12 14 16 18 <br>
+3 6 9 12 15 18 21 24 <br>
+4 8 12 16 20 24 <br>
+5 10 15 20 <br></p>
 <p>答えは下記のようになります。<img src="../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
 <pre><pre class="playground"><code class="language-rust">fn main(){
 <span class="boring">   'out: for i in (1..=9){

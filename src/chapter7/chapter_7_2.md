@@ -369,6 +369,17 @@ fn main(){
 
 }
 ```
+<br>
+
+出力例<br>
+targetの値17とrandomの値13が一致しませんでした<br>
+もう一度<br>
+targetの値17とrandomの値24が一致しませんでした<br>
+もう一度<br>
+targetの値17とrandomの値10が一致しませんでした<br>
+もう一度<br>
+targetの値17とrandomの値17が一致しました<br>
+終了します<br>
 
 答えは下記になります。![表示](../img/%E8%A1%A8%E7%A4%BA.png)を押して確認しましょう。
 ```rust

@@ -287,11 +287,20 @@ fn init_user (username: String, email: String) -&gt; User{
 <p>ここで<code>black</code>と<code>white</code>は違う型なので注意してください。異なるタプル構造体のインスタンスであるため、それぞれ<code>Color</code>型と<code>LightColor</code>型になります。タプル構造体の要素にアクセスする際にはタプルと同様に<code>.</code>を用いてアクセスすることができ、また分配などもできます。</p>
 <h3 id="問題"><a class="header" href="#問題">問題</a></h3>
 <p>身長と体重のフィールドを持つ構造体を用いてBMI {体重(kg)}/{身長(m)^2} と適正体重{身長(m)^2 * 22}を計算するプログラムを作成しましょう。これをもとに構造体を作り計算するコードを書きましょう。</p>
+<p>コードの条件</p>
+<ul>
+<li>身長と体重のフィールドを持つ構造体を作成する</li>
+<li>BMIと適正体重を計算する関数を作成する</li>
+</ul>
 <pre><pre class="playground"><code class="language-rust editable">fn main(){
 
 
 }
 </code></pre></pre>
+<br>
+<p>入出力例</p>
+<p>身長 175.2 体重 68.0<br> 
+BMIは22.153418 適正体重は67.52908<br></p>
 <p>答えは下記のようになります。<img src="../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">struct Data {
 </span><span class="boring">   height: f32,  //身長
@@ -381,6 +390,17 @@ fn main(){
 }
 
 </code></pre></pre>
+<br>
+<p>入出力例</p>
+<p>1人目 身長176.3 体重69.3 2人目 身長180.5 体重74.5 3人目 身長168.2 体重66.0<br> 
+出力<br>
+176.3 69.3<br>
+180.5 74.5<br>
+168.2 66.0<br>
+並び替えた順番は<br>
+168.2 66.0<br>
+176.3 69.3<br>
+180.5 74.5<br></p>
 <p>答えは下記になります。<img src="../img/%E8%A1%A8%E7%A4%BA.png" alt="表示" />を押してください。</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">struct Student {
 </span><span class="boring">   height: f32,
